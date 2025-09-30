@@ -1,0 +1,207 @@
+Fixes and enhancements in chemtool 1.6.14
+
+- Updated configure script to support ARM64.
+- Fixed potential crash during EPS output.
+- Fixed detection of openbabel 2.3.x
+
+Fixes and enhancements in chemtool 1.6.13
+
+- New export option "ASY" for Asymptote files (http://asymptote.sourceforge.net)
+- Added support for Unicode symbol characters inserted e.g. by cut-and-paste from LibreOffice
+- Fixed build with newer linkers that do not resolve indirect requirements automatically
+- Rewritten logic for choosing to include national language support during build 
+- Fixed crash on startup due to errors in menu icon setup
+- Batch mode could crash due to incomplete initialisation of color arrays
+- Undo/redo in "move fragment"-mode did not work as intended
+- Default extension is now appended to the save filename as needed
+- Fixed exporting to files or directories containing spaces in their names
+
+Fixes and enhancements in chemtool 1.6.12
+
+- Batch mode operation - call chemtool as 
+  chemtoolbg <format> <inputfile> or chemtool -bg <format> <inputfile>
+  If inputfile is "-", chemtool reads from stdin (typically in a pipe) and 
+  writes to chemtool.<format>
+- The main window now automatically resizes to fit on small (netbook) screens 
+- Improved clipping of bonds between labels (e.g. CH2-CH2-)
+- Proper escaping of special characters <,>,& in SVG output
+- MDL molfile output is no longer upsided down
+- Allow drawing of bonds in white 
+- Pencolor button now presents a color menu 
+- Background color is now actually written to png, (e)ps and svg files
+- Bulgarian translation (contributed by Svetoslav Stefanov)
+- Updated Polish translation (contributed by Micha Smoczyk)
+
+Fixes and enhancements in chemtool 1.6.11
+
+- The build system was updated for easier (re)generation of localized message catalogs
+- Key sequences @+ and @- now generate "circle" variants of plus and minus signs
+- Bond length and zoom factor are now saved in chemtool files and restored on loading
+- Corrected length calculation for labels without sub- or superscripts (thereby fixing
+  truncation of labels near the edges of a drawing)
+- Corrected positioning and inter-character spacing of labels with sub- or superscripts
+- Changed OpenOffice output to avoid LaTeX formatting (that fig2sxd does not support)
+- Improved clipping of double and triple bonds around labels in the screen view
+- Improved the preview function to cope with older (pre-1.6) chemtool files
+- The "gtklp" frontend for CUPS is now available from the "print command" menu
+- Updated documentation
+- Added a translation file for European Portuguese (contributed by Nuno Azoia)
+
+Fixes and enhancements in chemtool 1.6.10
+
+- Added a "round parentheses" option to the bracket tool.
+- Added export to PNG (through fig2dev/gs).
+- Added template entries for morphine and several diazoles.
+- Improved truncation of bonds around labels in the screen view.
+- Redesigned Configuration dialogs.
+- XFig and related export modes now support text in non-western 
+  european character sets ("Times" font only) through fig2dev's 
+  "international" option.
+- The KDE "kprinter" frontend is now available from the "print command"
+  configuration dialog
+- Cleanup no longer removes drop shadows from boxes
+- Fixed a potential crash with non-ascii characters in labels (including 
+  electron-pair dots) and gtk2.
+- Fixed menu shortcuts getting intercepted by the labeling shortcut mechanism.
+- Fixed width of arrowheads in ps/eps.
+- Fixed superscript position, national characters and arrowhead size in SVG.
+- Fixed a bug in SVG export that could truncate labels in subsequent save or
+  export actions.
+
+Fixes and enhancements in chemtool 1.6.9
+
+- Fixed placement of right-justified labels containing sub-
+  and/or superscripts on screen and in all XFig-based export modes.
+- Worked around a bug in fig2dev that prevented creation of EMF files
+- Improved spacing of sub/superscripted labels in GTK2 builds
+- Corrected line spacing of triple and quadruple bonds.
+
+Fixes and enhancements in chemtool 1.6.8
+
+- Fixed an ugly bug that could crash the program on startup, especially
+  if it was compiled with gcc 4.0.x
+- Chemtool now recognizes OpenBabel 2.0
+- Added a new Export function for exporting through openbabel
+- Modified sub/superscript text in SVG export to work around limitations
+  in the current vesions of firefox and konqueror.
+
+Fixes and enhancements in chemtool 1.6.7
+
+- Fixed several serious bugs related to label rendering and printing
+  that occured when chemtool was built with GTK 2 instead of GTK 1.2
+  (see ChangeLog for details)
+- SVG export now adds a namespace header as required by current builds
+  of the firefox browser
+- SVG export now uses color values instead of color names for better
+  SVGT compatibility
+- The separation between the lines of multiple bonds is configurable
+- The keys of the numeric keypad now create two dots instead of a line
+   for free electron pairs when the Shift key is pressed
+- Two new bond types for drawing filled and unfilled p orbital lobes
+- chemtool now checks for fig2sxd (sourceforge.net) and offers to export
+  to OpenOffice Draw format when it is present.
+- rpm packages did not install the dutch locale file.
+
+Fixes and enhancements in chemtool 1.6.6
+
+- Fixed bug in molfile preview that caused an immediate crash in 1.6.5
+- Made drawing of wiggly bonds work again
+
+
+Fixes and enhancements in chemtool 1.6.5
+
+- Added a Dutch translation (Myckel Habets)
+- Added import ability of V3000 molfiles
+- Added SDF file browsing/import support and molfile preview
+- Fixed atom name justification in the builtin MDL molfile export function
+  and added proper translations for XH_3, XH_2, XH labels.
+- Fixed the builtin molfile import function to tolerate optional property
+  blocks
+- Made building without locale (national language) support work again
+- Made building with the old, menuless user interface work again
+- Fixed non-portable syntax in the configure script
+
+Fixes and enhancements in chemtool 1.6.4
+
+- Aminoacid sidechain and backbone templates.
+- Arrowheads of curved arrows no longer grow out of proportion.
+- Improved positioning of sub- and superscripts to match the screen display
+- xfig compound and optional whiteout box now cover sub- and superscripts
+- Corrected placement of non-subscripted left-justified labels
+- Latex symbol translations for degree, plusminus and copyright sign.
+- Cleaned up X11 font dependencies to be either 75 or 100dpi, not both.
+- Added KDE directory install targets to the Makefile to allow installation
+  to a temporary directory (Debian-like installations mainly).
+- chemtool now compiles with GTK 2.x if it is available (this offers the 
+  potential for non-western localisations). 
+
+Fixes and enhancements in chemtool 1.6.3
+
+- Chemtool should now build and run cleanly on 64 bit systems and OS X
+- Sum formula/molecular weight program now handles the second and third
+  row of transition elements.
+
+Fixes and enhancements in chemtool 1.6.2
+
+- Right justified labels are no longer offset by one character position
+  when the drawing is exported.
+- It is now possible to move bonds by dragging them in 'Move' mode
+  without first having to mark them as a fragment.
+- configure now searches for KDE in /opt/kde3 and /opt/kde2 as well.
+
+Fixes and enhancements in chemtool 1.6.1
+
+- chemtool should now work equally well with either the 75dpi or 100dpi
+  XFree86 raster fonts (1.6 absolutely required the 75dpi fonts)
+- improvements to bond pruning underneath labels 
+- better positioning of right-justified labels, better clipping limits 
+  around labels
+- better formatting of labels containing parentheses
+- syntax fixes (missing $s) for greek/special characters, and proper
+  escaping of isolated percent and dollar characters in Latex export.
+- various improvements in the SVG export
+- support for direct entering of labels in the bond drawing modes,
+  and improved updating of label properties
+- translated messages were truncated in some cases in 1.6
+- portability fix (undo memory handling) for some SGI Irix variants
+- Updated French and Brazilian translations
+- Updated documentation
+
+New features in chemtool 1.6
+
+- universal import mode based on BABEL (both openbabel and babel supported)
+- Formula weight calculator now handles all main group elements and the first
+  row of transition elements, and accepts greek phi as phenyl substituent.
+- Movable hexagonal or square grid backdrop
+- Improved SVG export, optional preview bitmaps in EPS export, optional EMF
+  export
+- Cursor key support for pixel-precise drawing and moving 
+- The cleanup function now corrects bonds that deviate from ideal
+  horizontal or vertical orientation by a single pixel
+- Color support (bonds and text can be red,green,blue,cyan,magenta or yellow). 
+- Default bond length now configurable, additional grid positions at two and 
+  three times this length added
+- Added a brief help text to accompany the 'About' window in the 'Help' menu.
+- Added alternate text font (Times Roman)
+- An attachment site can be marked before saving a molecule or fragment,  
+  which act as reference point for adding this fragment to other molecules 
+  (previously, this had to be the first atom in a file). Attachment sites are 
+  marked in the preview window by a small x.
+- Background color can now be chosen for screen display and EPS export, and
+  drawing whiteout boxes under labels is now an option ( off by default !). 
+- Text at 8,10,12,14,17,20 and 24pt can now coexist in a drawing. 
+- Increased allowed label length to 100.
+- Improved rendering of dashed wedge and dotted lines
+- Improved text kerning in xfig-based print and export.
+- It is now possible to place an auto-incrementing counter at the cursor 
+  position for numbering sites.
+- Changed double bond drawing code to no longer switch sides depending
+  on drawing (or rotation) angle. (As a result of this, some older drawings 
+  will need fixing)
+- Rescaling a molecule now also scales its labels. Downscaling beyond 
+  zero size (causing strange inversions) is no longer possible. 
+- Renamed the "Orbitals" template menu to "Symbols" and added "plus", 
+  "minus" and a rearrangement arrow to it. 
+- Added two new bond types, a triple bond with all three lines equal,
+  and a quadruple bond. 
+

@@ -1,0 +1,9 @@
+ - more demo structures / templates
+ - better documentation
+ - combining mark and move modes without losing functionality
+ - grouping (conceptually similar to xfig's compound objects) and automatic alignment
+ - add option for drawing "background" rectangle if format does not support setting 
+   the background color)
+ - support user-defined colors
+ - rewrite on-screen sub/superscript text rendering using pango markup
+

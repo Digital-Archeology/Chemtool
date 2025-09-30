@@ -1,0 +1,462 @@
+<html>
+<head>
+<title>Using Chemtool</title>
+</head>
+<body>
+<center>
+<h1>Using Chemtool</h1>
+<h3>1.6.11</h3>
+</center>
+
+<p>
+Chemtool is a program for drawing organic molecules.
+It runs under the X Window System using the GTK widget set.
+</p>
+<p>
+Most operations in chemtool can be accomplished using the mouse - the 
+first (usually the left) button is used to select or place things, the
+middle button modifies properties (e.g. reverses the direction of a bond),
+and the right button is used to delete objects. 
+</p>
+<p>
+The program offers essentially unlimited undo/redo, two text fonts plus
+symbols, seven colors, drawing at several zoom scales, and square and hexagonal backdrop grids 
+for easier alignment.
+</p>
+<h2>Drawing of bonds:</h2>
+<p>
+Bonds can be drawn in 4 different angle settings - hexagon with 30 degree
+intervals, two pentagons with 72 degree intervals (in different orientations), 
+and a 45 degree octagon). Intermediate angles are possible in all of these 
+modes as well - just ignore the marker points in this case. 
+</p>
+<p>
+Pressing the first (left) mouse button sets the starting point of a bond 
+and also displays a set of markers at the appropriate angular positions. 
+Dragging the mouse while holding down the button draws a line in the desired 
+direction.
+</p>
+<p>
+The bond style chooser in the center of the button bar determines the type
+of bond that is drawn - initially, this is a single bond. If you want to
+change the type of a bond later, either click on it with the middle button
+of your mouse to advance to the next type(s), or select the appropriate type
+in the chooser and then switch to bondtype mode and pick all bonds that you
+want to change over to the new type. Pressing the middle mousebutton on a 
+bond when in 'Bondtype' mode reverses the direction of that bond.
+</p>
+<p>
+The bond types available in chemtool are
+<ul>
+<li> a single bond
+<li> a double bond (with one line shorter than the other)
+<li> a double bond (having the shorter line on the opposite side)
+<li> a centered double bond
+<li> a triple bond (with the flanking lines shorter than the center)
+<li> a wedge-shaped bond
+<li> a dashed wedge-shaped bond
+<li> a wavy line
+<li> a dashed wide line
+<li> a half arrow 
+<li> an arrow
+<li> a wide bond
+<li> a circle
+<li> a dotted line
+<li> a single bond that 'cuts out' a segment from any bond it crosses
+<li> a triple bond (with equal line lengths)
+<li> a quadruple bond
+<li> a light (unfilled) pi orbital lobe
+<li> a dark pi orbital lobe
+</ul>
+The additional bond type available in the pulldown menu,
+<ul>
+<li>a curved arrow 
+</ul>
+is special insofar as no other bond type can be converted to or from
+this type. (it is actually a shortcut for one of the curve-drawing functions
+described below).
+</p>
+<p>
+Pressing the third (usually the right) mouse button deletes the bond next
+to the cursor position.
+</p>
+<h3>Semiautomatic drawing of rings:</h3>
+<p>
+Rings of 3 to 12 members can be drawn easily by holding down the Ctrl key
+while drawing a line. This line will then become the first segment of a ring
+that is automatically drawn in clockwise direction. The size of the ring 
+defaults to that appropriate for the selected drawing mode (i.e. 5, 6 or 8 
+sides), but it can be set on a per-ring basis by pressing Ctlr-<number> 
+before drawing the ring, where numbers 3-9 correspond to 3 to 9-membered 
+rings, while 0 to 2 select 10, 11 and 12-membered rings, respectively. 
+Newly drawn rings can be deleted by pressing Ctrl and mouse button 3 together.
+</p>
+<h3>Drawing of curved lines:</h3>
+<p>
+Curved lines for objects like arrows or orbital lobes can be drawn in spline
+curve mode by specifing four control points that form a bounding polygon
+(startpoint, two points on either side of the peak, endpoint). Of the regular
+bondtypes available in the Style menu, the 'single line', 'semiarrow', arrow
+and 'dashed line' retain their usual function, while the 'wide line' type
+is used to denote a filled polygon. The control points are only visible in
+'Move' mode, where they can be dragged around to change the form of a curve 
+after it is drawn. 
+</p>
+<p>
+For drawing curved arrows, there is also a predefined function in the bond
+style chooser. This is actually a shortcut for one of the curve drawing 
+functions described above, with the second and third control points 
+automatically generated. As such, it can not be converted to or from any 
+of the conventional bond types.<br>
+(One can, however, convert it to any of the other curve types, e.g. to change
+the type of arrowhead). The shape of the arrow will usually need to be 
+adjusted by shifting the control point that appears alongside it in 'Move' 
+mode.
+</p>
+<h2>Inserting text:</h2>
+<p>
+Text written into the text box can be positioned with the cursor and may 
+appear left, middle or right-aligned in the drawing. The font size can
+be selected from the chooser to the right of the text entry field, while
+the 't/T' button next to the text-alignment buttons lets you switch between
+two fonts - Helvetica for regular labels, and Times Roman for descriptions.
+Like the line drawings, text can be in any of the colors available on the
+color selector. If you want to change the color, font or alignment of a
+label afterwards, just choose the appropriate combination of settings and
+then select the desired label with the left mouse button. When the text
+entry area is empty, this will just update the properties without changing
+the text itself. When the text entry area is not empty, its contents will
+also replace the text of the label. Copying the text of a label to the
+entry area is done with the middle mouse button, while the right mouse
+button deletes the selected label.
+</p>
+<p>
+There are two special characters to be used for sub- and superscripting
+the following character: 
+<p>
+&nbsp;&nbsp;'^'&nbsp;&nbsp;to shift up (e.g. N^+ for N<sup>+</sup>)<br>
+&nbsp;&nbsp;'_'&nbsp;&nbsp;to shift down (e.g. CH_3 for CH<sub>3</sub>) 
+</p>
+Curly braces {} can be used to mark sequences of characters for sub- or
+superscripting, e.g. C_{10}H_{22}.
+<p>
+The control character '|' is used to itializise the following character,
+as in |t-Bu (<it>t</it>-Bu), while the '#' character boldfaces it.
+</p>
+<p>
+The special character '@' switches to symbol mode, which uses the standard
+X11 symbol font. All alphabetic keys produce the corresponding greek 
+characters in this mode, and several other symbols are available if their
+standard latin1 equivalents are already mapped onto the keyboard:
+</p>
+<ul>
+<table>
+<tr><td>latin 1</td><td>&nbsp;</td><td>symbol character</td></tr>
+<tr><td>yen sign</td><td>&nbsp;</td><td>  infinity</td></tr>
+<tr><td>hyphen</td><td>&nbsp;</td><td>up arrow</td></tr>
+<tr><td>macron</td><td>&nbsp;</td><td>down arrow</td></tr> 
+</table>
+<p>
+The symbols 'plusminus' and 'registered' (trademark) are already in the
+standard font, although they are not normally available on the keyboard.
+Use the following commands (or add the declarations to your .xmodmaprc )
+to make them available via &lt;AltGr&gt;+&lt;Key&gt;
+(&lt;RightAlt&gt;+&lt;Key&gt;):
+</p>
+<pre> 
+         xmodmap -e 'keysym r = r R registered'  \
+         -e 'keysym o = o O yen' \
+         -e 'keysym p = p P plusminus' \
+         -e 'keysym u = u U hyphen' \
+         -e 'keysym d = d D macron'
+</pre>
+<p
+(this leads to AltGr-P = plusminus, AltGr-R = registered in normal mode and
+AltGr-O = infinity, AltGr-U = uparrow, AltGr-D = downarrow in symbol font).
+</p>
+<p>
+For 'dots-and-crosses' diagrams, the following mappings to the symbol
+font might be useful:<br>
+acute -&gt; cross  (e.g. keysym x = x X acute)<br>
+middle dot -gt; filled dot (e.g. keysym d = d D periodcentered)    
+(using the degree sign for the open dot).
+</p>
+<p>The key sequences @+ and @- can be used to denote positive and negative
+ionic charges - as the conventional X11 symbol character set does not contain 
+circled plus and minus characters, these are actually composed from the 
+corresponding simple character and a circle of appropriate diameter.
+</p>
+<p>
+When you want to use symbols as sub- or superscripts, place the sub- or 
+superscripting character before the '@' character, e.g. K_@a . 
+</p>
+<h3>Labeling shortcuts:</h3>
+<p>
+In all bond drawing modes, several keyboard shortcuts are available to
+add atom symbols without having to leave drawing mode. The label is placed
+at the current drawing position (the endpoint of the last line drawn, or 
+the spot last clicked on).
+</p>
+<p>
+The keys 'c','h','n','o','s','p' and 'r' insert the corresponding capital
+letter, 'l' (lowercase L) inserts 'Cl', while '1', '2', '3' insert CH,CH_2 
+and CH_3, respectively. The asterisk key (*) inserts a filled circle. 
+</p>
+<p>
+Pressing the space bar once allows you to enter arbitrary labels, which will
+be placed at the current position when you press the Return key.
+</p>
+<p>
+The keys of the numeric keypad can be used to draw short 'electron pair' lines next to an
+element symbol - if one imagines the element symbol to be sitting on the 
+central '5' key, each key draws the appropriate electron pair for its 
+position. When used in combination with the Shift key, two dots are
+drawn instead of a line. (Simply delete one of them if you actually need
+an odd number of electrons.)
+</p>
+<p>
+For quick numbering of the atoms in a molecule, switch to one of the text
+modes, hold down the Control key and pick each atom in succession with 
+the left mouse button. Numbering starts at 1, and the sequence can be reset
+at any time by clicking the right mouse button. If you need to use your own
+numbering scheme, clicking the middle button (while still holding down the
+Control key) makes it pick up whatever number is in the text entry field.
+</p>
+<h2>Moving, rotating, flipping or scaling objects</h2>
+<p>
+Using the 'Mark' button, you can easily select parts of the current drawing
+by enclosing them with a 'rubberband' rectangle. If you need to add atoms 
+outside of the rectangular area to your selection, simply draw another
+rubberband around them while holding down the Ctrl key.
+</p>
+<p>
+The selected parts will appear highlighted in blue and are immediately 
+available for 
+<ul>
+<li> moving: simply drag the fragment to the desired position with the mouse
+	while holding down the left mouse button. Pressing the Ctrl key
+	limits movement to the horizontal, while pressing the Shift key
+	selects vertical-only movement.<br>
+	<b>Note:</b> If you only want to move individual atoms or bonds,
+	you can simply pick and drag them in 'Move' mode without having to
+	mark them first.</li>
+<li>rotating: horizontal movement of the mouse translates to smooth rotation
+            around the pivot point selected when pressing the mouse button.
+	    Pressing the Ctrl key switches to stepwise rotation according
+	    to the angular intervals of the current drawing mode.</li>
+<li>flipping (mirroring) the fragment about a horizontal or vertical mirror
+  plane through its center: this is performed by clicking on the appropraite
+  the menu button</li>
+<li>copying : clicking on the 'Copy' menu button creates an exact copy of the
+            selected fragment slightly offset to the original. The mark is
+            automatically transfered to the new copy.</li>
+<li>rescaling: horizontal mouse movement is translated into a smooth
+	     increase or decrease of size of the marked fragment</li>
+<li>deleting : to delete the marked fragment, simply click the third
+	    (usually the right) mouse button after it is highlighted.</li>
+<li>optimizing: clicking on the 'bucket and broom' symbol invokes a function
+             that removes overlapping (duplicate) bonds and labels from
+	     the drawing and tries to straighten bonds that are almost
+             horizontal or vertical.</li>
+<li>bracketing and framing: clicking on the bracket button invokes a pop-up
+  menu offering a choice of brackets and various boxes. The chosen item
+  is drawn in the size and position determined by the marker box that was
+  drawn by the user.</li>
+</ul>
+
+<h2>Centering the drawing:</h2>
+<p>
+If there is not enough space for your molecule you can
+put it in the middle of the sheet with the center button.
+</p>
+<h2>Exporting to foreign formats:</h2>
+<p>
+You can export your molecules as 
+<ul>
+<li>X bitmap,
+<li>encapsulated PostScript (with optional preview image included)
+<li>SVG, 
+<li>XFig, 
+<li>MDL molfile, 
+<li>PicTeX,
+<li>PNG,
+<li>EMF metafile,
+<li>OpenOffice SXD drawing
+<li>any chemical file format supported by OpenBabel (if that is installed)
+</ul> 
+</p>
+<p><b>
+The PicTeX, EMF, PNG and Postscript output functions rely on the fig2dev program from the 
+transfig package, while SXD output relies on fig2sxd and the chemistry-related formats 
+(except MDL molfile) are supported through openbabel.
+</b></p>
+<p>
+You can create the outputs in different sizes according to the current zoom
+scale. The PicTeX and Postscript modes additionally allow scaling to an 
+arbitrary percentage selectable on the export menu .
+</p>
+<p>
+To include the PicTeX-file in your LaTeX document, you will need the pictex 
+macro package. Depending on the versions you use, you might also have to load 
+the 'color' package in the preamble of your LaTeX file.<br>
+If you experience 'TeX capacity exceeded' error messages, increase the 
+extra_mem_bot parameter in your texmf.cnf file (usually located in 
+/usr/share/texmf/web2c, /usr/local/texmf or /etc/texmf).<br>
+Pictex is known for its unusual (by tex standards) memory requirements, and 
+the standard settings often do not account for this (although you may find a 
+comment a la 'change this if you use pictex' in the texmf.cnf file).<br>
+Something like extra_mem_bot=400000 should not hurt on any moderately modern 
+system.
+</p>
+<h2>Printing:</h2>
+<p>
+Since  version  1.5,  direct  printing  of  diagrams  to a Postscript-capable 
+printing device (or  more  typically  a print  queue  running  ghostscript) 
+is possible.</p>
+<p>
+The paper size, magnification, printer name and the print command to
+use (currently either lp,lpr or kprinter) can be stored in the Configuration Dialog.
+</p>
+
+<h2>Adding previously saved figures:</h2>
+<p>
+To add another molecule from a previously saved chemtool drawing, select
+its filename in the dialog window that comes up when you press the 'Add' 
+button. Marking a file in the dialog automatically displays its contents
+in a small preview window.
+</p>
+<p>
+The newly added molecule is automatically made active so that it can be 
+repositioned as desired. If you want to add it to a predefined position
+on another molecule, you can mark that attachment site by left-clicking
+on it instead of dragging the marker rectangle. A small green dot will
+appear at what is now the reference position for the new part. If you save
+molecules with such a marker set, it will in turn define their attachment
+site when they are added to another drawing.  
+</p>
+
+<h2>Adding one of the predefined templates:</h2>
+<p>
+Choosing 'Templates' from the 'Tools' menu opens a second window with a small 
+collection of predefined structures.
+</p>
+<p> 
+Simply click on the image of the desired molecule to add it to your drawing. 
+The Template window can be kept open throughout a chemtool session - if it 
+is hidden by another window, you can move it to the front by clicking the 
+'Template' button in chemtool again.
+</p>
+<p>
+The data in the template system differ from normal chemtool drawings only by
+the fact that they are stored within the program, and in a slightly awkward
+format (x and y coordinates listed separately in the source file templates.h).
+These are meant to provide a convenient basis set available to all users, but
+not individually extendable (you can use the 'Add' function for your own 
+structures). Please let us know if you want specific molecules added to the
+templates - their name or ideally a regular chemtool drawing file is all we 
+need. (send email to martin@ruby.chemie.uni-freiburg.de)
+</p>
+
+<h2>Importing from foreign file formats:</h2>
+<p>
+Chemtool is able to import files written either in the PDB format originally
+used by the Protein Databank (which is now also written by most modeling
+packages), or in the molfile (V2000) format developed by MDL Inc. for their
+ISIS products.</p>
+<p> As both formats can contain 3D information, while chemtool
+at least currently does 2D drawing only, the molecule is imported as a 
+temporary 3D image first, which can be rotated using the mouse (with Z-axis 
+rotation initiated by pressing the Ctrl key simultaneously with the (left) 
+mouse button 1). After pressing the Return key, the current orientation is stored
+as a 2D projection that can be further edited. All editing commands except
+zooming are disabled in 3d mode.
+</p>
+<p>
+The PDB import offers a choice which of the atom symbols to import - you
+can either import all labels, only those of non-hydrogen atoms, optionally
+omitting any trailing sequence numbers, or no labels at all. Bonds are read
+from CONECT records, if present, or guessed from the interatomic distances.
+In MDL import mode, C atom labels are automatically suppressed, and bond 
+types are preserved where possible. 
+</p>
+<p>
+If you have a version of the BABEL program installed - either the original
+Babel written by Pat Walters or the current OpenBabel effort - chemtool will
+automatically offer a menu option for importing from any of the wide range
+of chemical and crystallographic data formats this program supports.
+</p>
+
+<h2>Determining sum formula and molecular weight:</h2>
+<p>
+The distribution contains a helper program,
+cht, by Radek Liboska (Prague) to calculate sum formula and (exact) molecular
+weight from a chemtool drawing file. It is also available from within chemtool
+to calculate these data for the current structure or a marked fragment of
+it. Cht can be misled by duplicate bonds ( chemtool does not remove overlapping
+bonds, such as they might result from fusing ring systems, automatically), by
+reaction arrows and by the 'aromatic ring' symbol, so you should avoid these 
+and check the plausibility of the generated sum formula where possible.
+</p>
+<p>
+cht recognizes the following commonly used abbreviations:
+</p>
+<table>
+<tr><td>Ac</td><td>      C2  H3      O</td><td>Acetyl</td></tr>
+<tr><td>Ade</td><td>     C5  H4  N5   </td><td>            Adeninyl</td></tr>
+<tr><td>Bn</td><td>      C7  H7       </td><td>            Benzyl</td></tr>
+<tr><td>Bu</td><td>      C4  H9       </td><td>            Butyl</td></tr>
+<tr><td>Bz</td><td>      C7  H5      O</td><td>            Benzoyl</td></tr>
+<tr><td>BOC</td><td>	C5  H9      O2</td><td>		 Butyloxycarbonyl</td></tr>
+<tr><td>CE</td><td>      C3  H4  N     </td><td>           Cyanoethyl</td></tr>
+<tr><td>Cyt</td><td>     C4  H4  N3  O </td><td>           Cytosinyl</td></tr>
+<tr><td>DBAM</td><td>    C9  H19 N     </td><td>           Dibutylaminomethylene, biradical</td></tr>
+<tr><td>DMAM</td><td>    C3  H7  N     </td><td>           Dimethylaminomethylen, biradical</td></tr>
+<tr><td>DMTr</td><td>    C21 H19     O2</td><td>           Dimethoxytrityl</td></tr>
+<tr><td>Et</td><td>      C2  H5        </td><td>           Ethyl</td></tr>
+<tr><td>Gua</td><td>     C5  H4  N5  O </td><td>           Guaninyl</td></tr>
+<tr><td>iBu</td><td>     C4  H9        </td><td>           iso-Butyl</td></tr>
+<tr><td>iPr</td><td>     C3  H7        </td><td>           iso-Propyl</td></tr>
+<tr><td>Me</td><td>      C   H3        </td><td>           Methyl</td></tr>
+<tr><td>Ms</td><td>      C   H3  S   O2</td><td>           Mesyl</td></tr>
+<tr><td>MOC</td><td>	C2  H3      O2</td><td>		 Methoxycarbonyl</td></tr>
+<tr><td>MOM</td><td>	C2  H5      O</td><td>		 Methoxymethyl</td></tr>
+<tr><td>MMTr</td><td>	C20 H16     O</td><td>		 Monomethoxytrityl</td></tr>
+<tr><td>Ph</td><td>      C6  H5        </td><td>           Phenyl</td></tr>
+<tr><td>@F(greek phi)</td><td>      C6  H5 </td><td>           Phenyl</td></tr>
+<tr><td>Pr</td><td>      C3  H7        </td><td>           Propyl</td></tr>
+<tr><td>TBDMS</td><td>   C6  H15 Si    </td><td>           tert-Butyldimethylsilyl</td></tr>
+<tr><td>TBDPS</td><td>   C16 H19 Si    </td><td>           tert-Butyldiphenylsilyl</td></tr>
+<tr><td>tBu</td><td>     C4  H9        </td><td>           tert-Butyl</td></tr>
+<tr><td>Tf</td><td>      C   F3  S   O2</td><td>           Triflyl</td></tr>
+<tr><td>Thy</td><td>     C5  H5  N2  O2</td><td>           Thyminyl</td></tr>
+<tr><td>TMS</td><td>     C3  H9  Si    </td><td>           Trimethylsilyl</td></tr>
+<tr><td>TMTr</td><td>    C22 H22     O3</td><td>           Dimethoxytrityl</td></tr>
+<tr><td>Tol</td><td>     C8  H7      O</td><td>            Tolyl</td></tr>
+<tr><td>Tr</td><td>      C19 H15      </td><td>            Trityl</td></tr>
+<tr><td>Ts</td><td>      C7  H7  S   O2</td><td>           Tosyl</td></tr>
+<tr><td>Ura</td><td>     C4  H3  N2  O2</td><td>           Uracilyl</td></tr>
+<tr><td>Z</td><td>       C8  H7      O2</td><td>           Benzyloxycarbonyl</td></tr>
+</table>
+
+<h2>Drawing functions not available within Chemtool:</h2>
+<p>
+For features not currently supported by chemtool, like patterns or 
+general line-drawing functions, getting Brian Smith's XFig 
+drawing package from xfig.org is highly recommended.
+About the only thing it does not offer is support for 'chemical' linetypes
+and drawing angles - which is why chemtool was written as a sort of
+companion program. (There will probably be more of the most sorely needed
+drawing options added to chemtool over time, but duplicating the more 
+general-purpose features of xfig seems rather pointless.)
+</p>
+
+<h2>Licensing :</h2>
+<p>
+For license information see the file 'COPYING' in this package, i.e. the
+GNU General Public License.  This software comes with ABSOLUTELY NO WARRANTY.
+</p>
+
+</body>
+</html>
+
+

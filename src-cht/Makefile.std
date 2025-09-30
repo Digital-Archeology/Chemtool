@@ -1,0 +1,4 @@
+default: cht
+
+cht:	cht-2.5.c
+	gcc -O cht-2.5.c -o cht

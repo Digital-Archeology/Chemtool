@@ -1,0 +1,35 @@
+Ac      C2  H3      O           # Acetyl
+Ade     C5  H4  N5              # Adeninyl
+Bn      C7  H7                  # Benzyl
+Bu      C4  H9                  # Butyl
+Bz      C7  H5      O           # Benzoyl
+BOC	C5  H9      O2		# Butyloxycarbonyl
+CE      C3  H4  N               # Cyanoethyl
+Cyt     C4  H4  N3  O           # Cytosinyl
+DBAM    C9  H19 N               # Dibutylaminomethylene, biradical
+DMAM    C3  H7  N               # Dimethylaminomethylen, biradical
+DMTr    C21 H19     O2          # Dimethoxytrityl
+Et      C2  H5                  # Ethyl
+Gua     C5  H4  N5  O           # Guaninyl
+iBu     C4  H9                  # iso-Butyl
+iPr     C3  H7                  # iso-Propyl
+Me      C   H3                  # Methyl
+Ms      C   H3  S   O2          # Mesyl
+MOC	C2  H3      O2		# Methoxycarbonyl
+MOM	C2  H5      O		# Methoxymethyl
+MMTr	C20 H16     O		# Monomethoxytrityl
+Ph      C6  H5                  # Phenyl
+@F      C6  H5                  # Phenyl
+Pr      C3  H7                  # Propyl
+TBDMS   C6  H15 Si              # tert-Butyldimethylsilyl
+TBDPS   C16 H19 Si              # tert-Butyldiphenylsilyl
+tBu     C4  H9                  # tert-Butyl
+Tf      C   F3  S   O2          # Triflyl
+Thy     C5  H5  N2  O2          # Thyminyl
+TMS     C3  H9  Si              # Trimethylsilyl
+TMTr    C22 H22     O3          # Dimethoxytrityl
+Tol     C8  H7      O           # Tolyl
+Tr      C19 H15                 # Trityl
+Ts      C7  H7  S   O2          # Tosyl
+Ura     C4  H3  N2  O2          # Uracilyl
+Z       C8  H7      O2          # Benzyloxycarbonyl

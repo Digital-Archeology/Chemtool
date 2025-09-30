@@ -1,0 +1,44 @@
+PREFIX=/usr/local
+LOCALEDIR=/usr/share/locale
+UNDO=-DLIBUNDO
+ifdef LOCALEDIR
+CFLAGS=-O2 `gtk-config --cflags` -DMENU -DENABLE_NLS -DLOCALEDIR=\"${LOCALEDIR}\" ${UNDO}
+else
+CFLAGS=-O2 `gtk-config --cflags` -DMENU  ${UNDO}
+endif
+
+CC=gcc
+CP=/bin/cp
+RM=/bin/rm -f
+MAKE=make
+
+SRCS = main.c chemproc.c graph.c draw.c inout.c gtkfilesel.c
+OBJS = main.o chemproc.o graph.o draw.o inout.o gtkfilesel.o
+
+ifdef UNDO
+	OBJS += undo.o
+endif
+
+SYS_LIBRARIES = `gtk-config --libs` -lm
+
+all: chemtool cht
+
+default:	all
+
+chemtool: ${OBJS}
+	${CC} ${OBJS} ${SYS_LIBRARIES} -o chemtool
+
+cht:	src-cht/cht-2.5.c
+	cd src-cht;${MAKE}
+
+
+install: chemtool src-cht/cht
+	${CP} chemtool src-cht/cht ${PREFIX}/bin
+	${CP} chemtool.1 ${PREFIX}/man/man1
+	${CP} cht.1	${PREFIX}/man/man1
+	ifdef LOCALEDIR
+	for L in `ls locales`; do ${CP} locales/$$L/chemtool.mo ${LOCALEDIR}/$$L/LC_MESSAGES;done
+	endif 
+clean:
+	${RM} *.o *~ src-cht/*.o src-cht/*~ chemtool src-cht/cht
+

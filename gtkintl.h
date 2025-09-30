@@ -1,0 +1,25 @@
+#ifndef __GTKINTL_H__
+#define __GTKINTL_H__
+
+
+#ifdef ENABLE_NLS
+#include<libintl.h>
+#if !defined _
+#define _(String) dgettext("gtk+",String)
+#endif
+#ifdef gettext_noop
+#define N_(String) gettext_noop(String)
+#else
+#define N_(String) (String)
+#endif
+#else /* NLS is disabled */
+#define _(String) (String)
+#define N_(String) (String)
+#define textdomain(String) (String)
+#define gettext(String) (String)
+#define dgettext(Domain,String) (String)
+#define dcgettext(Domain,String,Type) (String)
+#define bindtextdomain(Domain,Directory) (Domain) 
+#endif
+
+#endif

@@ -1,0 +1,84 @@
+Change-log for cht
+2.7 (mk)
+- Removed unused declaration of mem* functions
+
+2.6 (mk)
+- Reordered p2c portability functions to make gcc411/glibc255 happy
+
+2.5 (mk)
+- Code changes to make splint happy.
+- Added Ag,Au,Hf,Hg,Ir,Lu,Mo,Nb,Os,Pd,Pt,Rh,Re,Ru,Ta,W,Y,Zr
+
+2.4 (mk)
+- Modified Makefile.in to actually use the CC and CFLAGS information propagated 
+  by configure.
+- Removed a few unused functions (from the builtin copy of p2c.h) that might 
+  cause portability problems. 
+
+2.3 (mk)
+- supplied exact masses for the elements added in 2.2,
+  added Al,As,Ba,Be,Bi,Li,Cs,In,Ga,Ge,Pb,Rb,Sb,Sc,Se,Sn,Sr,Te,Ti,Tl,V,Zn
+  added greek Phi (@F) as alternative symbol for Ph
+  Changed Makefile.in to build version 2.3 
+
+2.2 (mk)
+- added Ca,Cd,Co,Cr,Cu,Fe,Mn,Ni
+
+2.1 (mk)
+
+- regular arrows are no longer counted as C2 fragments
+ 
+2.0 (mk)
+
+- added support for 1.5a25 'decoration' flag to ignore 'electron pairs',
+  boxes and brackets
+- the 'half arrow' bond type is now ignored
+  * TODO : _isolated_ regular arrows should be ignored as well 
+
+1.9 (mk)
+
+- added support for latex-like brace syntax in subscripts (e.g. C_{10}H_{22})
+- added support for two-digit subscripts (C_1_0 was interpreted as C_1)
+
+1.8 (mk)
+
+- interactive mode added, one can now call cht with '-i' followed by
+  a sum formula in chemtool notation, e.g. 'cht -i C_6H_5_NH_2' or
+  'cht -i C_1_2H_2_5OH'
+
+1.7
+
+- Mg added
+- small changes in output formatting
+ 
+1.6
+
+- a nasty bug in the label parsing routine was removed (that which was 
+  fetched in during the code cleanup in version 1.4)
+   
+1.5
+
+- wrong mass for B. All values checked with tabular ones.
+- composition is calculated (format: 00.00%C;00.00%H;00.00%N; ... )
+
+1.4
+
+- added test for bonds overlap. If some bonds are overlapped (within the
+  interval gave by "Sensi" parameter; 5 points by default) then the
+  exclamation mark precede the summary formula (one "!" for each such overlap)
+- only the "top label" of overlapped labels is taken into calculation
+
+1.1 to 1.3:
+
+- added support for bond type 11 (aromatic ring), Martin's patch.
+- Ac is CH_3CO, not CH_3 (uff!)
+- removed bug in the label parser (labels XxxYyy were interpreted as XxxY, e.g.
+  --C(Me_2BuSiO)_3 were interpreted as --C_20H_48O_3S_3 - note S instead of Si)
+- removed bug in the label parser (labels XXXXX??? bring cht into infinite loop,
+  e.g. "Guo" instead of "Gua", NE instead of NEt)
+- Readln(file,X1,X2,Y1,Y2 ...) used, instead of Readln(file,string); no 
+  Val(Copy(Pos........))) construction needed.
+- Now the mass of the label(s) is calculated, even if no bond has been drawn 
+  (however when some bonds have been drawn, then the labels which are not con-
+  nected to the structure are ignored - it is good for the caption(s) not to be
+  involved into calculation)      

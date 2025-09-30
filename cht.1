@@ -1,0 +1,72 @@
+.TH "CHT" "1" "June 17, 2001" "1.6.13" "User commands"
+
+.SH NAME
+cht \- chemtool drawings analyzer
+
+.SH SYNOPSIS
+.B cht
+.RB [ options ]
+.I filename.cht
+
+.SH DESCRIPTION
+.B cht
+is a commandline tool to derive the sum formula and molecular
+mass of the molecule depicted in a
+.B chemtool 
+drawing file.
+It is also available from within \fBchemtool\fR to calculate these data for
+the current structure or a marked fragment of it. 
+.PP
+.B cht
+currently recognizes the element symbols  C, H, O, N, P, S, Si, B, Br, Cl, F,
+I, Al, As, Ba, Be, Bi, Ca, Cd, Co, Cr, Cs, Cu, Fe, Ga, Ge, In, K, Li, Mg, Mn,
+Na, Ni, Pb, Rb, Sb, Sc, Se, Sn, Sr, Te, Ti, Tl, V, Zn (that is, all main group 
+elements except the noble gases, and the first row of transition metals) 
+and the abbreviations Ac, Ade, Bn, Bu, iBu, tBu, Bz, BOC, Cyt, CE, DBAM, 
+DMAM, DMTr, Et, Gua, Me, Ms, MOC, MOM, MMTr, Ph, Pr, iPr, Tf, Thy, Tol,
+Tr, Ts, TBDMS, TBDPS, TMS, TMTr, Ura, Z.
+.PP
+It can handle two levels of parentheses; e.g. P[OCH(CH_3)_2]_3.
+.PP
+When 
+.B cht
+detects any duplicate (overlapping) bonds in the drawing file, it will 
+prepend an exclamation mark to the calculated (and likely wrong) sum
+formula.
+
+.SH OPTIONS
+.B cht
+understands the following options:
+.TP
+.B \-h, \-\-help
+Displays brief help and list of options.
+.TP
+.B \-e, \-\-exact
+Calculate exact mass for MS.
+.TP
+.B \-v, \-\-verbose
+Be verbose.
+.TP
+.B \-d, \-\-debug
+Be extremely verbose.
+
+.SH BUGS
+.B cht
+can misinterpret molecules that contain the 'aromatic ring' symbol, as it
+uses a fixed search radius to identify the aromatic system that it denotes.
+It also does not handle the 'partial double bond', so you should avoid these
+two in drawings that you intend to use with \fBcht\fR.
+.PP
+A label that is offset from the corresponding bond end by
+more than five pixels is not recognized, so that the default CH2 or CH3 
+group enters the calculation in its place.
+.PP
+In general, one should check 
+the plausibility of the generated sum formula wherever possible.
+
+.SH SEE ALSO
+.BR chemtool (1)
+
+.SH AUTHOR
+\fBRadek Liboska\fR
+

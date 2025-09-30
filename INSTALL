@@ -1,0 +1,101 @@
+This version contains a configure script that should generate an appropriate
+Makefile for your system. Simply enter
+		./configure
+to run it. On some systems it may be necessary to pass one or more options
+to it, e.g. to help it locate required libraries or header files, or to force
+a GTK1 version even if you also have GTK2 installed. Entering 
+		./configure --help
+will provide a list of recognized options.
+
+Specifically for building chemtool in the CYGWIN environment under Windows, one
+reportedly needs to run configure as
+
+./configure --x-includes=/usr/X11R6/include --x-libraries=/usr/X11R6/lib \
+--with-gtk-prefix=/usr/local --with-gtk-exec-prefix=/usr/local \
+--with-x
+
+(the two gtk-related options may need to be adjusted to your setup, or may not
+be necessary).
+
+In case the configure script does not work for some reason (please let us know),
+or if you simply prefer the conventional method, copy the supplied Makefile.std
+(or the appropriate Makefile.sgi if you have an Irix box) to Makefile.
+
+To build Chemtool check the definitions at the top of the Makefile, especially 
+the directory where the program will be installed, this defaults to 
+/usr/local/bin. Then enter 
+
+		make
+		make install 
+
+All versions later than 1.1.8 require the GTK widget library and its
+companion Glib, both available from www.gtk.org. If you do not want to
+build them yourself from the sourcecode available there, there is a good
+chance of finding prebuilt packages for your system in most Linux 
+distributions or the freeware archives of your commercial unix vendor 
+(e.g. freeware.sgi.com), respectively.
+
+When building with version 1.2.x of GTK, the stock GTK functions that provide 
+menues and fileselection dialogs are overridden by enhanced counterparts included 
+in chemtool. If your system does not allow a binary to use the names of library 
+functions for its internal functions, you will get error messages (perhaps even 
+panic messages from the GTK code about NULL pointers to menues) when you try to 
+open one of the menues in chemtool. In this case, run configure with the 
+"--enable-stockgtk" option (or remove all references to gtkmenu and gtkfilesel
+from the SRCS and OBJS lines in the Makefile) and recompile. Though you will
+loose some nice features in chemtool (e.g. no filename masks in the Load menu,
+the Babel input menu may extend beyond the screen), the program should then 
+function normally. As this problem has been observed for AIX and CYGWIN,
+configure on these systems selects the stock GTK code in any case.
+
+All output functions except xfig, xbm, sxd and svg depend on the transfig package,
+version 3.2.0 or later, available from www-epb.lbl.gov/xfig or www.xfig.org. 
+Brian Smith's XFig drawing package is highly recommended - it supports all 
+the things that are missing in Chemtool like general drawing functions and 
+image import.
+For creation of drawings in the .sxd format used by OpenOffice, the fig2sxd
+program (fig2sxd.sourceforge.net) is required - chemtool will automatically
+detect its availability on startup and will present an SXD option in the Export
+menu window.
+
+Chemtool 1.6 and later can detect the presence of the program BABEL - both
+Pat Walters' original version, which is probably still available at the 
+eyesopen.com website, or the more recent OpenBabel effort hosted at 
+openbabel.sourceforge.net. When either version is available, chemtool provides
+another import menu for all foreign file formats supported by it (through an
+intermediate MDL molfile). If neither version of babel is installed, chemtool
+will still be able to import foreign data from PDB or MDL molfile type files.
+
+
+If you prefer the old user interface of chemtool-1.3 (two rows of buttons)
+to the new menubar, simply remove the -DMENU from the CFLAGS line in the 
+Makefile.
+
+Recent versions provide rudimentary support for localization, with message
+catalogs for Czech, French, German, Netherlands, Polish, Portuguese, and 
+Russian in addition to the English defaults. 
+If your system does not support Gnu-style national language support (i.e. 
+if you do not have a /usr/share/locale hierarchy), you may have to 
+comment out or remove the LOCALEDIR entry at the top of the Makefile.
+(Normally, the configure script should take care of this for you.) 
+
+If you want to provide national language support for another language, simply
+copy the chemtool.pot file in the "po" directory to YOURLANGUAGE.po,
+fill in the empty 'msgstr' fields with the appropriate translations of the 
+messages in the 'msgid' fields, and then run 
+'msgfmt -o chemtool.mo YOURLANGUAGE.po'. 
+(For non-(western)-european languages, it may be necessary to run 
+'iconv -f YOURISO -t UTF-8 -o YOURLANGUAGE.utf YOURLANGUGE.po' 
+first (where YOURISO stands for your native encoding, something similar to 
+ISO-8859-1) and feeding the .utf file to msgfmt.)
+
+Radek Liboskas program CHT - to determine the sum formula and molecular
+weight of a molecule in a regular chemtool file - is included in the src-cht
+subdirectory. Both the original pascal source and a (partly automatic) C
+translation are provided, but the Makefile uses the C version. cht needs
+to be compiled separately (cd src-cht; make) and copied somewhere in your
+regular search path (e.g. to /usr/local/bin) for chemtool to find it. The
+top-level Makefile should normally take care of that.
+
+Please report any bugs you may find to martin@ruby.chemie.uni-freiburg.de
+

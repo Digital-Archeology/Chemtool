@@ -1,0 +1,42 @@
+PREFIX=/usr/local
+LOCALEDIR=/usr/share/locale
+GTKCONFIGFLAGS=-I/usr/freeware/include/gtk-1.2
+-I/usr/freeware/include/glib-1.2 \ 
+               -I/usr/freeware/lib64/glib/include
+CFLAGS=-mabi=64 -fno-builtin -O2 -Wall -Wunused ${GTKCONFIGFLAGS}
+-DMENU  -DENABLE_NLS
+CC=gcc
+CP=/bin/cp
+RM=/bin/rm -f
+MAKE=gmake
+
+SRCS = main.c chemproc.c graph.c draw.c inout.c 
+OBJS = main.o chemproc.o graph.o draw.o inout.o 
+
+GTKCONFIGLIBS=-mabi=64 -L/usr/freeware/lib64 \
+		-lgtk -lgdk -lgmodule -lglib -lXi -lXext -lX11 -lm
+
+SYS_LIBRARIES = ${GTKCONFIGLIBS} -lm
+
+all: chemtool cht
+
+default:        all
+
+chemtool: ${OBJS}
+	${CC}  ${OBJS} ${SYS_LIBRARIES} -o chemtool
+
+cht:    src-cht/cht-2.5.c
+	cd src-cht;${MAKE}
+
+#.c.o:  
+#       ${CC} ${CFLAGS} ${EXTRA_INCLUDES} -c ${SRCS}
+
+install: chemtool src-cht/cht
+	${CP} chemtool src-cht/cht ${PREFIX}/bin
+	${CP} chemtool.1 ${PREFIX}/man/man1
+	for L in `ls locales`; do ${CP} locales/$$L/chemtool.mo
+${LOCALEDIR}/$$L/LC_MESSAGES;done
+ 
+clean:
+	${RM} *.o *~ src-cht/*.o src-cht/*~ chemtool src-cht/cht
+

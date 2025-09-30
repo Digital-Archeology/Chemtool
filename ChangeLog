@@ -1,0 +1,1031 @@
+1.1.2   new bond types - wedge and dashed wedge 1.1.3 wedge and dashed wedge
+	supported in xfig and latex export (oops)
+        sub- and superscripted text drawn in smaller font sub- and
+        superscripting preserved in standard xfig export postscript export mode
+        added (relies on fig2dev) load dialog added using Robert McMullens
+        ListTree widget Added a new example, the antibiotic tetracycline
+1.1.4   Simple 'Add fragment' functionality added
+1.1.5   updated README file
+        improved dialog boxes text may now contain spaces (encoded as
+        backslashes)
+1.1.6   'Added' fragments can be flipped horizontally and/or vertically 
+1.1.7   Added symbol mode, use '@' in text to invoke it for a character
+1.1.8   Added 'New' button to clear canvas.
+        Added bond types 7 - 'wiggly' bond for uncertain stereochemistry, 8 -
+        half arrow (use two of appropriate lengths for equilibrium reactions)
+        and 9 - normal (reaction) arrow. Changed picking code to always return
+        nearest object.
+------------
+gtk118  Version 1.1.8 with new GUI based on GTK toolkit Added 'Rotate' and
+        'Copy' functions for marked objects, Moved 'Flip H' and 'Flip V' from
+        'Add' dialog to general functions Improved marking method to allow
+        dragging marked objects across other geometry
+------------
+1.1.9   Button 2 in 'Bond type' mode reverses bond direction (e.g. for wedges)
+        Centered double bond is now available at all angles Wide line for
+        raised single bond (might need this for double as well?) Added
+        example7, anabsinthin Correct initialization of drawing area,
+        interconnection of 'radio buttons'.  Fixed exporting of labels to xfig
+        (right-justified labels had text backwards).  Collect labels with
+        special formatting (that are exported as individual characters) into
+        XFig 'compound objects' for easier editing.
+-------------
+1.2a    Renamed function round to round_coord to avoid name clash with glibc
+        function. Cleaned up some code that provoked gcc warnings.  Fixed gtk
+        pointer chaos that barely worked on Linux libc5 and crashed on glibc. 
+        Canvas pixmap is now kept and cleared instead of recreated.  File and
+        Export Windows are now modal, Add button is greyed until a mark is set
+        on the canvas.  Marked fragments are now drawn in blue.
+1.2a2   Improved font size and line width in xfig export 
+	(patch by Radek Liboska) Corrected positioning of sub/superscripts and
+        handling of right-justified text in xfig export Increased width of
+        'wide' line from 4 to 6 units Treat command line parameter as name of
+        file to load
+1.2a3	Added pop-up message window for I/O operations (and fixed calls to
+        I/O functions to always check the return value). Added check for
+        "Chemtool Version" string in file header in load_mol and made version
+        number mismatch non-fatal.  Added redraw to make marked fragment
+        immediately change color.  Added experimental undo stack based on Matt
+        Kimball's libundo library (set -DLIBUNDO in the Makefile to activate) -
+        snapshots are saved with each 'mark' operation and may be recalled
+        after a 'move' or 'rotate' by clicking the right mouse button. 
+        Restored yes/no dialog) for Load/Clear/Quit with unsaved changes. 
+        Restored xbm export function - though currently with reversed colors
+        (???).  Corrected label display - more whitespace around labels,
+        vertical alignment of right-justified text was incorrect after
+        subscript.
+1.2a4   Fixed crashes caused by long message texts.
+        Worked around pixmap inversion problem (by inverting the picture before
+        exporting). Tried to make sure that the export pop-up does not leave
+        traces in the xbm, set busy cursor for xbm export.  Started commenting
+        functions, removed dead code, formatted the sources with GNU indent.
+1.2a5	Corrected spelling of Radek's name in ChangeLog. Changed XFIG (and PS) 
+	page format to European A4, fixed positioning of right-justified text
+	with special characters (patch by Radek Liboska).  Added bond type 11,
+	circle (first point sets center, second radius).  Increased drawing
+	area size, added scrollbars.  Added one more zoom step to either side. 
+	Improved arrowhead proportions. Added examples tcdd.cht and claisen.cht
+1.2a6   Corrected scale of exported image, positioning of centered text and 
+	(dis-)appearance of vertical bonds near centered labels in XFig and
+	Postscript export modes. Improved calculation of compound boxes around
+	specially formatted labels in XFig mode. Added Del button to delete the
+	marked fragment (user needs to klick in the marked area to confirm). 
+	Rewrote part of the export code for specially formatted labels. 
+	Sub/superscript position quality should be less dependent on drawing
+	scale now.
+1.2a7   Changed some line widths in export modes, modified arrowheads again, 
+	increased displacement and font size for superscript plus and minus
+	signs. In text mode, mouse button 2 (middle) loads a label from the
+	cursor position into the text entry box. Fixed claisen.cht (which had
+	an arrow hidden in one bond) and added a new example, amp.cht
+	(adenosine monophosphate, provided by Radek Liboska).
+1.2a8   Updated Imakefile. Made fragment created by Copy function appear
+	slightly offset from the original. Added redraw after a Delete. Added
+	bond type 12, a dotted line. Added 'created by Chemtool 1.2' comment to
+	XFig file header. Changed xbm export to always switch to zoom scale 1,
+	as this appears to reduce the risk of a fatal Xlib error. Added several
+	new molecule files provided by Radek Liboska
+	(adamantane,cyclohexane,various nucleotides), moved all examples to
+	subdirectory 'examples'.
+1.2a9	Changed suffix of (encapsulated) postscript output files to .eps
+	and fixed reporting of error codes in all export functions. Updated
+	README file. Unless something serious comes up, this version will be
+	released as 1.2.
+1.2a10  Allow popups to be closed via the window manager without making the
+	corresponding menu unavailable or even crashing chemtool. Corrected
+	focus passing between submenus in the file dialog. Added sanity checks
+	for >0 atoms in save and delete functions. Increased offset of copied
+	fragment.
+1.2     Re-release of 1.2a10
+----------------------------------------------------------------------------
+1.3a1	Fixed and restored XBM export. Added a (almost empty) template menu
+	(the beginnings of which were already hidden in 1.2a8). Fixed kerning
+	of mixed sub- and superscripts (as in SO_4^2^-). Changed allocation of
+	initial drawing area, calculate actual size before saving.
+1.3a2	Added option menu for default bond type , added label support to
+	template function 1.3a3 Reduced preallocated drawing area to
+'windowsize+100', as the increase
+	in 1.3a1 (which used window+1000) caused a massive slowdown at startup.
+        Freed unneeded pixmaps in the button setup code.  Fragment rotation
+        code now stores the initial coordinates and uses them as basis for the
+        new positions - the previous, incremental calculation was severely
+        plagued by accumulation of errors.
+1.3a4	Changed bond option menu to use small icons instead of longer and less
+	clear text labels. Removed check for 'cursor inside marked region' in
+	'Move' mode to allow smooth dragging. Started populating the O and N
+	heterocycle panels of the template menu. Fixed a duplicate bond in the
+	tcdd example, and removed those examples that have become templates.
+1.3a5	Added shortcut for some labels - pressing c,n,o,s,p,r,i,h,d or b 
+	inserts the corresponding centered element symbol at the last drawing
+	position, 'l','1','2','3' insert the left justified labels
+	'Cl','CH','CH_2','CH_3'. Fixed a GC leak in export_bitmap.
+1.3a6   Moved the nucleoside examples to the template system. Made marker
+	position default to last drawing position, so that the 'Add' function
+	is now always active. Beginnings of internationalization (.mo file for
+	German locale added). Fixed naphthalene template, added dicyclo-
+	pentadiene. Changed Add_atom to automatically convert blanks in label
+	input to backslashes for storage. Prepared a few drawings for later
+	inclusion in the template system (camphor,pteridine,caffeine,glucose,
+	fructose,mannose,galactose,neuraminic acid, spiro[4.5]decane).
+1.3a7   Template cleanup: porphine moved to heterocycle panel, spirodecane
+	added in its place. Glc,Fru,Man,Gal transfered to carbohydrate
+	templates, caffeine to heterocycles. Czech translation (by Radek
+	Liboska) added. Improved bounding box coordinates for xfig compound
+	object (used for sub/superscripted labels) Changed export functions to
+	remove the intermediate '.f2l' files. Changed orientation in xfig
+	header to Portrait. Adapted xfig (and xfig-based) export modes to the
+	new XFig default depth of 100. Changed depth of xfig text (labels) to
+	90 and added filled white polygons at depth 95 to hide overlapping line
+	segments (experimental, used only for sub/superscripted text at the
+	moment). Reset default filename to 'unnamed' when the current molecule
+	is deleted.
+1.3a8	Changed buttons mark/move/rotate/flip/delete/copy from text to icon
+	to reclaim space for the text entry box (icons created by Radek
+	Liboska). Added white polygon to clear area under normal text as well.
+1.3a9	Added program icon. Added an interface for Radek Liboskas standalone
+	program CHT, which calculates sum formula and molecular weight from a
+	chemtool sketch. Corrected example drawing of brevetoxin.
+1.3a10	Really reset mark flag when nothing was within the marker box.
+	Allow saving only the marked region (formula weight computation only).
+	Helper program CHT now parses those labels that are not in its internal
+	table of common substituents; exact mass is now returned
+	automatically.Added status line with message history.
+1.3a11	Internationalization support made optional (define DISABLE_NLS in
+	the Imakefile if you do not want it) to allow compiling on systems
+	without GNU-style locale support again.  Improved ring size and
+	position in the benzene and cyclopentadiene templates (Michael Banck). 
+	Reset all marks before loading a template.  If the template menu is
+	already open, pressing the Template button now brings it to the front. 
+	Added templates (inden,biphenyl), removed the ugly question mark
+	placeholders.  Changed handling of windowmanager events, so that using
+	the window decorations' CLOSE button brings up the Yes/No dialog while
+	the chemtool window is still alive.  Changes in helper program CHT
+	(cht011a): now recognizes Ac in complex substituents; correctly handles
+	aromatic 'ring' in formula input; checks input file for identifier
+	"Chemtool"; reads number of bonds from "bonds" line (to handle
+	label-only files gracefully); exits on unattached labels instead of
+	silently miscalculating formula and mass. Subsequently updated to Radek
+	Liboskas current version 0.19, which already includes equivalent
+	changes. Added list of abbreviations supported by cht.
+1.3a12	Reset all marks before 'adding' a sketch. Adding a label on top of an
+	existing one now replaces the old label as it should. Added a function
+	for rescaling objects (useful for drawing reagents above the reaction
+	arrow - but labels are not rescaled yet). Added linetype 13, a single
+	bond with opaque background (for crossing bonds - see the bicyclooctane
+	template). Updated the German translation.  This - plus or minus some
+	templates - is my release candidate for 1.3.
+1.3a13  Dropped the internal icon, as it was only causing trouble, especially
+	with KDE. Most window managers allow specification of an external icon
+	anyway (added chemtool.xpm for this purpose). Moved 'delete fragment'
+	button to the end of the button row. Updated Czech translation by Radek
+	Liboska. Added linetype 13 to the helper program CHT, made it accept
+	any Chemtool 1.x file, not only version 1.2. Updated the
+	'documentation', i.e. the README file, split out an INSTALL file. Set
+	version number in chemtool files to 1.3. Fixed bug that left a newly
+	'added' structure active but unable to move. Rewrote positioning logic
+	for subscripts and right-justified text in export modes again.  Changed
+	screen display of molecule from 'fixed' fonts to helvetica as used in
+	the export modes - previously, labels that appeared fine on screen
+	could overlap in the final (postscript) output. Fixed 'mannose'
+	template that showed exactly this. Added formatting option '|' for
+	slanted characters (as in iPr,tBu).
+1.3a14  Fixed label shortcuts for CH_2 and CH_3 that could crash chemtool
+	(buffer overrun). Fixed scaling in export function , which had been
+	applied to labels only. Improved label size at smallest scale. Added
+	correction factor for sub/superscript after certain characters (the
+	joys of proportionally-spaced fonts :-( ). Handled reopening of
+	template menu after a close via the window manager. Updated 'About'
+	menu (mention Radek Liboska as developer, add the tu-darmstadt
+	webpage).
+1.3a15  Changed canvas bitmap allocation to avoid uncovering garbled portions
+	when the sliders are used. Fixed fragment deletion code (deletion of
+	the marked fragment and redisplay of the modified drawing are now
+	performed immediately). This hopefully fixes the crashes some people
+	have been seeing with this function.
+1.3	Added Check for no (or no selected) atoms before trying to delete a 
+	fragment, fixed bug that could deletion of a fragment to fail.  Changed
+	functions for horizontal and vertical flip to transform the atom(s)
+	directly bonded to the marked fragment as well. Added current filename
+	(if any) to window title. Use xfig's own arrow type in export of
+	regular arrows (Michael Banck).  Some code cleanup: removed dead code,
+	fixed unnecessary parameter passing between functions, tidied
+	formatting with GNU indent. Removed Imakefile and provided regular
+	Makefile (the build process relies on gtk-config, not xmkmf, since
+	1.2), added install targets for the localization files and manpage. 
+	Updated cht to version 1.3.
+1.3.1   Updated src-cht to version 1.7, which now also outputs composition
+	in mass percentages and flags duplicate bonds with an exclamation mark.
+	Fixed string buffer overflow problem with returned values from cht. 
+	Fixed some example files that contained duplicate bonds.  Added
+	appropriate window titles for the file selection dialogues. Fixed unit
+	flag in xfig output (was 'Centimeters', should be 'Metric').  In eps
+	export mode, fig2dev is now called with the '-L eps' option of
+	fig2dev-3.2.3 first, and if this fails for some reason, the old-style
+	'-Lps' option is tried (which would create non-encapsulated postscript
+	with more recent versions of fig2dev).  Modified the new Makefile
+	(which was always recompiling all sources even if only one was
+	changed). Reduced height of chemtool window by 20 pixels to keep the
+	status line (with cht output) visible on 800x600 (laptop) screens.
+	Modified calculation of xfig bounding box for labels - it was creating
+	degenerate boxes (both x coordinates equal) for labels like H^+ which
+	sometimes confused xfig.  Chemtool now uses different cursor glyphs for
+	the drawing and editing modes (Radek Liboska). An 'Add' or a failed
+	'Load' no longer changes the default filename. 'Delete marked fragment'
+	is now performed by clicking the right button in 'mark' mode, the
+	corresponding menu button is replaced by a function for cleaning up
+	formula drawings (which removes duplicate bonds and fuses closes
+	contacts) . Chemtool no longer draws a line from the top left corner to
+	the first point set, and does not show the 'unsaved changes' dialog
+	when there are no bonds or labels. Fixed button bar to correctly toggle
+	from rotate to scale mode. Added callback to suppress insertion of
+	labels via the hotkey function when the user wants to type into the
+	text entry box. Fixed Latex export to not use whiteout boxes (which
+	were obscuring the labels they were supposed to create space for),
+	removed erroneous reference to the temporary .f2l file in the popup
+	message. Drawing size (but not font size) was reversed in the two
+	smallest zoom scales. Did another round of label positioning and
+	kerning fixes in both screen and export modes. Updated alternate URL in
+	documentation and About dialog, as the tu-darmstadt system is about to
+	be shutdown. Added russian localisation (Michael Shigorin, based on
+	1.3). Updated czech localisation (Radek Liboska).
+-------
+        New development branch based on 1.3: 
+1.4.a1  Most of the bug fixes from 1.3.1 except those related to label kerning
+        and export functions. Added two new bond types, the 'left' and 'right'
+        versions of a partial (dashed) double bond, to chemtool and cht.  In
+        'bondtype' mode, the type of the selected bond is now changed to the
+        current default type instead of the next type in the cyclic list. 
+        Replaced the upper button row of the GUI by a more standard menu bar
+        (Michael Bancks).
+1.4.a2  Added the kerning and export fixes from 1.3.1. Added #ifdefs to simplify
+        switching between the 'old' and 'new' GUI style. Made copying a marked
+	object automatically invoke 'Move' mode instead of re-entering 'Mark'
+	mode to prevent accidental placement of the copy on top of other
+	geometry. Added function to draw square brackets around the marked part
+	of a structure (currently treated as 2x3 single bonds internally). 
+	Added function to draw curves by specifying four control points - the
+	curve runs from the first to the last point and is bounded by the other
+	two (cubic bezier curve). Depending on the current bondtype at the time
+	of drawing, the curve can be dotted, have a half or full arrowhead
+	(bondtypes 12,8 or 9), be used to define a solid black object (e.g. 
+	orbital lobes, 'wide' linetype) or a simple line (all other bondtypes). 
+	This new object type is stored in a new section 'splines' in chemtool
+	files, and converted to a xfig 'polyline' on export. In this version,
+	it can only be added, marked and deleted - copying, moving or changing
+	is not yet implemented.
+1.4.a3  Fixed erratic text placement when textmode was already active at the
+	time the text entry box was activated. Fixed broken dialog messages for
+	Latex output. (Both bugs introduced in 1.3.1-pre2).  Fixed
+	miscalculation of spline curve, implemented copying, moving, and
+	mirroring of curves, moving a curves control points and changing its
+	type. Pressing the right mouse button in curve mode cancels the
+	incomplete curve now. Added correct 'radio button' behaviour for the
+	'curve' button. Corrected fill color and shape of curve arrowheads. 
+	Replaced the simple export popup with an extended file selection dialog
+	that provides choice of filetype and automatically appends appropriate
+	suffixes. Changed xbm export to dump only the relevant part of the
+	drawing area if nothing is marked.  Unified the export dialog handling,
+	clarified filetypes (LaTex export was named XFig/Latex although it has
+	no separate xfig content, XBM was erroneously described as X pixmap
+	instead of bitmap on its tooltip).
+1.4.a4	Exporting to eps only claimed to use filename.eps, but actually
+	reused the name of the drawing file, potentially overwriting it.  Fill
+	style for curves was not reset correctly on export, leading to strange
+	effects on subsequent curves. Curve control points were not hidden in
+	xbm output. 'Half arrow' curves had an extraneous arc protruding behind
+	the arrowhead. Added preliminary support for 'curve' objects to
+	template system (maximum of 2 per template), added 'orbital' page to
+	template system (currently sporting one p orbital only).
+1.4.a5  Implemented rotating and rescaling of spline curve objects.
+	Limited size of arrowhead on curved arrows, added code to ensure that
+	half arrowheads appear on the correct side of curved arrows.  Added
+	shortcut for 'curved semiarrows' to bondtype menu. (This creates a
+	spline with two coinciding control points slightly offset from the
+	midpoint of the line, so converting existing bonds to or from this type
+	is not possible.) Control points are now only shown in 'move' mode,
+	they are larger than before and displayed for 'circle' bonds as well. 
+	Moving the center of a circle now moves that circle without resizing
+	it.
+1.4.a6	Added special treatment of wedges and greek characters in Latex export
+	mode to work around fig2devs apparent inability to translate filled
+	polygons and the X11 symbol font into pictex commands. Changed wavy
+	bond to change chirality depending on direction, so that they can be
+	linked to form longer patterns. Some documentation updates.
+1.4.a7	Added french localisation (by Jerome Pansanel, based on 1.3). Added 
+	arbitrary scaling (via the -m option of fig2dev) of eps and pictex
+	output (suggested by Jerome Kieffer). Added a few examples (Viagra and
+	some antibiotics) provided by Michael Banck.
+1.4.a8  Added manual page for cht. Added menu code update by Michael Banck,
+	most menu options have Ctrl-(key) shortcuts now. Added experimental
+	(and not yet fully functional) automatic ring generation using Ctrl-3
+	to Ctrl-9 for 3- to 9-membered, Ctrl-0 to Ctrl-2 for 10-, 11-,
+	12-membered rings. Used fewer lines for the pictex representation of
+	wedges to avoid exceeding Latex' memory capacity even with small
+	molecules.
+1.4.a9  Backed out the pictex wedge changes of a8, as the real solution is to 
+	increase the value of extra_mem_bot in texmf.cnf (without it, Latex
+	will fail when there are even just a few simple drawings, with or
+	without wedges, in a file. This is a known feature of PicTeX).  Fixed
+	output of regular characters in pictex - it was using italics because
+	of leftover $ characters from the earlier implementation.  Changed
+	filenames of the examples added in a7 to reflect their contents. 
+	Successful exporting is now reported in the status bar instead of the
+	popup window. Updated README and chemtool manpage. Rewrote ring
+	generating code (Michael Banck) so that rings are correctly attached
+	now. Ring drawing is initiated by holding the control key while drawing
+	a bond that serves as the first segment of the ring. Ring size is
+	governed by the current drawing mode (5, 6 or 8 sides), but it can be
+	preset on a per-ring basis by pressing Ctrl-3 to Ctrl-9 for 3 to 9
+	sides, Ctrl-0 to Ctrl2 for 10, 11 and 12-membered rings. Rings are
+	always drawn in clockwise direction based on the direction of the
+	initial bond, they are marked automatically and can be erased by
+	pressing Ctrl-mouse3 immediately after drawing.
+1.4.a10	Fixed bug that prevented the template menu from working in alpha9.
+	Fixed passing of pointers and added type casts to improve portability
+	on platforms with different default sizes of int and pointer.  Updated
+	Makefiles (add declaration of $MAKE for building cht on systems where
+	the default make program is not GNU make; install cht manpage; building
+	cht does not require the math library). Prepared menu items for
+	localisation, updated german translation.
+1.4.a11 Tried a different approach to solve the portability issues in main.c.
+	Dashed wedges are now drawn without the final, widest line (M.Banck),
+	filled wedges adapt to the width of an adjacent wide line.  Corrected
+	rendering of arrowheads in Pictex output.  Added polish translation
+	(Nikodem Kuznik). Added several drawings of antibiotics to the examples
+	and several chiral auxiliaries to the templates (files provided by
+	M.Banck), moved some of the simple examples to the templates. Added '-i
+	/ --interpret' flag to cht to allow using it from the command line
+	(e.g. cht -i C_6H_5OH). Added a rough sketch of the citrate cycle to
+	the examples. Added a Makefile for compiling on 64bit SGI systems
+	(provided by Michiel Kreutzer).
+1.4.a12 Fixed zoom bug introduced with alpha11 (zoom out did not work).
+	Fixed calculation of 'adaptive' wedge width in the export functions.
+	Added key sequence '@*' for the 'dot' symbol character (which is not
+	available with regular keyboard mappings), correspondingly added '*' to
+	the shortcuts available in drawing mode. (For radicals, and to mark the
+	atom positions in cumulenes, ketenes, etc.) Added a new bond type,
+	'striped' single bond for diastereomers.  Drawing a ring with the
+	'circle' bond type now creates a polygon with an aromatic ring inside,
+	instead of a sequence of overlapping circles. Updated Czech
+	translations.
+1.4.a13 Made cht work again (the new interactive mode had an uninitialized
+	variable that prevented normal operation). Fixed a small spelling error
+	in the Czech translation. Added Michiel Kreutzers Makefile for older
+	32bit SGI workstations. Holding the control button while dragging the
+	mouse in scale mode now does anisotropic scaling for '3d' effects.
+1.4.a14 Fixed locale declarations to make language support work again with
+	new glibc. Moved declaration of locale path into the Makefile.
+	Transformed an ugly bunch of 'if' clauses into a switch() for
+	(slightly) faster screen drawing. Modified 'adaptive wedge' drawing
+	code to draw a regular wedge when the angle between the wedge and the
+	wide bond would make the wedge collapse into a thin line.  Fixed a typo
+	in the german locale file, added the trivial updates to the french
+	localisation. Cleaned up the template menu code to fix the problem with
+	missing template icons reported for RedHat 7.1.  Added the updated
+	polish translation provided by Nikodem Kuznik.  Updated the rpm spec
+	file in preparation for the 1.4 release.
+1.4	Added updated russian translation (Michael Shigorin), updated the
+	french translation (my french is horrible). Updated the usage
+	instructions in the README and manual page.Changed rotation and
+	inversion functions to act on the center of the marked fragment
+	(Michael Banck). Reduced sensitivity of the scaling function.  Fixed a
+	potential memory overflow problem in move/rotate/scale.
+-----------
+1.5a1	Added function for importing MDL molfiles (Michael Banck).  Revived
+	'undo' functionality based on Matt Kimballs 'libundo' project (his web
+	page seems to have vanished, as have all other traces of this project,
+	but as it was GPL'ed, we could distribute it with chemtool). Added
+	(untested) export code for the Scalable Vector Graphics (SVG) file
+	format.
+1.5a2	Allowed adding of individual atoms to a marked object by selecting
+	them with Ctrl+mouse. Changed rotation and inversion functions to use
+	the center of the fragment as reference. Removed check for MDL version
+	string in molfile import, as it is missing from BABEL- generated files. 
+	(Michael Banck) Tested (using W3C's Amaya) and fixed the SVG export.
+1.5a3	Fixed MDL molfile parsing, which was sometimes reading incomplete lines.
+	(Michael Banck). Fixed potential memory overflow problem in move,rotate
+	and scale modes (converted a fixed size temporary array to malloc'd
+	storage) and fixed the center calculation in rotate and invert modes
+	(both backports from 1.4 final). Added functions for drawing various
+	boxes (Radek Liboska) and changed the bracket button to display a
+	corresponding popup menu.
+1.5a4   Added curly braces and improved round braces, fixed xfig/latex/ps
+	export of curves (which was broken by a runaway search-and-replace in
+	1.5a2) (Radek Liboska). Added PDB file import (simple distance- based
+	bonding and doing z-axis projection).
+1.5a5	Corrected one of the carbohydrate templates. Changed default extension
+	of SVG files to .xml (mainly for croczilla, the svg-enabled mozilla). 
+	Added function for printing the current drawing (Radek Liboska), added
+	printer configuration dialog.
+1.5a6	Holding the control key while rotating a fragment now snaps to the
+	nearest angle position of the current draw mode (Michael Banck).  Added
+	print scale to the printer configuration panel. Added shortcuts for
+	zoom (Radek Liboska). Made a few small conformance fixes in the SVG
+	export. PDB import now interprets CONECT records if present.  Added a
+	few carbohydrate templates (fucose,xylose,neuraminic acid).  The
+	printer configuration and the current working directory can now be
+	saved in a ~/.chemtoolrc file that is read on startup.
+1.5a7	Fixed filename problem that prevented printing (already broken in 1.5a5,
+	though not in Radeks original patch).  Activated and corrected the code
+	that was supposed to configure the working directory name in alpha6.
+1.5a8	Fixed 180 degrees rollover bug in fragment rotation (Michael Banck). 
+	Added brazilian portuguese localisation provided by Flavio Matsumoto
+	(based on 1.4.1). Expanded template system to allow up to 15 labels per
+	template (from 10). Added a few disaccharide templates (sucrose,
+	maltose,lactose). Fixed position of whiteout box for plain labels in
+	xfig-based export modes. Added tooltips to template system.
+1.5a9	Corrected and completed the template tooltips. Fixed bug in whiteout
+	box positioning - was using uninitalized variable for centered labels
+	since 1.5a8. Updated brazilian portuguese translations to 1.5a8 (Flavio
+	Matsumoto). Replaced the braindead GTK file dialogs with Michael
+	Torrie's 'advanced gtk fileselection' code, which allows consistent
+	handling of extension masks and directory traversal.  Added default
+	path and file extension options to Setup dialog and
+	.chemtoolrc file. Added check for fig2dev version number to handle the
+	recent change in postscript option names. Rewrote export functions to
+	call fig2dev through pipes instead of using unsafe temporary files. 
+	Changed the automatic ring generator to draw six-membered rings with a
+	correct set of double bonds when one of the double bond drawing modes
+	is in use, and improved the accurracy of the ring coordinates (Michael
+	Banck). Rearranged includes (ctype.h first) to work around reported
+	compile problem on Mac OS-X.
+1.5a10	Fixed reference counting of bonds,labels and curves in undo/redo.
+	Added the code from Matt Kimballs original libundo library (compacted
+	into undo.c/undo.h), providing multilevel ('unlimited') undo/redo
+	capability.
+1.5a11	Fixed crashes on export (caused by double close of output stream),
+	reset undo history and drawing position on File->New. 1.5a12 File->New
+was a sure way to crash 1.5a11,should be fixed now.
+	Improved reference counting in undo/redo, the undo stack should now
+	survive both File->New and repeated undo'ing all the way to an empty
+	canvas. Added hooks for more detailed error reporting in the xfig
+	export. Added default shortcuts for Undo and Redo, renamed 'Setup
+	Printer' menuitem to 'Setup Defaults'. Fixed typo that prevented
+	building the old, menuless GUI (which probably noone needs anymore). 
+	Added signal handler to try and save the current drawing in case of a
+	crash.
+1.5a13	Fixed spurious error messages in file exports ( got mixed up with
+	success and failure codes). Fixed crash in XBM export when no region
+	was selected and there were 'active' fragments from an Add, Template,
+	or ringdrawing operation present. Calculation of image width now takes
+	length and direction of labels into account. Added configure script
+	(Michael Banck).  Improved kerning of combined sub- and superscripts in
+	the middle of a label, changed cht call to use mkstemp for temporary
+	file (Masao Kawamura).  Added MDL molfile export (Michael Banck).
+1.5a14	Fixes for stupid bugs in a13 (could cause crashes on Save on some
+	machines; would still complain on export although files exported
+	correctly).
+1.5a15  Improved calculation of label length in SVG and XBM image sizing.
+	Prevented negative image coordinates in XBM export that could cause
+	random patterns to appear at the edges of the image. Added warning
+	dialog for the case where saving or exporting would overwrite an
+	existing file. Added support for drawing bonds of 1/3 and 1/2 standard
+	length.
+1.5a16	Added preview window to file selection dialog. Fixed a few cases
+	where the input file was not properly closed when reading from it
+	returned an error. Fixed spurious error message after successful import
+	of MDL molfiles.
+1.5a17	Activated preview in 'Add' mode. Fixed bug in Torrie's gtkfilesel
+	code that caused a gtk error message when there was no previous
+	filename to display during directory traversal. Added preliminary 3d
+	rotation support to PDB import code (dropping CONECT reading for now -
+	on the other hand the code should be usable for MOL as well).  Added
+	options for PDB label handling (all/non H/unnumbered) on import. 
+	Trimmed extension from the names of imported files on loading to
+	prevent accidental overwriting of the original by the
+	chemtool-generated file. Reset status message on 'File/New'.
+1.5a18	Removed spurios preview area and PDB mode selectors from SaveAs
+	dialog. Added Latex-like brace syntax for multi-character sub- and
+	superscripts (one can now write C_{10}H_{22} instead of C_1_0H_2_2). 
+	Added support for two-digit subscripts in either notation to cht.
+1.5a19	Added 3d rotation support to MDL molfile import, and restored 
+	interpretation of CONECT records in PDB import. Added sanity check of
+	file header to MDL import.
+1.5a20	Default file path could get initialized to meaningless data when
+	a .chemtoolrc was present but had an empty datadir directive. Exchanged
+	x and y rotation axes in 3d import, as the previous arrangement was
+	counter-intuitive. Disabled all editing functions except zooming during
+	3d import. Added filename masks for the import dialogs - *.pdb,*.ent
+	for PDB, *.mol,*.mdl for Molfile.  Modified gtkfilesel code to allow up
+	to three suffix masks.
+1.5a21	Trying to load a chemtool file after importing some other file could
+	cause the program to crash in the file selection dialog if no default
+	filename mask was defined. Changed scaling of imported molfiles to take
+	bond distances in the file into account.
+1.5a22	Moved initial drawing position to make templates and labels appear
+	near the center of the visible canvas instead of in the top left
+	corner. Used pixmaps instead of labels for the navigation buttons in
+	the file dialog. Updated Makefile.in so that cht-1.9 gets built.
+1.5a23	Added sanity check to PDB reader to prevent endless loop on bad
+	input. Updated .spec file and czech locale (Radek Liboska). Removed
+	some dead code, reformatted sources with indent. Replaced pixmaps in
+	file dialog with nicer-looking ones (Michael Banck).  Updated german
+	locale, recreated the localisation template and merged it into the
+	existing fr,pl,pt_BR and ru locale files.  Updated the README file.
+1.5a24	Added labelling shortcuts to draw 'electron pairs' using the numeric
+	keypad (if one imagines the atom symbol sitting on the '5' key, the
+	surrounding keys represent the possible locations of 'electron pair'
+	lines). Fixed SaveAs function (which could invalidate the canvas
+	pixmap). Reconnected Set_Textmode() function to force textmode on
+	activation of the label entry widget only if necessary. First point no
+	longer snaps to closest endpoint when drawing half arrows - this makes
+	drawing equilibrium arrows easier again. One can now use the Ctrl and
+	Shift keys in Move mode to restrict movement to the horizontal and
+	vertical direction respectively.
+1.5a25	Adjusted position of 'electron pairs' a little, added adjustment
+	for left and right side of two-character element symbols. Decreased
+	size of 'whitespace' under labels in the screen display a little. 
+	Added special flag to bonds structure to distinguish regular bonds from
+	decorative elements such as electron pairs, brackets and boxes (for
+	molecular weight calculation and mdl molfile export). Changed helper
+	program CHT accordingly, and made it ignore the 'half arrow' bondtype
+	as well. Updated the README file.
+1.5a26	Corrected file preview (badly applied last-minute patch in the 
+	already uploaded 1.5a25 - if one ignored the compiler warning, the
+	resulting binary would crash on loading a preview). Improved preview
+	window creation to solve some rare crashes. Fixed premature setting of
+	'modified' flag when nothing was changed in a drawing.  Changed 'save'
+	function to write the newly introduced 'decoration' flag only when it
+	is set (as all previous versions are confused by it) and updated the
+	version number in the header. Modified arrow drawing routines to shift
+	the arrowhead when it would be obscured by a label (for drawing
+	N-oxides and boron compouns). Modified CHT to ignore arrows that are
+	not part of a molecule.
+1.5a27	Corrected CONECT record interpretation in PDB import. Corrected
+	initial drawing of imported 3d structure and repositioning error on
+	confirmation of orientation. Fixed clipping of circle diameter line by
+	inscribed characters (necessary for correct xfig/eps output when the
+	circles are (ab)used as "balloons" for fragments.) Changed tidying
+	function to skip over circles. Changed arrow drawing to limit arrowhead
+	size for long arrows. Added bold text, using '#' as control character.
+1.5	Updated spec file (Radek Liboska). Fix for 'stepwise rotation' mode
+	not working for counter-clockwise rotation (Michael Banck). Added a
+	program icon to the main window, and .cht mimetype definitions for
+	Gnome and KDE (Radek Liboska), and updated configure script and
+	Makefile.in to install them as needed. Fixed return code checking for
+	printing (was not recognizing failed attempts due to wrong print
+	command or queue name). Fixed off-by-one error in print status message
+	length that could cause memory corruption.  Updated Brazilian
+	Portuguese translation (Flavio Matsumoto). Updated Russian translation
+	and added .sdf extension to molfile import patterns (Michael Shigorin).
+	Changed SVG filename extension back to .svg, as this is more correct
+	than .xml (and the .xml name turned out to be necessary only as a
+	workaround for a bug in Mozilla that has been fixed in the meantime).
+	Updated Polish translation (Nikodem Kuznik). Made a few cosmetic
+	changes in Makefile.in (Michael Banck).
+----------------------------------------------------------------------------
+1.6a1	Added universal import mode based on BABEL (both Pat Walters' original
+	version and the recent OpenBabel effort) converting to MDL molfile in a
+	pipe. Began adding more elements to cht.
+1.6a2	Menu entry 'Import (Babel)' is now only greyed out, no longer omitted
+	if babel is not found on the system. Added exact masses for the
+	elements added to cht in 16a1 (Ca,Cd,Co,Cr,Cu,Fe,Mn,Ni), completed
+	element list for all stable maingroup elements (except noble gases) and
+	the first row of transition metals. Added greek Phi (@F) as alternative
+	symbol for Ph in cht. Updated the manpage for cht, and changed its
+	Makefile.in to use the new version 2.3 of the source file for building.
+1.6a3	Corrected typo that prevented import via the old babel-1.6. Fixed 
+	molfile (or babel-based) import of molecules with more than 100 bonds.
+	Added dodecahedrane,pagodane and C70 (derived from the CSD database
+	entries) to the examples.
+1.6a4	Added partial support for EMF export (needs libEMF from sourceforge, 
+	and configure --enable-emf). Spline curves (i.e. curved arrows, orbital
+	lobes and the like) are not yet exported, and text seems to be broken
+	at least when viewed with SO 5.2. Fixed file selection dialogs to hide
+	the babel-specific part only if it has actually been created (that is,
+	when babel is installed). Fixed PDB import that got broken by the new
+	babel code (it was falling through to babel mode). Improved SVG
+	linewidths, scaling and labeling (Radek Liboska).
+1.6a5	Fixed configure,configure.in and config.h.in to actually provide EMF
+	option. Modified image sizing and label positioning in EMF export.
+1.6a6 Corrected EMF frame size calculation and drawing of invisible box
+	around EMF image. Removed duplicate atom label from viagra example.
+ 	Added EMF export of spline objects (orbitals, curved arrows, etc.). 
+ 	Updated French translation (Jerome Pansanel). Added DESTDIR build
+ 	option to Makefile.in and .desktop and .spec file for the Polish Linux
+ 	Distribution (in subdir ./pld for now) (Pawel Golaszewski).
+1.6a7	Added portability fixes to the undo code (*BSD and HPUX have MAP_ANON 
+	but not MAP_ANONYMOUS, and insist on fd being -1 when mmaping memory)
+	(Nakata Maho).  Added optional display of a (passive) background grid
+	for positioning.  Fixed output of greek characters in SVG export (glyph
+	order differs in UTF and in the X11 Symbol set used by chemtool).
+1.6a8	Prevented crash in babel-based import without valid input data, and 
+	fixed a race condition that could cause chemtool to suggest
+	installation of babel although it had just found it. Added missing
+	typecast in undo.c to quieten compiler on some platforms. Fixed
+	Makefile.in for cht and removed a few unused functions from cht.c that
+	might cause portability problems (Christian Weisgerber). Added SVG
+	translation for the bullet symbol used for allenes or above-plane CH. 
+	Updated TODO list based on suggestions received from Radek Liboska. 
+	Cursor keys can now be used for pixel-precise drawing (and cursor key
+	in combination with Shift key moves cursor position by five pixels). 
+	Changed gridsize to correspond to default bondlength,added hexagonal
+	grid. The cleanup function now rightens bonds that deviate from ideal
+	horizontal or vertical orientation by a single pixel - this is
+	sometimes not visible on screen, but very much visible when printed. 
+	The print dialog and the XFig, LaTeX and EPS export options are now
+	greyed out if fig2dev is not found at startup. Added the beginnings of
+	color support (bonds and text can be black,red,green,blue,cyan, magenta
+	or yellow). The requirement to write the 'decoration' flag in order to
+	be able to write the color code behind it makes files written with this
+	version finally incompatible with 1.4 and earlier.  Fixed a race
+	condition between mouse motion and buttonpress events that could lead
+	to transient garbage on the screen (Daniel Uppstroem).  Rubberband
+	marker rectangle can now be drawn right-to left and bottom-to-top as
+	well (Daniel Uppstroem).
+1.6a9	Added another portability fix to the undo code - some systems, e.g. 
+	pre-8 Solaris, have neither MAP_ANON nor MAP_ANONYMOUS, but use
+	/dev/zero instead (Fabio Rainone, by way of Thomas Volk). Fixed label
+	reading code in the file loading functions to account for new textcolor
+	field, incremented version number in the file header. Added SVG color
+	support. Added cursor key support in 'Move fragment' mode.
+1.6a10  The background grid can now be moved using Alt+Cursorkey. Spline curves
+	can now be drawn in color too. The pen now snaps to additional grid
+	positions at two and three times the standard bond length. Added a
+	brief help text to accompany the 'About' window in the 'Help' menu.
+1.6a11	Extended the hexagonal backdrop to cover the whole canvas again. 
+	Removed unnecessary `radio button' boxes on the items in the bond type
+	selection menu. Created new row in main window for the text entry
+	widget. Corrected screen drawing of blanks in labels (apparently a
+	victim of cut-and-paste coding since at least v1.5). Added limited
+	support for an alternate text font (bold,italic or sub/superscript are
+	still drawn in Helvetica when this font is active).  Added font button
+	for switching between the standard Helvetica font and Times Roman (with
+	the label of the text entry widget changing accordingly).
+1.6a12	Replaced the stock gtkmenu code with an own version based on a patch 
+	by Matt Kimball (found in the gtk-devel mailinglist archive on gtk.org)
+	which adds scrolling functionality to long optionmenues. This solves
+	the problem of the babel import types being partly inaccessible due to
+	the menu extending beyond the screen.
+1.6a13	Fixed gtk pixmap reference problem in the Add dialog. Revived code for
+	selection of single atoms, added marking of such selected atom with a
+	green rectangle. Attachment site can be marked before saving a molecule
+	or fragment, it then becomes the reference point for adding this
+	fragment to other molecules (previously, this had to be the first atom
+	in a file). Attachment sites are marked in the preview window by a
+	small x.
+1.6a14  Attachment site marker is now transformed (shifted, rotated or
+	rescaled) with the fragment it is attached to. Drawing using the cursor
+	keys is now controlled by the state of the shift key, i.e. one no
+	longer has to keep the mouse button pressed during key-based cursor
+	motion.  Pressing Return commits a line, while in Move mode it 'drops'
+	(unmarks) the marked fragment. Added support for new transfig version
+	3.2.4 (or current beta) that is able to generate preview bitmaps in eps
+	files directly.
+1.6a15	Updated rpm spec file. Added option to change the baselength of
+	bonds (normally 10.668 mm). Removed references to Thomas Volks original
+	website, which no longer exists.
+1.6a16	Corrected check for newest transfig/fig2dev.
+	Have new fig2dev generate monochrome TIFF previews inside the eps file
+	instead of color - those were just too big. (A simple reaction scheme
+	goes from 14kb eps to 60kb with b/w preview, and to 3 megabytes with
+	color. The ascii EPSI previews are not much smaller than monochrome
+	TIFF (55kb), and not as widely supported.  Offer EMF output via fig2dev
+	if sufficiently new version is installed (builtin EMF is still
+	available as a compile-time option).  Fixed ugly string overflow bug
+	introduced by the rewrite of the default error message for formula
+	weight calculation in alpha10
+	- this could cause crashes typically via the action sequence 'draw
+	something, select mark mode,calculate fw, select draw mode again'. 
+	Thanks to Radek Liboska for alerting me to this problem.
+1.6a17	Reenabled moving of newly 'Add'ed molecules (broken in a13).
+	Improved rendering of 'Cl' in labels containing sub- or superscripts.
+	Made eps preview addition a configurable (runtime) option. Changed
+	title of configuration window, changed configuration menues to use
+	regular menuitems instead of ugly check_menu_item widgets.  Corrected
+	width of white boxes under centered, non-sub/superscripted labels in
+	the xfig-based export modes. Drawing these boxes is now an option (and
+	switched off by default !). Corrected height and width information on
+	fig text objects. Shortened wedge bonds connected to labels to remove
+	the swallowtail effect that was sometimes visible on oblique bonds. 
+	Made fig2dev version check more robust. Removed a duplicate bond in the
+	Indolizomycin example.  Made F1 help text and template tooltips
+	available for translation, added German translation of help text.
+1.6a18	Added bold and italic variants of the alternate (Times Roman) font
+	in the xfig-based export modes (Michael Banck). Fixed wrong xfig
+	font_flag setting that could lead to missing or clipped labels in (e)ps
+	export. Re-enabled deleting marked fragments by right-clicking,
+	modified atom picking code for insertion points to be more reliable. 
+	Fixed "bondtype" button to update bond color as well as type.
+1.6a19  Smoothed wedge-single bond intersections (Michael Banck). Added 
+	background color option for display and eps export. 1.6a20 Changed
+preview mode to enforce a white background on labels, not
+	the current canvas color. Changed font handling to load all sizes once
+	on startup instead of always loading and unloading just the set needed
+	for the current zoom scale. Switched to scaled fonts at 17 and 20pt
+	instead of using the default 18pt twice. Added fontsize property to
+	text - text at 8,10,12,14,17,20 and 24pt can now coexist in a drawing. 
+	Increased allowed label length to 100 and fixed a bug that could
+	truncate labels to well below 80 characters on loading.  Fixed overflow
+	in color code calculation that caused a white canvas to turn into an
+	almost black background on eps export in alpha19.
+1.6a21	Fixed nasty bug introduced in a20 (increase of label length constant
+	MAXCL was not reflected in ct1.h, so different parts of the program had
+	different ideas about the size of label data, causing crashes in
+	Undo/Redo or File->New). Changed label shortcut to use the currently
+	selected fontsize instead of the default for the current zoom scale
+	(Michael Banck). Reduced number of lines in dashed wedge from 10 to 5
+	(Michael Banck). Modified dashed wedge and dotted line to draw a
+	variable number of items (lines / dots) at constant interval instead of
+	always drawing 10(5) equally spaced for lines of any length. Added hint
+	for bold text to the textbox tooltip message.
+1.6a22	Some objects (wedges,arrowheads,filled splines) were still exported
+	with black interior regardless of their color. Color information for
+	splines was read back but ignored on loading a file. The special
+	treatment of wedge-bond-joins introduced in a19 could produce ugly
+	results when the wide end of the wedge met two or more bonds.  Changed
+	number of lines in dashed wedges back to 10 for default length. 
+	Improved(?) text kerning in xfig-based print and export.
+1.6a23	Allowed changing the properties of a dashed bond (by fixing an "off 
+	by one" error) (Radek Liboska). Fixed several bugs in SVG output
+	(incorrect viewBox, wrong string length in color definition, missing
+	fill attribute on text, syntax error in dashed line specification, bad
+	arrowhead position) and added SVG support for variable text size, bold,
+	italic and Times font (Radek Liboska).  Modified text kerning in
+	fig-based output once more. Updated Makefile.in to actually use the
+	improved gtkmenu code introduced in 16a12, added 'lint' target for code
+	checking with splint. Applied fixes (mostly typecasts) suggested by
+	splint -weak. Updated Czech translation (Radek Liboska).
+1.6a24	Corrected mistyped fontsizes for sub- and superscripts in SVG,
+	eliminated a debug message (Radek Liboska). Changed number of dashes in
+	dashed wedges to seven, which seems to be a good compromise.  Corrected
+	SVG representation of the 'wavy' bond. In text mode, left-clicking
+	while holding the ctrl key now places an automatically incrementing
+	counter at the cursor position for numbering sites.  (There is
+	currently no way to reset or otherwise modify the counter, it is reset
+	only by 'New'. Note however that it becomes an ordinary label that can
+	be moved or edited after placing it).
+1.6a25	Changed double bond drawing code to no longer switch sides depending
+	on drawing (or rotation) angle. (As a result of this, many templates
+	and older drawings will need fixing, as bondtype 1 now consistently has
+	the shorter bond on its left (assuming clockwise drawing), type 2 on
+	its right.) Ctrl-rightmouse in text mode now resets the atom number
+	counter introduced in alpha24, Ctrl-middle mouse sets it to the value
+	in the text entry box (or zero, if no valid number can be read).
+1.6a26	Applied Daniel Uppstroem's patch of 16a8 to the fragment move/rotate
+	code, as the same kind of race condition existed there and could make a
+	fragment assume the position (and even geometry) of a previously
+	moved/rotated one. Some labels in the enhanced fileselection code were
+	not available for translation (Radek Liboska). Spline curves could not
+	be 'unmarked' by the Unmark_all function. Loading a template now
+	removes all previously active markers again. Adapted templates and
+	examples to the changed double bond drawing scheme, renamed some of the
+	examples that were previously just example#. Adapted ring drawing
+	shortcut to the changed double bond drawing scheme (Michael Banck).
+1.6a27  Rescaling a molecule now also scales its labels. Downscaling beyond 
+	zero size (causing strange inversions) is no longer possible. Updated
+	master .pot file for translations. Corrected label size setting in
+	molecules read from templates (which was not yet adapted to the new
+	fontsize scheme). Changed label printing in the xfig-based output modes
+	once again to support the recent changes to the font and zoom code. 
+	Added wedge/bond joining to the SVG export mode. Renamed the "Orbitals"
+	template menu to "Symbols" and added "plus", "minus" and a
+	rearrangement arrow to it. Added a note about building chemtool on
+	systems that do not allow name clashes with library functions to the
+	INSTALL document (CYGWIN apparently does not let us use our own gtkmenu
+	and gtkfileselection - ultimately, configure should test this).
+1.6a28	Added two new bond types, a triple bond with all three lines equal,
+	and a quadruple bond. Fixed bad nesting of loops in svg export that led
+	to duplication of lines instead of the intended wedge join of a27. 
+	Tweaked subscript positioning in fig-based output some more,
+	implemented bond pruning at label positions.
+1.6a29	Added a portability fix for systems like GNU Hurd that have neither 
+	PATH_MAX nor MAXPATHLEN (Michael Banck). Suppressed the ugly markers
+	that decorated previously selected items in the fontsize menu (Michael
+	Banck). Saving via the Ctrl-S shortcut now produces a feedback message
+	in the status line (Michael Banck). Saving via the shortcut function
+	did not work if the drawing contained only curve objects. Changed
+	export functions to use a fixed fontheight conversion table, which
+	should resolve label positioning problems seen on at least one system
+	with a non-standard Helvetica screen font. Reduced the amount of bond
+	pruning around labels. Improved the positioning of right-justified
+	labels by using individual character widths instead of average values
+	in calculation of text length. Corrected horizontal placement of italic
+	characters fig and fig-based export modes.
+1.6	Added a 'configure' option to select between using our menu and
+	fileselection functions and the stock GTK+-1.2 ones (set to use our own
+ 	by default, unless on AIX or CYGWIN, where overloading of library
+ 	functions is not possible). Updated the INSTALL document accordingly. 
+ 	Removed most of the obsolete cht versions from src-cht and fixed the
+ 	conditional in the main Makefile that was still looking for an older
+ 	version of the sources. Updated the manual page. Added an overview of
+ 	the changes from the last stable version. Added tooltip for font
+ 	selection button. Corrected helptext section on semiautomatic ring
+ 	drawing, which was still refering to function keys. Made several
+ 	messages and items available for translation. Updated German
+ 	translation. Updated Polish translation (Nikodem Kuznik). Updated Czech
+ 	translation (Radek Liboska). Fixed bug that caused heterocycle
+ 	templates to be inserted with the 'decoration' flag set (and hence
+ 	ignored in subsequent m.w. calculations) (Radek Liboska). Changed babel
+ 	identification to take the recent change in usage message behaviour
+ 	into account (needs -H for mode list in >= 1.100.1).  Corrected GTK
+ 	initialization for Russian locale (Michael Shigorin).  Suppressed
+ 	display of empty tooltip boxes for empty templates.
+1.6.1	Fixed copy&paste error in helpwindow code that prevented catching
+	of windowmanager kill signal (resulting in help window being
+	unavailable after closing via window decoration instead of Ok button). 
+	Increased message length for semiautomatic ring drawing to prevent
+	truncation of translated messages. Use a less strict test for labels on
+	bond ends to improve reliability of the bond pruning on export. 
+	Updated French translation (Jerome Pansanel). Increased xfig label
+	length value to prevent excessive clipping in eps export. Adjusted
+	right-aligned labels and spacing around parentheses in xfig-based
+	export modes. Added proper escaping of percent and dollar characters in
+	latex export. Hopefully fixed compatibility problem with some SGI Irix
+	systems caused by misapplication of Fabio Rainone's patches to the undo
+	code in 1.6a9. Fixed potential crash on startup or font style switching
+	that could result from missing Times or Helvetica fonts. Modified font
+	loading to try the corresponding 100dpi font if a 75dpi font cannot be
+	found. Special characters in Latex/PicTex export were not enclosed in
+	$'s as they should be (Bruno Parente).  Added proper linestyle
+	initialization for all pencolors to make linewidth scale with zoom
+	level again (Soeren Kristensen). SVG output improvements (Radek
+	Liboska): added semicolons in style options, tweaked label y positions,
+	use y displacement on sub/superscripts instead of the baseline-shift
+	keyword, as the latter is not supported by some popular SVG editors
+	(sodipodi and inkscape). In text mode, left-clicking on a label while
+	the entry box is empty now updates font, size, color and alignment of
+	that label to the current settings.  In drawing modes, pressing the
+	spacebar allows entering regular labels without leaving drawing mode
+	(label is stored with 'Return'). Updated Brazilian Portuguese
+	translation (Flavio Massao Matsumoto). Changed rindex() to its POSIX
+	equivalent strrchr to improve portability.  Updated README and chemtool
+	manual page, and added an html copy.
+1.6.2	Right-justified labels where misplaced by one character width on 
+	export. It is now possible to drag bonds in 'move' mode without having
+	to 'mark' them first. Configure script now searches several locations
+	for KDE by default.
+1.6.3	Added forgotten parentheses around an if statement that prevented
+	compilation on OS X. Converted all sprintf statements to snprintf,
+	added type casts (and some directives) to make splint happy again. 
+	(Using it would have prevented the error above - now a "make lint"
+	should again report no issues until something gets broken again.) Added
+	.cht extension to all remaining example file names, added
+	anthocyanidine example (which uses color for variable substituents). 
+	Changed configure script to add Darwin-specific LDFLAGS that allow us
+	to use our own gtk widgets on OS X (Andrew Rohl).  Changed Makefile.in
+	to allow overriding its CFLAGS and CPPFLAGS settings as mentioned in
+	the help message of configure.  Corrected prototypes of the 'undo'
+	functions in ct1.h (taken from the SuSE 9.1 srpm - meissner@suse.de). 
+	Changed all int/pointer conversions to use the glib macros instead of
+	direct type casts - this makes chemtool work on 64 bit platforms
+	(again?).  Updated cht to recognize the second and third row of
+	transition elements. Added cht's table of known abbreviations to both
+	README and using_chemtool.html.
+1.6.4	Added LaTeX translations for degree, copyright, plusminus. 
+	Added amino acid template. Limited arrowhead size for curved arrows.
+	Changed positioning of left-justified labels without sub/superscript,
+	reduced size and modified placement of sub/superscripts on export to
+	more closely resemble the screen display. Changed font loading to
+	require either 75dpi or 100dpi fonts, not a mixture of both. Added
+	install -d targets for kde directories to Makefile.in. Extended xfig
+	compound box (and optional whiteout box) to cover sub/super- scripts,
+	corrected box size for sub/superscripted, right-justified labels. Added
+	#ifdefs for compilation with GTK 2.x and adapted the configure script. 
+	If both GTK 1.x and 2.x are found, configure defaults to using 2.x,
+	unless it was invoked with --enable-gtk1 .
+1.6.5	Added Dutch localisation (Myckel Habets). Modified molfile output to
+	translate OH,SH,NH,NH_2,PH,CH,CH_2,CH_3 into non-H atom plus hydrogen
+	count and avoid use of 'query' bondtypes such as 'single or aromatic'. 
+	Fixed atom symbol justification in molfile export. Fixed compilation
+	without GNU gettext and with the old-style button bar instead of menus. 
+	Corrected non-posix test semantics in configure.in and configure (which
+	broke the FreeBSD port). Modified the built-in MDL molfile reader to
+	skip over optional atom properties blocks.  Cleaned up the naphthalene
+	template (rings not perfectly joined).  Added mdl molfile preview,
+	import of V3000 molfiles, sdf reading support and preview browsing
+	within sdf files.
+1.6.6	Fixed a killer bug in the mdl preview code that must have crept in
+	during a last minute edit. Fixed drawing of "wiggly" (unknown stereo-
+	chemistry) bonds. Improved scaling in the molfile preview window and
+	made it display heteroatom labels. Added a sample sdf file.
+1.6.7	Various GTK2 fixes backported from the 1.7 alpha series: 
+	labels containing sub- or superscript were exported with all characters
+	overlayed in the same position; the opening brace of multi-character
+	subscripts was displayed on the screen; sub- and superscripts were too
+	close to the regular baseline; symbol characters were rendered as
+	regular latin characters or not at all; misdetection of the fig2dev
+	version caused eps output to be full-page postscript; the background
+	color selector could crash the program.  RPM spec file did not install
+	the dutch locale file.  General fixes and enhancements backported from
+	the 1.7 alpha series: Optional output to OpenOffice Draw (sxd) format
+	using fig2sxd.  SVG export lacked the 'xmlns' namespace tag (important
+	at least for firefox 1.1) and did not handle the 'radical' dot
+	correctly. SVG export uses rgb color values instead of color names for
+	compatibility.  The pencolor button was made wider to make it easier to
+	recognize its color. The keys of the decimal keypad block now draw two
+	dots instead of a line for an electron pair when used together with the
+	shift key.  The separation between the lines of double and triple bonds
+	is now configurable. New bond types for drawing filled and unfilled p
+	orbitals.
+1.6.8   Use dy instead of y in SVG sub/superscripting to work around yet 
+	another	bug in current firefox and konqueror. "Hexagonal" background
+	grid is actually rhombic, changed descriptions and menu texts
+	accordingly (Tamas Tevesz). Extended check for babel to recognize
+	OpenBabel 2.0. Fixed a long-standing bug, probably dating back to
+	1.4a1, that manifested itself in crashes when compiled with gcc 4.0.x
+	and optimization (Michal Marek/Richard Guenther). Reduced button
+	spacing in gtk2 builds to keep rightmost button in full view.  Mouse
+	button 3 (right button) in move or rotate mode now aborts/undoes the
+	transformation. Added a function to export files through babel.
+1.6.9	Fixed placement of sub/superscripted, right-justified labels in gtk2 
+	screen view and fig-based exports. Improved character spacing in gtk2
+	label output. Fig-based EMF export now uses a temporary file to work
+	around a bug in fig2dev. Corrected whitespace calculation for gtk2
+	screen rendering of labels. Labels that (incorrectly) end with a sub-
+	or superscript marker are now truncated before rendering. Corrected
+	screen and file rendering of triple bonds with all three lines of equal
+	length, and screen rendering of quadruple bonds.
+1.6.10	Fixed copy/paste error that affected switching from text mode to spline
+        drawing (rescaling was activated instead). Fixed interaction between
+	menu accelerators and labeling shortcuts. Restyled options menu
+	(Sebastian Koppehel). Fixed more gtk2/unicode breakage (non-ascii,
+	non-greek characters were not displayed correctly and could even crash
+	the program). Added a "round brackets" (parentheses) option to the
+	box/bracket tool. Added option for fig2dev's international language
+	support flag to allow exporting/printing of non-(western)European
+	language labels and reduced width of arrowheads in ps/eps output
+	(suggested by Andrei Golosovsky). Fixed compile problem in cht with
+	recent gcc/glibc. Made the program more robust against errors in
+	imported files (thanks to compile checks done by ALTlinux). Mentioned
+	configure's options and useful settings for compiling on CYGWIN in the
+	INSTALL document. Fix size of arrowheads and positioning of
+	superscripts in SVG export (based on patch by Javeed Shaikh).  Included
+	a copy of the GNU GPL file COPYING to clarify license status for
+	packagers. Updated the manual page. Fixed comparison against string
+	literal (Pavol Rusnak). SVG output left blanks in labels unprotected,
+	breaking subsequent saving of file. Fixed SVG output of upper half of
+	ISO8859 in the (unicode-unaware) GTK1 build. Fixed crash after
+	detection of a non-functional babel installation (e.g. due to missing
+	libraries). Added fig2dev/gs-based export to PNG. Fixed duplicate
+	filetype selector in the "Import (Babel)" menu and allocation problem
+	in creating the list of supported file types.  Screen display now uses
+	bond clipping instead of placing spots of background color underneath
+	labels. Exporting to an unwritable path could crash chemtool (if a pipe
+	error was raised before the write error was handled).  Added "kprinter"
+	option to print command selection. Fixed overly eager cleanup function
+	that was removing the drop shadows from the decorated boxes. Fixed
+	"load" operation to invalidate any pending "mark" rectangles. Revised
+	calculation of text lengths in xfig output. Added templates for the
+	isomers of diazole and for two representations of the morphine
+	structure.
+1.6.11	Reworked the package structure to conform to the usual autotools and
+	gettext conventions in the hope that this simplifies maintenance of
+	translations. (I have disabled creation of fuzzy translations in the
+	po/Makefile.* after seeing morphine translated as porphine
+	(understandable) and mannose as exit (huh???)). Re-enabled translation
+	of several error messages; updated translations. Corrected calculation
+	of text dimensions for simple labels (fixes label truncation in
+	fig-based export modes as reported by Nuno Azoia). Current bond length
+	and zoom factor are now saved in structure files and restored upon Load
+	(but not Add). Export to OpenOffice should not use the LaTeX flag. 
+	Fixed truncation of triple and "left"-double bonds with labels in the
+	screen drawing. Updated the README file.  Made another attempt at
+	improving the rendering of sub/superscripted labels in print and
+	fig-based export modes. Fixed substituent alignment in the tetracycline
+	example. Fixed previewing of files created with older versions of 
+	chemtool (that lack color information, such as many of the provided
+	examples). Added the "gtklp" cups frontend to the print commands menu
+	and made the "kprinter" entry actually usable. Reformatted this 
+	ChangeLog to once again fit into 80 chars per line. Added European 
+	Portuguese translation (Nuno Azoia). Updated the chemtool manpage and 
+	the introductory html file. 
+1.6.12	Improved trunctation of bonds between labels at the same height 
+	(e.g. CH2-CH2).  Added simple batch mode operation - when invoked as 
+	"chemtoolbg <format> <infile>", it converts the given chemtool file to
+        the desired output format without opening a window. Corrected label
+	spacing after parentheses. Improved manpage formatting (Daniel Leidert).
+	Fixed SVG export of texts containing xml special characters (<,>,&).
+	Chemtool now checks the screen dimensions on startup and reduces its
+	window height if necessary to fit on small (asus eeepc) screens.
+	Added Bulgarian translation (Svetoslav Stefanov). Removed unused 
+	function declarations from cht. Marked objects are now highlighted
+	by increased linewidth. Copying no longer offsets the copy from the
+	original by default, thereby keeping alignment between copies.
+	Resurrected support for building against an external libEMF. Changed
+	molfile export to make Y axis direction consistent with other programs.
+	Updated polish translation (Micha Smoczyk). Added bond color "white"
+	for drawing on colored backgrounds. Changed pencolor selection button
+	to present a drop-down menu instead of switching to the next color. 
+....
+1.6.13	Initialized background color setting for all modes. Fixed building with
+	gnu "gold" linker and similar systems that do not resolve indirect dependencies
+	on libX11 automatically (Dominik Mierzejewski,Daniel Leidert). Tweaked the 
+        settings for the "crossing" bond to allow clipping of other bonds closer 
+	to its endpoints. Added missing "undo" savepoint on entering "Move" mode. 
+	When a default extension is defined, it is now automatically appended to the 
+	filename on saving if needed (Pavel Solntsev via Michael Shigorin).
+	Fixed mis-declaration of color numbers for the font and pencolor icons
+	that could cause a crash on startup especially when compiling with gcc-4.5
+	and later. Added limited support for "special" (such as greek) characters
+	inserted by cut-and-paste from OpenOffice or other UTF-8 capable programs.
+	(Internally, these are converted to the "@+character" encoding, so only the
+	already supported range of symbols will work. This is mostly due to chemtool's
+	reliance on xfig/transfig). Changed conditionals for national language support
+	to the standard ENABLE_NLS understood by configure (Daniel Leidert - this fixes
+	missed support for translations in the default Debian packages).
+1.6.14  Updated build system to autoconf-2.69 to allow building for ARM64 (Fedora bug 
+	925219). Fixed potential crash due to double free() in EPS and related outputs.
+	Fixed illegal memory access in EPS output of sub/superscripted characters.
+	Fixed detection of newer versions of openbabel.
+
