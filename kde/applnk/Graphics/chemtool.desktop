@@ -1,0 +1,10 @@
+[Desktop Entry]
+Comment=Molecule Drawing Program
+Exec=chemtool
+Icon=graphics_section.xpm
+InitialPreference=2
+MimeType=application/x-chemtool;Application
+Name=Chemtool
+ServiceTypes=
+Terminal=false
+Type=Application

@@ -1,0 +1,1316 @@
+# translation of pl.po to
+# Copyright (C) 2003, 2008 Free Software Foundation, Inc.
+# Nikodem Ku¼nik <nkuznik@yahoo.com>, 2003
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pl\n"
+"Report-Msgid-Bugs-To: martin@ruby.chemie.uni-freiburg.de\n"
+"POT-Creation-Date: 2007-05-23 23:58+0200\n"
+"PO-Revision-Date: 2008-12-13 16:16+0100\n"
+"Last-Translator: Micha³ Smoczyk\n"
+"Language-Team:  <pl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: main.c:217
+msgid ""
+"The current drawing is not saved !\n"
+"Do you really wish to continue ?"
+msgstr ""
+"Rysunek nie zosta³ zapisany!\n"
+"Czy chcesz kontynuowaæ?"
+
+#: main.c:225 main.c:293
+msgid "Yes"
+msgstr "Tak"
+
+#: main.c:240 main.c:308
+msgid "No"
+msgstr "Nie"
+
+#: main.c:284
+#, c-format
+msgid ""
+"File\n"
+"%s\n"
+"already exists !\n"
+"Overwrite it ?"
+msgstr ""
+"Plik\n"
+"%s\n"
+"ju¿ istnieje !\n"
+"Nadpisaæ ?"
+
+#: main.c:660
+#, c-format
+msgid ""
+"\n"
+"Next ring drawn will have %d sides"
+msgstr ""
+"\n"
+"Nastêpny pier¶cieñ bêdzie mia³ %d boki"
+
+#: main.c:1033
+#, c-format
+msgid ""
+"\n"
+"Imported %d bonds and %d labels"
+msgstr ""
+"\n"
+"Importowano %d wi±zañ i %d etykiet"
+
+#: main.c:1359 main.c:2667 main.c:5829
+msgid "unnamed"
+msgstr "bez_nazwy"
+
+#: main.c:1361
+#, c-format
+msgid ""
+"\n"
+"Ready"
+msgstr ""
+"\n"
+"Gotowy"
+
+#: main.c:1389
+#, c-format
+msgid ""
+"\n"
+"Helper process failed - %s %s %s %s!"
+msgstr ""
+"\n"
+"Otwarcie pomocy nie powiod³o siê - %s %s %s %s!"
+
+#: main.c:1394
+#, c-format
+msgid ""
+"\n"
+"%s    %s  %s  %s"
+msgstr ""
+"\n"
+"%s    %s  %s  %s"
+
+#: main.c:1416
+#, c-format
+msgid ""
+"\n"
+"Drawing printed!"
+msgstr ""
+"\n"
+"Rysunek zosta³ wydrukowany!"
+
+#: main.c:1420
+#, c-format
+msgid ""
+"\n"
+"Failed to print drawing !"
+msgstr ""
+"\n"
+"Wydrukowanie rysunku nie powiod³o siê !"
+
+#: main.c:1783
+#, c-format
+msgid "invalid angle mode %d\n"
+msgstr "nieprawid³owe ustawienie k±ta %d\n"
+
+#: main.c:1803
+#, c-format
+msgid "invalid text mode %d\n"
+msgstr "nieprawid³owe ustawienie tekstu %d\n"
+
+#: main.c:2353
+msgid "Load from file..."
+msgstr "Za³aduj z pliku..."
+
+#: main.c:2394
+msgid "Import MDL file..."
+msgstr "Importuj plik MDL..."
+
+#: main.c:2434
+msgid "Import via BABEL..."
+msgstr "Importuj poprzez BABEL..."
+
+#: main.c:2456
+msgid "Export via BABEL..."
+msgstr "Eksportuj poprzez BABEL..."
+
+#: main.c:2478
+msgid "Import PDB file..."
+msgstr "Importuj plik PDB..."
+
+#: main.c:2521
+msgid "Add from file..."
+msgstr "Dodaj z pliku..."
+
+#: main.c:2637
+msgid "Save as..."
+msgstr "Zapisz jako..."
+
+#: main.c:2656
+#, c-format
+msgid ""
+"\n"
+"Nothing to save"
+msgstr ""
+"\n"
+"Brak danych do zapisania"
+
+#: main.c:2682
+#, c-format
+msgid ""
+"\n"
+"Writing to %s failed !"
+msgstr ""
+"\n"
+"Zapisanie do %s nie powiod³o siê !"
+
+#: main.c:2687
+#, c-format
+msgid ""
+"\n"
+"Drawing saved in %s (%d bonds, %d labels)"
+msgstr ""
+"\n"
+"Rysunek zapisano jako %s (%d wi±zañ, %d etykiet)"
+
+#: main.c:2821 main.c:3176
+#, c-format
+msgid ""
+"Writing to\n"
+" %s\n"
+"failed !\n"
+msgstr ""
+"Zapisanie do\n"
+" %s\n"
+"nie powiod³o siê !\n"
+
+#: main.c:2829
+#, c-format
+msgid ""
+"\n"
+"Drawing exported as %s (%d bonds, %d labels)"
+msgstr ""
+"\n"
+"Rysunek eksportowano jako %s (%d wi±zañ, %d etykiet)"
+
+#: main.c:2906
+#, c-format
+msgid "SDF entry: %d"
+msgstr ""
+
+#: main.c:2979 main.c:3060 main.c:3101 main.c:3138
+#, c-format
+msgid "Unable to open %s\n"
+msgstr "Nie mo¿na otworzyæ %s\n"
+
+#: main.c:2986
+#, c-format
+msgid ""
+"%s\n"
+" does not appear to be a Chemtool file\n"
+msgstr ""
+"%s\n"
+" nie jest plikiem programu Chemtool\n"
+
+#: main.c:2996
+#, c-format
+msgid ""
+"%s was created by a newer version.\n"
+"Some features may be lost.\n"
+msgstr ""
+"%s zosta³ utworzony przez nowsz± wersjê programu \n"
+"Niektóre funkcje mog± nie dzia³aæ prawid³owo.\n"
+
+#: main.c:3009
+#, c-format
+msgid "Error loading %s \n"
+msgstr "B³±d podczas wczytywania %s \n"
+
+#: main.c:3048 main.c:3089 main.c:3126
+#, c-format
+msgid ""
+"\n"
+"Choose orientation (Ctrl-Mouse1 for z), press Enter when done"
+msgstr ""
+"\n"
+"Wybierz orientacjê (Ctrl-Mysz1 dla z), po zakoñczeniu naci¶nij Enter"
+
+#: main.c:3067 main.c:3145
+#, c-format
+msgid "Problems converting %s\n"
+msgstr "Problemy podczas konwersji %s\n"
+
+#: main.c:3181
+#, c-format
+msgid ""
+"Drawing saved in\n"
+" %s\n"
+" (%d bonds, %d labels)\n"
+msgstr ""
+"Rysunek zapisano jako\n"
+" %s\n"
+" (%d wi±zañ, %d etykiet)\n"
+
+#: main.c:3259
+msgid ""
+"Click and drag the mouse to draw bonds on the canvas. \n"
+"The right mouse button is used to delete objects - either bonds\n"
+"or text depending on which drawing mode is active.\n"
+"\n"
+"The buttons with different ringtypes on them select drawing modes\n"
+"with preferred angles, but you can actually draw at any angle in all modes.\n"
+"\n"
+"The button with the segmented line on it lets you draw curves by marking\n"
+"control points along the curve (a cubic spline).\n"
+"You can select the bondtype and color using the appropriate button\n"
+"or change them later by clicking on the desired bond in Bonds mode.\n"
+"\n"
+"To draw a cyclic system, simply press the Ctrl key together with the\n"
+"number key corresponding to the number of sides for the polygon, and\n"
+"then draw one side while pressing the Ctrl button.\n"
+"\n"
+"For drawing labels, write them into the text box in the top right of the "
+"window\n"
+"and place them on the canvas with the mouse. You can also use a number of\n"
+"keyboard shortcuts for common labels while in bond drawing mode:\n"
+"Simply press the 'c' key, or n,o,p,s,f to add the element symbol at\n"
+" the current drawing position, 1,2 and 3 for CH, CH_2 and CH_3, l for Cl,\n"
+" * for a big dot.\n"
+"\n"
+"The keys of the numeric keypad each insert an 'electron pair' line\n"
+"around an atom symbol in the position corresponding to the location\n"
+"of the key around the center of the numeric keypad.\n"
+"\n"
+"The text mode uses the following prefixes for special text:\n"
+"_ for subscripts, ^ for superscripts, @ for symbols (greek characters),\n"
+"| for italic (slanted) characters and # for bold text.\n"
+"When the text box is empty, clicking on any label in the drawing area\n"
+"copies that label into the box for reuse.\n"
+"\n"
+"Drawing is best done with the mouse, but you can also use the\n"
+"cursor keys in combination with the Ctrl key for exact positioning.\n"
+"When used with the Alt key, the cursor keys move the rectangular\n"
+"or rhombic grid that can be projected on the drawing area.\n"
+"\n"
+"If you need general drawing functions not provided by chemtool,\n"
+"try exporting to fig format and editing your figure in Brian Smith's\n"
+"xfig program. Its companion transfig/fig2dev is required by chemtool\n"
+"for printing and for exporting to eps or LaTeX, while the fig, XBM and\n"
+"SVG output are generated directly. Another useful and highly recommended\n"
+"helper program is Babel - either in its original version, or in the form\n"
+"of the new OpenBabel project. Using either version, chemtool is able to\n"
+"import foreign data from a variety of file formats, while only molfile\n"
+"im- and export is built into chemtool.\n"
+"\n"
+"More help is available in the manual page for chemtool and in the file\n"
+" README included in the source distribution as well as on the website.\n"
+"This should normally get installed in /usr/share/doc/packages/chemtool.\n"
+"If you find any bugs or have a question or suggestion, please contact the\n"
+"main author, martin@ruby.chemie.uni-freiburg.de"
+msgstr ""
+"Naci¶nij i przeci±gnij wska¼nik myszy, aby narysowaæ wi±zania. \n"
+"Prawy przycisk myszy s³u¿y do usuwania obiektów - wi±zañ lub tekstu\n"
+"w zale¿no¶ci od aktywnego trybu.\n"
+"\n"
+"Przyciski z ró¿nymi wielok±tami (lewa strona panelu) umo¿liwiaj± wybór\n"
+"trybu rysowania wi±zañ ze wskazaniem na ró¿ne k±ty. Mo¿liwe jest\n"
+"jednak rysowanie pod dowolnymi k±tami po wybraniu ka¿dego\n"
+"z przycisków.\n"
+"\n"
+"Przycisk z ³aman± krzyw± pozwala na rysowanie krzywych opartych \n"
+"o wyznaczone przez u¿ytkownika punkty kontrolne.\n"
+" \n"
+"Wyboru rodzaju, rzêdu i koloru wi±zañ mo¿na dokonaæ przez naci¶niêcie\n"
+"przycisku wyboru domy¶lnego typu wi±zañ i koloru pióra.\n"
+"\n"
+"Aby narysowaæ uk³ad cykliczny, trzymaj±c klawisz Ctrl\n"
+"nale¿y przycisn±æ klawisz cyfry (3, 4, 5,...)odpowiadaj±cy liczbie\n"
+"k±tów po¿±danego wielok±ta, a nastêpnie dalej trzymaj±c klawisz Ctrl\n"
+"narysowaæ jeden z jego boków.\n"
+"\n"
+"Aby opisaæ atomy lub grupy, nale¿y wprowadziæ tekst opisu w polu 'Tekst'\n"
+"a nastêpnie umie¶ciæ go w po¿±danym miejscu za pomoc± kursora.\n"
+"Aby dodaæ symbole pierwiastków do rysowanej w³a¶nie pozycji w trybie\n"
+"rysowania wi±zañ, nale¿y nacisn±æ klawisze: c, n, p, o, s lub f.\n"
+"Naci¶niêcie 1, 2 lub 3 spowoduje dodanie grup odpowiednio CH, CH_2\n"
+"lub CH_3, a naci¶niêcie '*' spowoduje dodanie du¿ej kropki.\n"
+"\n"
+"Naciskaj±c klawisze na klawiaturze alfanumerycznej dodana zostanie para\n"
+"elektronowa do ostatniego rysowanego elementu w pozycji jak± zajmuje\n"
+"naci¶niêty klawisz wokó³ klawisza '5'.\n"
+"\n"
+"Pole tekstowe akceptuje nastêpuj±ce prefiksy dla specjalnego tekstu:\n"
+"_ dla indeksu dolnego, ^ dla indeksu górnego, @ dla symboli\n"
+"(alfabet grecki),\n"
+"| dla kursywy oraz # dla tekstu pogrubionego.\n"
+"Je¶li pole tekstowe jest puste, mo¿na skopiowaæ dowolny tekst z pola\n"
+"rysunku poprzez klikniêcie na tekst.\n"
+"\n"
+"Najlepszy efekt rysowanie uzyskuje siê przy zastosowaniu myszki.\n"
+"Mo¿na te¿ rysowaæ wykorzystuj±c klawisze kursora z kombinacjami\n"
+"klawiszy Crtl oraz Alt. Trzymaj±c klawisz Ctrl mo¿na wybraæ po¿±dan±\n"
+"pozycjê rysowania, natomiast klawisz Alt umo¿liwia rysowanie prostok±tne\n"
+"lub sze¶ciok±tne w zale¿no¶ci od wybranej siatki.\n"
+"\n"
+"W przypadku potrzeby u¿ycia funkcji graficznych, które nie s± dostêpne\n"
+"w programie ChemTool, mo¿na skorzystaæ w opcji eksportu rysunku do formatu "
+"fig, a nastêpnie edycji wyeksportowanego rysunku,w programie\n"
+"xfig B. Smitha.\n"
+" Cze¶æ tego pakietu (transfig/fig2dev) jest równie¿ wykorzystywana przez\n"
+"ChemTool w czasie drukowania. i eksportu do formatów eps i LaTeX.\n"
+"Formaty fig, XBM i SVG s± generowane bezpo¶rednio.\n"
+"Innym u¿ytecznym i polecanym programem jest Babel, zarówno w oryginalnej\n"
+"postaci, jak i w ramach nowego projektu OpenBabel. Zastosowanie tych\n"
+"programów umo¿liwia import danych z wielu ró¿nych formatów u¿ywanych\n"
+"w chemii. Jedynie import i eksport do formatu molfile jest wbudowany\n"
+"w ChemTool.\n"
+"\n"
+"Bardziej szczegó³owa pomoc jest dostêpna na stronie projektu ChemTool oraz\n"
+"w pliku README do³±czonym w dystrybucji ¼róde³ i na stronie projektu.\n"
+"Zazwyczaj powinien te¿ byæ zainstalowane w katalogu\n"
+"/usr/share/doc/packages/chemtool.\n"
+"W przypadku znalezienia b³êdów, zadania pytañ, zg³oszenia sugetii,\n"
+"autor prosi o kontakt: martin@ruby.chemie.uni-freiburg.de"
+
+#: main.c:3336
+msgid ""
+" Chemtool Version 1.6.14\n"
+"by\n"
+"Martin Kroeker,\n"
+"Radek Liboska,\n"
+"Michael Banck\n"
+"and\n"
+"Thomas Volk\n"
+"\n"
+"http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool.html"
+msgstr ""
+"Chemtool wersja 1.6.14\n"
+"Autorzy:\n"
+"Martin Kroeker,\n"
+"Radek Liboska,\n"
+"Michael Banck\n"
+"Thomas Volk\n"
+"\n"
+"http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool.html"
+"\n"
+"Polskie t³umaczenie: Nikodem Ku¼nik, Micha³ Smoczyk"
+
+#: main.c:3450
+msgid "PDB labels:"
+msgstr "Etykiety PDB:"
+
+#: main.c:3453
+msgid "All"
+msgstr "Wszystkie"
+
+#: main.c:3461
+msgid "non-H"
+msgstr "nie-H"
+
+#: main.c:3470
+msgid "no numbers"
+msgstr "bez numeracji"
+
+#: main.c:3479
+msgid "non H,no numbers"
+msgstr "nie H,bez numeracji"
+
+#: main.c:3489 main.c:3833 main.c:4139
+msgid "None"
+msgstr "Nic"
+
+#: main.c:3501
+msgid "SDF entry:"
+msgstr ""
+
+#: main.c:3504
+msgid "First"
+msgstr "Pierwszy"
+
+#: main.c:3511
+msgid "Previous"
+msgstr "Poprzedni"
+
+#: main.c:3518
+msgid "Next"
+msgstr "Nastêpny"
+
+#: main.c:3589
+msgid "Latex / EPS scale factor :"
+msgstr "Wspó³czynnik skali dla Latex / EPS :"
+
+#: main.c:3708
+msgid "Unknown error"
+msgstr "Nieznany b³±d"
+
+#: main.c:3732 main.c:4010
+msgid "Configurable options"
+msgstr "Opcje"
+
+#: main.c:3767
+msgid "_General"
+msgstr "_Ogólne"
+
+#: main.c:3788
+#, fuzzy
+msgid "<b>Display</b>"
+msgstr "<b>Wy¶wietlanie</b>"
+
+#: main.c:3794
+msgid "<b>Saving and Exporting</b>"
+msgstr "<b>Zapisywanie i eksport</b>"
+
+#: main.c:3800
+msgid "<b>Other</b>"
+msgstr "<b>Inne</b>"
+
+#: main.c:3811
+msgid "_Background color:"
+msgstr "Kolor _t³a:"
+
+#: main.c:3819
+msgid "Add filled _white rectangle under labels"
+msgstr "Dodaj bia³y _wype³niony prostok±t pod etykietami"
+
+#: main.c:3834 main.c:4148
+msgid "EPSI"
+msgstr "EPSI"
+
+#: main.c:3835 main.c:4157
+msgid "TIFF mono"
+msgstr "mono TIFF"
+
+#: main.c:3836 main.c:4165
+msgid "TIFF color"
+msgstr "kolor TIFF"
+
+#: main.c:3841
+msgid "_Data directory:"
+msgstr "Katalog _danych:"
+
+#: main.c:3848
+msgid "E_xtension:"
+msgstr "_Rozszerzenie:"
+
+#: main.c:3856
+msgid "Preview image to add to _EPS files:"
+msgstr "Podl±d obrazu, który zostanie dodany do plików _eps:"
+
+#: main.c:3863 main.c:4184
+msgid "Support national character sets in labels"
+msgstr "Obs³uga narodowych zestawów znaków w etykietach"
+
+#: main.c:3883
+msgid "Base bond _length:"
+msgstr "Podstawowa d³ugo¶æ _wi±zañ:"
+
+#: main.c:3891
+msgid "Double bond _separation:"
+msgstr "_Odstêp podwójnych wi±zañ:"
+
+#: main.c:3904
+msgid "_Printing"
+msgstr "Drukuj"
+
+#: main.c:3934 main.c:4049
+msgid "Portrait"
+msgstr "Portret"
+
+#: main.c:3935 main.c:4054
+msgid "Landscape"
+msgstr "Pejza¿"
+
+#: main.c:3949
+msgid "Print _command:"
+msgstr "Pole_cenie drukowania:"
+
+#: main.c:3956
+msgid "Printer _name:"
+msgstr "_Nazwa drukarki:"
+
+#: main.c:3963
+msgid "Paper si_ze:"
+msgstr "_Rozmiar papieru:"
+
+#: main.c:3970
+msgid "_Orientation:"
+msgstr "_Orientacja:"
+
+#: main.c:3977
+msgid "Print sc_ale factor:"
+msgstr "Czynnik _skali wydruku:"
+
+#: main.c:3993
+msgid "Select background color"
+msgstr "Wybierz kolor t³a"
+
+#: main.c:4019
+msgid "Paper size:"
+msgstr "Rozmiar papieru:"
+
+#: main.c:4044
+msgid "Orientation:"
+msgstr "Orientacja:"
+
+#: main.c:4069
+msgid "Print scale factor :"
+msgstr "Czynnik skali wydruku :"
+
+#: main.c:4094
+msgid "Print command:"
+msgstr "Polecenie drukowania:"
+
+#: main.c:4134
+msgid "Preview image to add to eps files :"
+msgstr "Podl±d obrazu, który zostanie dodany do plików eps :"
+
+#: main.c:4198
+msgid "Background color :"
+msgstr "Kolor t³a :"
+
+#: main.c:4212
+msgid "Add filled white rectangle under labels"
+msgstr "Dodaj bia³y wype³niony prostok±t pod etykietami"
+
+#: main.c:4225
+msgid "Printer name:"
+msgstr "Nazwa drukarki:"
+
+#: main.c:4238
+msgid "Data directory:"
+msgstr "Katalog danych:"
+
+#: main.c:4251
+msgid "Extension:"
+msgstr "Rozszerzenie:"
+
+#: main.c:4264
+msgid "Base bondlength (10.668mm) :"
+msgstr "Podstawowa d³ugo¶æ wi±zañ (10.668mm) :"
+
+#: main.c:4278
+msgid "Doublebond separation (4 pixel) :"
+msgstr "Odstêp podwójnych wi±zañ (4 piksele) :"
+
+#: main.c:4298
+msgid "Ok"
+msgstr "Ok"
+
+#: main.c:4308 gtkfilesel.c:880 gtkfilesel.c:1306 gtkfilesel.c:1407
+#: gtkfilesel.c:1522
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: main.c:4327 main.c:4912
+msgid "Templates"
+msgstr "Szablony"
+
+#: main.c:4338 main.c:4340
+msgid "Carbocycles"
+msgstr "Karbocykle"
+
+#: main.c:4378 main.c:4380
+msgid "Sugars"
+msgstr "Cukry"
+
+#: main.c:4422 main.c:4424
+msgid "Heterocycles"
+msgstr "Heterocykle"
+
+#: main.c:4466 main.c:4468
+msgid "Amino Acids"
+msgstr "Aminokwasy"
+
+#: main.c:4511 main.c:4513
+msgid "Symbols"
+msgstr "Symbole"
+
+#: main.c:4559 gtkfilesel.c:1196
+msgid "Close"
+msgstr "Zamknij"
+
+#: main.c:4605
+msgid "New"
+msgstr "Nowy"
+
+#: main.c:4613
+msgid "Open"
+msgstr "Otwórz"
+
+#: main.c:4621 main.c:4904
+msgid "Add"
+msgstr "Dodaj"
+
+#: main.c:4629
+msgid "Import MOL"
+msgstr "Importuj MOL"
+
+#: main.c:4637
+msgid "Import PDB"
+msgstr "Importuj PDB"
+
+#: main.c:4645
+msgid "Import (Babel)"
+msgstr "Importuj (poprzez Babel)"
+
+#: main.c:4653
+msgid "Export..."
+msgstr "Eksportuj..."
+
+#: main.c:4661
+msgid "Export (Babel)"
+msgstr "Eksportuj (poprzez Babel)"
+
+#: main.c:4670 main.c:4941
+msgid "Print"
+msgstr "Drukuj"
+
+#: main.c:4678
+msgid "Setup Defaults"
+msgstr "Ustawienia domy¶lne"
+
+#: main.c:4693 main.c:4960
+msgid "Save Config"
+msgstr "Zapisz konfiguracjê"
+
+#: main.c:4702 main.c:4921
+msgid "Save"
+msgstr "Zapisz"
+
+#: main.c:4710
+msgid "Save As..."
+msgstr "Zapisz jako..."
+
+#: main.c:4719 main.c:5031
+msgid "Quit"
+msgstr "Zakoñcz"
+
+#: main.c:4727
+msgid "File"
+msgstr "Plik"
+
+#: main.c:4734
+msgid "Copy"
+msgstr "Kopiuj"
+
+#: main.c:4746
+msgid "Flip horizontally"
+msgstr "Odwróæ poziomo"
+
+#: main.c:4752
+msgid "Flip vertically"
+msgstr "Odwróæ pionowo"
+
+#: main.c:4759
+msgid "Undo"
+msgstr "Cofnij"
+
+#: main.c:4767
+msgid "Redo"
+msgstr "Przywróæ"
+
+#: main.c:4777
+msgid "Edit"
+msgstr "Edycja"
+
+#: main.c:4784
+msgid "Zoom in"
+msgstr "Powiêksz"
+
+#: main.c:4790
+msgid "Zoom out"
+msgstr "Pomniejsz"
+
+#: main.c:4801 main.c:4996
+msgid "Center"
+msgstr "Wycentruj"
+
+#: main.c:4809
+msgid "Grid rect/rhomb/off"
+msgstr "Siatka prosto-/sze¶ciok±t/brak"
+
+#: main.c:4815
+msgid "View"
+msgstr "Widok"
+
+#: main.c:4823
+msgid "Templates..."
+msgstr "Szablony..."
+
+#: main.c:4832
+msgid "Calculate Formula Weight"
+msgstr "Oblicz masê cz±steczkow±"
+
+#: main.c:4840
+msgid "Clean up drawing"
+msgstr "Wyrównaj rysunek"
+
+#: main.c:4846
+msgid "Tools"
+msgstr "Narzêdzia"
+
+#: main.c:4854 main.c:5039
+msgid "About"
+msgstr "O programie ChemTool..."
+
+#: main.c:4863 main.c:4872
+msgid "Help"
+msgstr "Pomoc"
+
+#: main.c:4895
+msgid "Load"
+msgstr "Wczytaj"
+
+#: main.c:4900
+msgid "Load a chemtool sketch"
+msgstr "Wczytaj rysunek chemtool"
+
+#: main.c:4909
+msgid "Add fragment from file"
+msgstr "Dodaje fragment z pliku"
+
+#: main.c:4918
+msgid "Add template structure"
+msgstr "Dodaje strukturê z biblioteki"
+
+#: main.c:4926
+msgid "Save sketch to file"
+msgstr "Zapisuj rysunek do pliku"
+
+#: main.c:4929
+msgid "Export"
+msgstr "Eksportuj"
+
+#: main.c:4938
+msgid "Create EPS, XFig, PicTeX or XBM file"
+msgstr "Utwórz plik graficzny EPS, XFig, PicTeX lub XBM"
+
+#: main.c:4947
+msgid "Print file to a postscript printer"
+msgstr "Wydrukuj plik na drukarce postscriptowej"
+
+#: main.c:4950
+msgid "Setup"
+msgstr "Ustawienia"
+
+#: main.c:4957
+msgid "Setup default options"
+msgstr "Ustawienia domy¶lne"
+
+#: main.c:4966
+msgid "Save default options"
+msgstr "Zapisz domy¶lne opcje"
+
+#: main.c:4969
+msgid "Import"
+msgstr "Importuj"
+
+#: main.c:4975
+msgid "Read a file written in MDL/molfile format"
+msgstr "Wczytaj plik zapisany w formacie MDL/molfile"
+
+#: main.c:4978
+msgid "ImportPDB"
+msgstr "Importuj PDB"
+
+#: main.c:4984
+msgid "Read a file written in PDB format"
+msgstr "Wczytaj plik zapisany w formacie PDB"
+
+#: main.c:4987
+msgid "Zoom In"
+msgstr "Powiêksz"
+
+#: main.c:4992
+msgid "Increase zoom scale"
+msgstr "Zwiêksza skalê powiêkszenia"
+
+#: main.c:5002
+msgid "Center molecule in drawing area"
+msgstr "Wycentruj cz±steczkê w obszarze rysowania"
+
+#: main.c:5005
+msgid "Zoom Out"
+msgstr "Pomniejsz"
+
+#: main.c:5010
+msgid "Decrease zoom scale"
+msgstr "Zmniejsz skalê powiêkszenia"
+
+#: main.c:5014
+msgid "Clear"
+msgstr "Wyczy¶æ"
+
+#: main.c:5019
+msgid "Remove molecule"
+msgstr "Usuñ cz±steczkê"
+
+#: main.c:5022
+msgid "FW"
+msgstr "Ms"
+
+#: main.c:5027
+msgid "Calculate Formula Mass"
+msgstr "Oblicz masê cz±steczkow± (Ms)"
+
+#: main.c:5036
+msgid "Exit Chemtool"
+msgstr "Zakoñcz Chemtool"
+
+#: main.c:5045
+msgid "About Chemtool"
+msgstr "Informacje o Chemtool"
+
+#: main.c:5086
+msgid "Draw at 0/30/60/90 degree angles"
+msgstr "Rysowanie pod k±tami 0/30/60/90 stopni"
+
+#: main.c:5102
+msgid "Draw at 0/36/72/... degree angles"
+msgstr "Rysowanie pod k±tami 0/36/72/... stopni"
+
+#: main.c:5124
+msgid "Draw at 18/54/90/... degree angles"
+msgstr "Rysowanie pod k±tami 18/54/90/... stopni"
+
+#: main.c:5141
+msgid "Draw at 0/45/90... degree angles"
+msgstr "Rysowanie pod k±tami 0/45/90/... stopni"
+
+#: main.c:5158
+msgid "Draw curves based on 4 control points"
+msgstr "Rysowanie krzywych opartych na 4 punktach kontrolnych"
+
+#: main.c:5174
+msgid "Draw left-justified text"
+msgstr "Utworzenie tekstu wyrównanego do lewej"
+
+#: main.c:5191
+msgid "Draw centered text"
+msgstr "Utworzenie tekstu wycentrowanego"
+
+#: main.c:5208
+msgid "Draw right-justified text"
+msgstr "Utworzenie tekstu wyrównanego do prawej"
+
+#: main.c:5236
+msgid "Set current textfont"
+msgstr "Wybór czcionki"
+
+#: main.c:5266
+msgid "Choose default bond type"
+msgstr "Wybór domy¶lnego typu wi±zañ"
+
+#: main.c:5283
+msgid "Select pen color"
+msgstr "Wybór koloru pióra"
+
+#: main.c:5288
+msgid "Bonds"
+msgstr "Wi±zania"
+
+#: main.c:5293
+msgid "Toggle bond types"
+msgstr "Zmiana typu wi±zañ"
+
+#: main.c:5310
+msgid "Mark objects for moving, rotating or deleting"
+msgstr "Zaznaczanie obiektów, które mo¿na w nastêpstwie przesuwaæ, obracaæ lub usuwaæ"
+
+#: main.c:5327
+msgid "Move marked object"
+msgstr "Przesuniêcie zaznaczonych obiektów"
+
+#: main.c:5344
+msgid "Rotate marked object"
+msgstr "Obrót zaznaczonych obiektów"
+
+#: main.c:5363
+msgid "Flip object horizontally"
+msgstr "Poziome odwrócenie obiektów"
+
+#: main.c:5381
+msgid "Flip object vertically"
+msgstr "Pionowe odwrócenie obiektów"
+
+#: main.c:5407
+msgid "Copy marked object"
+msgstr "Kopiowanie zaznaczonych obiektów"
+
+#: main.c:5422
+msgid "Rescale marked object"
+msgstr "Zmiana skali zaznaczonych obiektów"
+
+#: main.c:5441
+msgid "Draw brackets around object"
+msgstr "Rysowanie nawiasów wokó³ obiektów"
+
+#: main.c:5456
+msgid "Draw rounded brackets around object"
+msgstr "Rysowanie nawiasów okr±g³ych wokó³ obiektów"
+
+#: main.c:5471
+msgid "Draw round brackets around object"
+msgstr "Rysowanie nawiasów okr±g³ych wokó³ obiektów"
+
+#: main.c:5486
+msgid "Draw braces around object"
+msgstr "Rysowanie nawiasów kwadratowych wokó³ obiektów"
+
+#: main.c:5501
+msgid "Draw simple box around object"
+msgstr "Rysowanie zwyk³ych prostok±tów wokó³ obiektów"
+
+#: main.c:5515
+msgid "Draw shaded box around object"
+msgstr "Rysowanie cieniowany prostok±tów wokó³ obiektów"
+
+#: main.c:5529
+msgid "Draw fancy box around object"
+msgstr "Rysowanie wymy¶lnych prostok±tów wokó³ obiektów"
+
+#: main.c:5543
+msgid "Draw rounded box around object"
+msgstr "Rysowanie zaokr±glonych prostok±tów wokó³ obiektów"
+
+#: main.c:5560
+msgid "Draw brackets and boxes around object"
+msgstr "Rysowanie nawiasów i prostok±tów wokó³ obiektów"
+
+#: main.c:5576
+msgid "Removes duplicate bonds, etc."
+msgstr "Usuwanie podwojonych wi±zañ, itp."
+
+#: main.c:5605
+msgid "Text :"
+msgstr "Tekst :"
+
+#: main.c:5619
+msgid ""
+"Prefix a character with _ for subscript, ^ for superscript, @ for symbols, | "
+"for italic, # for bold text; e.g. H_2O, @a_D^2^0"
+msgstr ""
+"Wprowad¼ wyra¿enie poprzedzone: _ dla indeksu dolnego; ^ dla indeksu "
+"górnego; @ dla symboli; | dla kursywy; # dla pogrubionego; np.: H_2O, "
+"@a_D^2^0"
+
+#: main.c:5624
+msgid "Select current text size"
+msgstr "Wybór rozmiaru czcionki"
+
+#: main.c:5753
+#, c-format
+msgid "Ready"
+msgstr "Gotowy"
+
+#: main.c:5816
+#, c-format
+msgid "chemtool: can't load any font\n"
+msgstr "chemtool: nie mo¿na wczytaæ czcionek\n"
+
+#: main.c:5954
+#, c-format
+msgid "Memory allocation problem (SIGSEGV) -"
+msgstr "B³±d w alokacji pamiêci (SIGSEGV) -"
+
+#: main.c:5957
+#, c-format
+msgid "Invalid math somewhere (SIGFPE) -"
+msgstr "B³±d w operacjach matematycznych (SIGFPE) -"
+
+#: main.c:5960
+#, c-format
+msgid "Memory access problem (SIGBUS) -"
+msgstr "B³±d w dostêpie do pamiêci (SIGBUS) -"
+
+#: main.c:5963
+#, c-format
+msgid "Ordered to quit (SIGHUP) - "
+msgstr "System wyda³ polecenie zakoñczenia (SIGHUP) -"
+
+#: main.c:5965
+#, c-format
+msgid " dumping current drawing to file crashdump.cht\n"
+msgstr "zapisywanie aktualnego rysunku do pliku crashdump.cht\n"
+
+#: gtkfilesel.c:664
+msgid "Looking in:"
+msgstr "¦cie¿ka:"
+
+#: gtkfilesel.c:796
+msgid "Directories"
+msgstr "Katalogi"
+
+#: gtkfilesel.c:825
+msgid "Mask:"
+msgstr "Maskuj:"
+
+#: gtkfilesel.c:838
+msgid "Files"
+msgstr "Pliki"
+
+#: gtkfilesel.c:872
+msgid "OK"
+msgstr "OK"
+
+#: gtkfilesel.c:916 gtkfilesel.c:2174
+#, c-format
+msgid "Directory unreadable: %s"
+msgstr "Nie mo¿na odczytaæ katalogu: %s"
+
+#: gtkfilesel.c:949
+msgid "Create Dir"
+msgstr "Utwórz katalog"
+
+#: gtkfilesel.c:960 gtkfilesel.c:1375
+msgid "Delete File"
+msgstr "Usuñ plik"
+
+#: gtkfilesel.c:971 gtkfilesel.c:1480
+msgid "Rename File"
+msgstr "Zmieñ nazwê pliku"
+
+#: gtkfilesel.c:1173
+msgid "Error"
+msgstr "B³±d"
+
+#: gtkfilesel.c:1271
+msgid "Create Directory"
+msgstr "Utwórz katalog"
+
+#: gtkfilesel.c:1285
+msgid "Directory name:"
+msgstr "Nazwa katalogu:"
+
+#: gtkfilesel.c:1297
+msgid "Create"
+msgstr "Utwórz"
+
+#: gtkfilesel.c:1397
+msgid "Delete"
+msgstr "Usuñ"
+
+#: gtkfilesel.c:1512
+msgid "Rename"
+msgstr "Zmieñ nazwê"
+
+#: gtkfilesel.c:2155
+msgid "Selection: "
+msgstr "Wybór: "
+
+#: inout.c:5767
+#, c-format
+msgid "Consider installing Babel/OpenBabel for file format conversions...\n"
+msgstr "Zainstalowanie Babel/OpenBabel umo¿liwi konwersje plików chemicznych...\n"
+
+#: templates.hx:2
+msgid "Cyclopentadienyl"
+msgstr "Cyklopentadienyl"
+
+#: templates.hx:2
+msgid "Benzene"
+msgstr "Benzen"
+
+#: templates.hx:2
+msgid "Naphthalene"
+msgstr "Naftalen"
+
+#: templates.hx:2
+msgid "Azulene"
+msgstr "Azulen"
+
+#: templates.hx:3
+msgid "Adamantane"
+msgstr "Adamantan"
+
+#: templates.hx:3 templates.hx:5
+msgid "Cyclohexane"
+msgstr "Cykloheksan"
+
+#: templates.hx:3
+msgid "Steroid backbone"
+msgstr "Szkielet steroidowy"
+
+#: templates.hx:3
+msgid "Cycloheptatriene"
+msgstr "Cykloheptatrien"
+
+#: templates.hx:3
+msgid "Cyclooctatetraene"
+msgstr "Cyklooktatetraen"
+
+#: templates.hx:4
+msgid "Fluorene"
+msgstr "Fluoren"
+
+#: templates.hx:4
+msgid "Spiro[4.5]decane"
+msgstr "Spiro[4.5]dekan"
+
+#: templates.hx:4
+msgid "Heptalene"
+msgstr "Heptalen"
+
+#: templates.hx:4
+msgid "Fulvalene"
+msgstr "Fulwalen"
+
+#: templates.hx:4
+msgid "Dicyclopentadiene"
+msgstr "Dicyklopentadien"
+
+#: templates.hx:5
+msgid "Indene"
+msgstr "Inden"
+
+#: templates.hx:5
+msgid "Biphenyl"
+msgstr "Bifenyl"
+
+#: templates.hx:5
+msgid "Norbornane"
+msgstr "Norbornan"
+
+#: templates.hx:5
+msgid "Binaphthyl"
+msgstr "Binaftyl"
+
+#: templates.hx:6
+msgid "Coronene"
+msgstr "Koronen"
+
+#: templates.hx:8
+msgid "Pyranose core"
+msgstr "Szkielet piranozowy"
+
+#: templates.hx:8
+msgid "Furanose core"
+msgstr "Szkielet furanozowy"
+
+#: templates.hx:8
+msgid "Ribofuranose"
+msgstr "Rybofuranoza"
+
+#: templates.hx:8
+msgid "Fructose"
+msgstr "Fruktoza"
+
+#: templates.hx:8
+msgid "Galactose"
+msgstr "Galaktoza"
+
+#: templates.hx:9
+msgid "Glucose"
+msgstr "Glukoza"
+
+#: templates.hx:9
+msgid "Mannose"
+msgstr "Mannoza"
+
+#: templates.hx:9
+msgid "Fucose"
+msgstr "Fukoza"
+
+#: templates.hx:9
+msgid "Xylose"
+msgstr "Ksyloza"
+
+#: templates.hx:9
+msgid "Neuraminic acid"
+msgstr "Kwas neuraminowy"
+
+#: templates.hx:10
+msgid "Sucrose"
+msgstr "Sacharoza"
+
+#: templates.hx:10
+msgid "Maltose"
+msgstr "Maltoza"
+
+#: templates.hx:10
+msgid "Lactose"
+msgstr "Laktoza"
+
+#: templates.hx:14
+msgid "Adenine"
+msgstr "Adenina"
+
+#: templates.hx:14
+msgid "Guanine"
+msgstr "Guanina"
+
+#: templates.hx:14
+msgid "Thymine"
+msgstr "Tymina"
+
+#: templates.hx:14
+msgid "Cytosine"
+msgstr "Cytozyna"
+
+#: templates.hx:14
+msgid "Uracil"
+msgstr "Uracyl"
+
+#: templates.hx:15
+msgid "Porphine"
+msgstr "Porfiryna"
+
+#: templates.hx:15
+msgid "Caffeine"
+msgstr "Kofeina"
+
+#: templates.hx:15
+msgid "Evans auxiliary"
+msgstr "grupa Evansa"
+
+#: templates.hx:15
+msgid "SAMP auxiliary"
+msgstr "grupa SAMP"
+
+#: templates.hx:15
+msgid "Imidazole"
+msgstr "Imidazol"
+
+#: templates.hx:16
+msgid "Benzimidazole"
+msgstr "Benzimidazol"
+
+#: templates.hx:16
+msgid "Pyrazole"
+msgstr "Pirazol"
+
+#: templates.hx:16
+msgid "Diazole"
+msgstr "Diazol"
+
+#: templates.hx:17
+msgid "Morphine"
+msgstr "Morfina"
+
+#: templates.hx:17
+msgid "Morphine 3D"
+msgstr "Morfina 3D"
+
+#: templates.hx:23
+msgid "Backbone"
+msgstr ""
+
+#: templates.hx:26
+msgid "p orbital"
+msgstr "orbital p"
+
+#: templates.hx:26
+msgid "plus"
+msgstr "plus"
+
+#: templates.hx:26
+msgid "minus"
+msgstr "minus"
+
+#: templates.hx:26
+msgid "rearrangement"
+msgstr "przegrupowanie"
+

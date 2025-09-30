@@ -1,0 +1,7 @@
+[Desktop Entry]
+Comment=Chemtool Molecule Drawing
+Hidden=false
+Icon=chemtool.png
+MimeType=application/x-chemtool
+Patterns=*.cht
+Type=MimeType
