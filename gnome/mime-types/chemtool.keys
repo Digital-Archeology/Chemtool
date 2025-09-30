@@ -1,0 +1,4 @@
+application/chemtool:
+        open=chemtool %f
+        icon-filename=/usr/share/pixmaps/mc/gnome-application-chemtool.png
+
