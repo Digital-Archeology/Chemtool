@@ -4,7 +4,10 @@
 
 #include <string.h>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #include "ct1.h"
+#pragma GCC diagnostic pop
 #ifndef MIN
 #define MIN(a, b)        ((a) < (b) ? (a) : (b))
 #endif
@@ -1751,7 +1754,6 @@ tidy_mol ()
 {
   int hn, hnc;
   int d, t;
-  int r = 0;
   struct data *hp_bond, *tmp_bond;
   struct dc *hp_atom;
 
@@ -1857,7 +1859,6 @@ tidy_mol ()
       if (hp_bond->smarked && hp_bond->tmarked)
 	{
 	  del_struct (hp_bond);
-	  r = True;
 	}
       hp_bond = hp_bond->next;
       if (!hp_bond)
@@ -1870,7 +1871,6 @@ tidy_mol ()
       if (hp_atom->marked)
 	{
 	  del_char (hp_atom);
-	  r = True;
 	}
       hp_atom = hp_atom->next;
       if (!hp_atom)
@@ -1936,7 +1936,7 @@ add_r_bracket ()
 }
 
 void
-add_r2_bracket ()
+add_r2_bracket (void)
 {
 
   int gauge;
@@ -1953,7 +1953,7 @@ add_r2_bracket ()
 }
 
 void
-add_brace ()
+add_brace (void)
 {
 
   int gauge;
@@ -2088,7 +2088,7 @@ has_label(int x, int y)
   return -1;
 }
  
-int
+static int __attribute__((unused))
 endpoint_connected(int x, int y, int tx, int ty)
 /* checks if the endpoint of a bond has another bond on it */
 {

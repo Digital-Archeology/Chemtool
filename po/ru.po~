@@ -1,18 +1,17 @@
-# CHEMTOOL.
-# Copyright (C) 2004 Free Software Foundation, Inc.
-# FlАvio Massao Matsumoto <fmatsumo@quimica.ufpr.br>, 2004.
+# Russian translation for chemtool
+# Copyright (C) 2001 Free Software Foundation, Inc.
+# Michael Shigorin <mike@alt-linux.org>, 2001, 2002.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Chemtool 1.6.1\n"
+"Project-Id-Version: chemtool 1.6rc\n"
 "Report-Msgid-Bugs-To: martin@ruby.chemie.uni-freiburg.de\n"
 "POT-Creation-Date: 2007-05-23 23:58+0200\n"
-"PO-Revision-Date: 2004-03-18 09:44BRST\n"
-"Last-Translator: FlАvio M. Matsumoto <fmatsumo@ufpr.br>\n"
-"Language-Team: Brazilian Portuguese\n"
-"Language: \n"
+"PO-Revision-Date: 2003-06-27 00:54+0300\n"
+"Last-Translator: Michael Shigorin <mike@alt-linux.org>\n"
+"Language-Team: russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: main.c:217
@@ -20,16 +19,16 @@ msgid ""
 "The current drawing is not saved !\n"
 "Do you really wish to continue ?"
 msgstr ""
-"A figura corrente nЦo foi salva !\n"
-"Deseja realmente continuar ?"
+"Текущий рисунок не сохранен!\n"
+"Продолжить?"
 
 #: main.c:225 main.c:293
 msgid "Yes"
-msgstr "Sim"
+msgstr "Да"
 
 #: main.c:240 main.c:308
 msgid "No"
-msgstr "NЦo"
+msgstr "Нет"
 
 #: main.c:284
 #, c-format
@@ -39,10 +38,10 @@ msgid ""
 "already exists !\n"
 "Overwrite it ?"
 msgstr ""
-"Arquivo\n"
+"Файл\n"
 "%s\n"
-"jА existe !\n"
-"Sobrepor ?"
+"уже существует!\n"
+"Записать поверх?"
 
 #: main.c:660
 #, c-format
@@ -51,7 +50,7 @@ msgid ""
 "Next ring drawn will have %d sides"
 msgstr ""
 "\n"
-"O prСximo anel desenhado terА %d lados"
+"Количество звеньев следующего кольца: %d"
 
 #: main.c:1033
 #, c-format
@@ -60,11 +59,11 @@ msgid ""
 "Imported %d bonds and %d labels"
 msgstr ""
 "\n"
-"Importados %d ligaГУes e %d rСtulos"
+"Импортировано связей: %d, меток: %d"
 
 #: main.c:1359 main.c:2667 main.c:5829
 msgid "unnamed"
-msgstr "sem_nome"
+msgstr ""
 
 #: main.c:1361
 #, c-format
@@ -73,7 +72,7 @@ msgid ""
 "Ready"
 msgstr ""
 "\n"
-"Pronto"
+"Готово"
 
 #: main.c:1389
 #, c-format
@@ -82,7 +81,7 @@ msgid ""
 "Helper process failed - %s %s %s %s!"
 msgstr ""
 "\n"
-"Processo externo falhou - %s %s %s %s!"
+"Ошибка вспомогательного процесса - %s %s %s %s!"
 
 #: main.c:1394
 #, c-format
@@ -98,7 +97,7 @@ msgid ""
 "Drawing printed!"
 msgstr ""
 "\n"
-"Figura impressa!"
+"Напечатано!"
 
 #: main.c:1420
 #, c-format
@@ -107,45 +106,45 @@ msgid ""
 "Failed to print drawing !"
 msgstr ""
 "\n"
-"Erro na impressЦo da figura !"
+"Не могу напечатать!"
 
 #: main.c:1783
 #, c-format
 msgid "invalid angle mode %d\n"
-msgstr "modo de Бngulo invАlido %d\n"
+msgstr "неверный режим угла %d\n"
 
 #: main.c:1803
 #, c-format
 msgid "invalid text mode %d\n"
-msgstr "modo de texto invАlido %d\n"
+msgstr "неверный режим текста %d\n"
 
 #: main.c:2353
 msgid "Load from file..."
-msgstr "Carregar do arquivo..."
+msgstr "Загрузить файл..."
 
 #: main.c:2394
 msgid "Import MDL file..."
-msgstr "Importar arquivo MDL..."
+msgstr "Импортировать MDL-файл..."
 
 #: main.c:2434
 msgid "Import via BABEL..."
-msgstr "Importar via BABEL"
+msgstr "Импортировать через Babel..."
 
 #: main.c:2456
 msgid "Export via BABEL..."
-msgstr "Exportar via BABEL"
+msgstr "Экспорт через Babel..."
 
 #: main.c:2478
 msgid "Import PDB file..."
-msgstr "Importar arquivo PDB..."
+msgstr "Импортировать PDB-файл..."
 
 #: main.c:2521
 msgid "Add from file..."
-msgstr "Adicionar do arquivo..."
+msgstr "Добавить из файла..."
 
 #: main.c:2637
 msgid "Save as..."
-msgstr "Salvar como..."
+msgstr "Сохранить как..."
 
 #: main.c:2656
 #, c-format
@@ -154,7 +153,7 @@ msgid ""
 "Nothing to save"
 msgstr ""
 "\n"
-"Nada para salvar"
+"Нечего сохранять"
 
 #: main.c:2682
 #, c-format
@@ -163,7 +162,7 @@ msgid ""
 "Writing to %s failed !"
 msgstr ""
 "\n"
-"Erro ao gravar para %s !"
+"Запись в %s не удалась!"
 
 #: main.c:2687
 #, c-format
@@ -172,7 +171,7 @@ msgid ""
 "Drawing saved in %s (%d bonds, %d labels)"
 msgstr ""
 "\n"
-"Figura salva em %s (%d ligaГУes, %d rСtulos)"
+"Рисунок сохранен как %s (связей: %d, меток: %d)"
 
 #: main.c:2821 main.c:3176
 #, c-format
@@ -181,8 +180,9 @@ msgid ""
 " %s\n"
 "failed !\n"
 msgstr ""
-"Erro ao gravar para\n"
-" %s !\n"
+"Запись в\n"
+" %s\n"
+"не удалась!\n"
 
 #: main.c:2829
 #, c-format
@@ -191,7 +191,7 @@ msgid ""
 "Drawing exported as %s (%d bonds, %d labels)"
 msgstr ""
 "\n"
-"Figura exportada como %s (%d ligaГУes, %d rСtulos)"
+"Рисунок экспортирован как %s (связей: %d, меток: %d)"
 
 #: main.c:2906
 #, c-format
@@ -201,7 +201,7 @@ msgstr ""
 #: main.c:2979 main.c:3060 main.c:3101 main.c:3138
 #, c-format
 msgid "Unable to open %s\n"
-msgstr "NЦo posso abrir %s\n"
+msgstr "Невозможно открыть %s\n"
 
 #: main.c:2986
 #, c-format
@@ -210,7 +210,7 @@ msgid ""
 " does not appear to be a Chemtool file\n"
 msgstr ""
 "%s\n"
-" nЦo parecer ser um arquivo do Chemtool\n"
+"непохож на файл Chemtool\n"
 
 #: main.c:2996
 #, c-format
@@ -218,13 +218,13 @@ msgid ""
 "%s was created by a newer version.\n"
 "Some features may be lost.\n"
 msgstr ""
-"%s foi criado por uma versЦo mais nova.\n"
-"Algumas caracterМsticas podem se perder.\n"
+"%s создан более новой версией.\n"
+"Некоторые детали могут быть утеряны.\n"
 
 #: main.c:3009
 #, c-format
 msgid "Error loading %s \n"
-msgstr "Erro ao carregar %s \n"
+msgstr "Ошибка при загрузке %s \n"
 
 #: main.c:3048 main.c:3089 main.c:3126
 #, c-format
@@ -233,12 +233,12 @@ msgid ""
 "Choose orientation (Ctrl-Mouse1 for z), press Enter when done"
 msgstr ""
 "\n"
-"Escolha orientaГЦo (Ctrl-Mouse1 para z), pressione Enter quando pronto"
+"Выберите ориентацию (Ctrl-Mouse1 для оси z), нажмите Enter"
 
 #: main.c:3067 main.c:3145
 #, c-format
 msgid "Problems converting %s\n"
-msgstr "Problemas ao converter %s\n"
+msgstr "Проблемы с конвертированием %s\n"
 
 #: main.c:3181
 #, c-format
@@ -247,9 +247,9 @@ msgid ""
 " %s\n"
 " (%d bonds, %d labels)\n"
 msgstr ""
-"Figura salva em\n"
+"Рисунок сохранен как\n"
 " %s\n"
-" (%d ligaГУes, %d rСtulos)\n"
+" (связей: %d, меток: %d)\n"
 
 #: main.c:3259
 msgid ""
@@ -308,66 +308,60 @@ msgid ""
 "If you find any bugs or have a question or suggestion, please contact the\n"
 "main author, martin@ruby.chemie.uni-freiburg.de"
 msgstr ""
-"Clique e arraste o mouse para desenhar ligaГУes na tela. \n"
-"O botЦo direito И usado para apagar objetos, ligaГУes\n"
-"ou texto, dependendo do modo de ediГЦo que estА ativo.\n"
+"Потяните мышкой для перемещения связей на рисунке. \n"
+"Правая кнопка мыши используется для удаления объектов - как связей,\n"
+"так и текста (в зависимости от активного режима).\n"
 "\n"
-"Os botУes com diferentes tipos de anИis selecionam modos de ediГЦo com "
-"deter-\n"
-"minados Бngulos, mas И possМvel desenhar em qualquer Бngulo em todos os "
-"modos.\n"
+"Кнопки с различными типами колец выбирают режим рисования с заданным\n"
+"углом, хотя произвольный угол возможен при любом режиме.\n"
 "\n"
-"O botЦo contendo uma linha segmentada permite desenhar curvas marcando-se\n"
-"pontos de controle ao longo da curva (um spline cЗbico).\n"
-"VocЙ pode selecionar o tipo de ligaГЦo e a cor usando botУes apropriados\n"
-"ou mudar depois clicando na ligaГЦo desejada, no modo LigaГУes.\n"
+"Кнопка с сегментированной линией на ней позволяет строить кривые (сплайны)\n"
+"по опорным точкам.\n"
+"Вы можете изменить тип связи и цвет при помощи соответствующих кнопок или\n"
+"щелкнув по требуемой связи в режиме Связей.\n"
 "\n"
-"Para desenhar um sistema cМclico, pressione Ctrl junto com a tecla\n"
-"do nЗmero correspondente ao nЗmero de lados do polМgono, e entЦo\n"
-"desenhe uma dos lados enquanto pressiona a tecla Ctrl.\n"
+"Чтобы нарисовать циклическую систему, просто нажмите Ctrl вместе с цифрой,\n"
+"соответствующей количеству граней, и нарисуйте одну из них (удерживая "
+"Ctrl).\n"
 "\n"
-"Para adicinar rСtulos, escreva-o na caixa de texto na parte superiordireita "
-"da janela\n"
-"e os posicione-os na tela com o mouse. Podem-se usar alguns atalhos de\n"
-"teclado para rСtulos comuns durante o modo de desenho de ligaГЦo:\n"
-"Pressione a tecla 'c', or n, o, p, s, f para adicionar o sМmbolo do elemento "
-"na\n"
-"posiГЦo corrente de desenho, 1, 2 e 3 para CH, CH_2 e CH_3, l para Cl,\n"
-"e * para um ponto grande.\n"
+"Для создания меток наберите их в текстовом поле ввода (правый верхний угол)\n"
+"и поместите результат при помощи мыши.  Также можно пользоваться "
+"сокращениями\n"
+"для общеупотребительных меток (в режиме связей): просто нажмите 'c' или\n"
+"n,o,p,s,f для добавления символа элемента в текущей позиции, 1,2,3 для CH,\n"
+"CH_2 и CH_3 соответственно, 'l' для Cl и '*' - для жирной точки.\n"
 "\n"
-"As teclas do teclado numИrico insere uma linha de 'par eletrТnico'\n"
-"ao redor do sМmbolo do Аtomo na posiГЦo correspondente Ю localizaГЦo\n"
-"da tecla ao redor do centro do teclado numИrico (5).\n"
+"Клавиши цифровой клавиатуры вставляют 'электронные пары' линиями вокруг "
+"атома\n"
+"в текущей позиции (размещение соответствует расположению клавиш "
+"относительно\n"
+"средней - '5').\n"
 "\n"
-"O modo texto usa os seguintes prefixos para formataГЦo:\n"
-"_ para Мndices, ^ for expoentes, @ para sМmbolos (caracteres gregos),\n"
-"| para caracteres em itАlico e # para negrito.\n"
-"Quando a caixa de texto estiver vazia, ao clicar em qualquer rСtulo na Аrea\n"
-"de desenho copia-se o rСtulo na caixa para se poder usar de novo.\n"
+"Текстовый режим использует следующие префиксы для особых фрагментов:\n"
+"'_' и '^' для нижних и верхних индексов, '@' - для греческих символов,\n"
+" '|' - курсив и '#' - жирный.\n"
+"Когда поле ввода пусто, щелчок по любой метке скопирует ее туда для\n"
+"повторного использования.\n"
 "\n"
-"O desenho И feito mais facilmente com o mouse, mas se pode usar \n"
-"as teclas do cursor junto com o Ctrl para um posicionamento exato.\n"
-"Quando usado com a tecla Alt, as teclas do cursor move uma grade\n"
-"retangular ou hexagonal que pode ser projetado na Аrea de desenho.\n"
+"Рисовать удобнее всего мышью, но использование курсорных клавиш также\n"
+"возможно (в комбинации с Ctrl для точного позиционирования).\n"
+"При удержании Alt курсорные клавиши будут двигать прямоугольную или\n"
+"шестигранную сетку по полю.\n"
 "\n"
-"Se for necessАria uma funГЦo de desenho que nЦo hА no chemtool,\n"
-"exporte em formato fig e edite sua figura no programa xfig \n"
-"do Brian Smith. O trasfig/fig2dev que o acompanha И necessАrio para que\n"
-"o chemtool imprima e exporte para eps ou LaTeX, enquanto que o fig, \n"
-"XBM e SVG sЦo gerado diretamente. Outro programa auxiliar Зtil e "
-"recomendado\n"
-"И o Babel - tanto na versЦo original, como no novo projeto Openabel. Em "
-"ambas\n"
-"as versУes o chemtool И capaz de importar dados de arquivos de formatos\n"
-"variados, enquanto somente a importaГЦo e a exportaГЦo em formato de "
-"arquivo\n"
-"mol estА contido no programa chemtools.\n"
+"Если вам требуются общие функции черчения, недоступные в chemtool,\n"
+"воспользуйтесь возможностью экспорта в формат fig и отредактируйте\n"
+"рисунок в программе xfig (автор - Brian Smith).  Утилиты из ее состава\n"
+"- transfig/fig2dev - необходимы chemtool для печати и экспорта в eps или\n"
+"LaTeX, в то время как форматы fig, xbm и svg генерируются напрямую.\n"
+"Другой полезной и рекомеднуемой утилитой является Babel - оригинальная\n"
+"версия или новый проект OpenBabel.  Они придают chemtool возможность\n"
+"импорта из большого количества форматов, в то время как сам chemtool\n"
+"подерживает только mol как формат импорта/экспорта.\n"
 "\n"
-"Mais ajuda pode ser encontrado na pАgina de man do chemtool e no arquivo\n"
-"README incluМdo no cСdigo fonte ou ainda no site da web.\n"
-"Este arquivo normalmente И encontrado em /usr/share/doc/packages/chemtool.\n"
-"Se vocЙ encontrar algum bug, tem uma questЦo ou sugestЦo, favor contactar\n"
-"o autor principal, martin@ruby.chemie.uni-freiburg.de"
+"Дополнительная информация доступна в man-странице chemtool, а также файле\n"
+"README, входящем в поставку и расположенном на сайте проекта.\n"
+"Если обнаружите ошибки в программе или захоите что-либо предложить, пишите\n"
+"главному автору, martin@ruby.chemie.uni-freiburg.de"
 
 #: main.c:3336
 msgid ""
@@ -381,39 +375,42 @@ msgid ""
 "\n"
 "http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool.html"
 msgstr ""
-" Chemtool VersЦo 1.6.14\n"
-"por\n"
+" Chemtool Version 1.6.14\n"
+"авторы:\n"
 "Martin Kroeker,\n"
 "Radek Liboska,\n"
 "Michael Banck\n"
-"e\n"
+"и\n"
 "Thomas Volk\n"
 "\n"
-"http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool.html"
+"http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool.html\n"
+"\n"
+"Русский перевод:\n"
+"Михаил Шигорин"
 
 #: main.c:3450
 msgid "PDB labels:"
-msgstr "RСtulos PDB:"
+msgstr "Метки PDB:"
 
 #: main.c:3453
 msgid "All"
-msgstr "Todos"
+msgstr "Все"
 
 #: main.c:3461
 msgid "non-H"
-msgstr "sem H"
+msgstr "не-H"
 
 #: main.c:3470
 msgid "no numbers"
-msgstr "sem nЗmeros"
+msgstr "без чисел"
 
 #: main.c:3479
 msgid "non H,no numbers"
-msgstr "sem H, sem nЗmeros"
+msgstr "не-H, без чисел"
 
 #: main.c:3489 main.c:3833 main.c:4139
 msgid "None"
-msgstr "Nenhum"
+msgstr "Нет"
 
 #: main.c:3501
 msgid "SDF entry:"
@@ -433,15 +430,15 @@ msgstr ""
 
 #: main.c:3589
 msgid "Latex / EPS scale factor :"
-msgstr "Escala Latex / EPS :"
+msgstr "Масштаб LaTeX/EPS:"
 
 #: main.c:3708
 msgid "Unknown error"
-msgstr "Erro desconhecido"
+msgstr "Неизвестная ошибка"
 
 #: main.c:3732 main.c:4010
 msgid "Configurable options"
-msgstr "OpГУes configurАveis"
+msgstr "Изменяемые параметры"
 
 #: main.c:3767
 msgid "_General"
@@ -461,11 +458,11 @@ msgstr ""
 
 #: main.c:3811
 msgid "_Background color:"
-msgstr "Cor do _fundo: "
+msgstr "Цвет фона"
 
 #: main.c:3819
 msgid "Add filled _white rectangle under labels"
-msgstr "Adiciona retБngulo _branco sob rСtulos"
+msgstr "Добавлять заливку белым около меток"
 
 #: main.c:3834 main.c:4148
 msgid "EPSI"
@@ -473,23 +470,23 @@ msgstr ""
 
 #: main.c:3835 main.c:4157
 msgid "TIFF mono"
-msgstr ""
+msgstr "TIFF (моно)"
 
 #: main.c:3836 main.c:4165
 msgid "TIFF color"
-msgstr ""
+msgstr "TIFF (цвет)"
 
 #: main.c:3841
 msgid "_Data directory:"
-msgstr "_DiretСrio de dados:"
+msgstr "Каталог с данными:"
 
 #: main.c:3848
 msgid "E_xtension:"
-msgstr "E_xtensЦo:"
+msgstr "Расширение:"
 
 #: main.c:3856
 msgid "Preview image to add to _EPS files:"
-msgstr "Visualiza imagem a adicionar a arquivos _eps:"
+msgstr "Предварительный просмотр добавляемой в eps-файлы картинки:"
 
 #: main.c:3863 main.c:4184
 msgid "Support national character sets in labels"
@@ -497,7 +494,7 @@ msgstr ""
 
 #: main.c:3883
 msgid "Base bond _length:"
-msgstr "Comprimento de _ligaГЦo base:"
+msgstr "Базовая длина связи:"
 
 #: main.c:3891
 msgid "Double bond _separation:"
@@ -505,83 +502,83 @@ msgstr ""
 
 #: main.c:3904
 msgid "_Printing"
-msgstr "Imprimir"
+msgstr "Печать"
 
 #: main.c:3934 main.c:4049
 msgid "Portrait"
-msgstr "Vertical"
+msgstr "Портрет"
 
 #: main.c:3935 main.c:4054
 msgid "Landscape"
-msgstr "Horizontal"
+msgstr "Ландшафт"
 
 #: main.c:3949
 msgid "Print _command:"
-msgstr "_Comando de impressЦo:"
+msgstr "Команда печати:"
 
 #: main.c:3956
 msgid "Printer _name:"
-msgstr "_Nome da impressora:"
+msgstr "Имя принтера:"
 
 #: main.c:3963
 msgid "Paper si_ze:"
-msgstr "_Tamanho de papel:"
+msgstr "Размер бумаги:"
 
 #: main.c:3970
 msgid "_Orientation:"
-msgstr "_OrientaГЦo:"
+msgstr "Ориентация:"
 
 #: main.c:3977
 msgid "Print sc_ale factor:"
-msgstr "E_scala de impressЦo:"
+msgstr "Масштаб при печати:"
 
 #: main.c:3993
 msgid "Select background color"
-msgstr "Seleciona cor de fundo"
+msgstr ""
 
 #: main.c:4019
 msgid "Paper size:"
-msgstr "Tamanho de papel:"
+msgstr "Размер бумаги:"
 
 #: main.c:4044
 msgid "Orientation:"
-msgstr "OrientaГЦo:"
+msgstr "Ориентация:"
 
 #: main.c:4069
 msgid "Print scale factor :"
-msgstr "Escala de impressЦo:"
+msgstr "Масштаб при печати:"
 
 #: main.c:4094
 msgid "Print command:"
-msgstr "Comando de impressЦo:"
+msgstr "Команда печати:"
 
 #: main.c:4134
 msgid "Preview image to add to eps files :"
-msgstr "Visualiza imagem a adicionar a arquivos eps:"
+msgstr "Предварительный просмотр добавляемой в eps-файлы картинки:"
 
 #: main.c:4198
 msgid "Background color :"
-msgstr "Cor do fundo: "
+msgstr "Цвет фона"
 
 #: main.c:4212
 msgid "Add filled white rectangle under labels"
-msgstr "Adiciona retБngulo branco sob rСtulos"
+msgstr "Добавлять заливку белым около меток"
 
 #: main.c:4225
 msgid "Printer name:"
-msgstr "Nome da impressora:"
+msgstr "Имя принтера:"
 
 #: main.c:4238
 msgid "Data directory:"
-msgstr "DiretСrio de dados:"
+msgstr "Каталог с данными:"
 
 #: main.c:4251
 msgid "Extension:"
-msgstr "ExtensЦo:"
+msgstr "Расширение:"
 
 #: main.c:4264
 msgid "Base bondlength (10.668mm) :"
-msgstr "Comprimento de ligaГЦo base (10,668mm):"
+msgstr "Базовая длина связи (10.668мкм):"
 
 #: main.c:4278
 msgid "Doublebond separation (4 pixel) :"
@@ -589,200 +586,200 @@ msgstr ""
 
 #: main.c:4298
 msgid "Ok"
-msgstr ""
+msgstr "ОК"
 
 #: main.c:4308 gtkfilesel.c:880 gtkfilesel.c:1306 gtkfilesel.c:1407
 #: gtkfilesel.c:1522
 msgid "Cancel"
-msgstr "Cancela"
+msgstr "Отмена"
 
 #: main.c:4327 main.c:4912
 msgid "Templates"
-msgstr "Moldes"
+msgstr "Заготовки"
 
 #: main.c:4338 main.c:4340
 msgid "Carbocycles"
-msgstr "AnИis"
+msgstr "Карбоциклы"
 
 #: main.c:4378 main.c:4380
 msgid "Sugars"
-msgstr "AГЗcares"
+msgstr "Сахара"
 
 #: main.c:4422 main.c:4424
 msgid "Heterocycles"
-msgstr "HeterocМclicos"
+msgstr "Гетероциклы"
 
 #: main.c:4466 main.c:4468
 msgid "Amino Acids"
-msgstr "Aminos-Аcido"
+msgstr ""
 
 #: main.c:4511 main.c:4513
 msgid "Symbols"
-msgstr "SМmbolos"
+msgstr "Символы"
 
 #: main.c:4559 gtkfilesel.c:1196
 msgid "Close"
-msgstr "Fechar"
+msgstr "Закрыть"
 
 #: main.c:4605
 msgid "New"
-msgstr "Novo"
+msgstr "Новый"
 
 #: main.c:4613
 msgid "Open"
-msgstr "Abrir"
+msgstr "Открыть"
 
 #: main.c:4621 main.c:4904
 msgid "Add"
-msgstr "Adicionar"
+msgstr "Добавить"
 
 #: main.c:4629
 msgid "Import MOL"
-msgstr "Importar MOL"
+msgstr "Импорт MOL"
 
 #: main.c:4637
 msgid "Import PDB"
-msgstr "Importar PDB"
+msgstr "Импорт PDB"
 
 #: main.c:4645
 msgid "Import (Babel)"
-msgstr "Importar (Babel)"
+msgstr "Импорт (Babel)"
 
 #: main.c:4653
 msgid "Export..."
-msgstr "Exportar..."
+msgstr "Экспорт..."
 
 #: main.c:4661
 msgid "Export (Babel)"
-msgstr "Exportar (Babel)"
+msgstr "Экспорт (Babel)"
 
 #: main.c:4670 main.c:4941
 msgid "Print"
-msgstr "Imprimir"
+msgstr "Печать"
 
 #: main.c:4678
 msgid "Setup Defaults"
-msgstr "ConfiguraГЦo padrЦo"
+msgstr "Установки по умолчанию"
 
 #: main.c:4693 main.c:4960
 msgid "Save Config"
-msgstr "Salvar config"
+msgstr "Сохранить настройки"
 
 #: main.c:4702 main.c:4921
 msgid "Save"
-msgstr "Salvar"
+msgstr "Сохранить"
 
 #: main.c:4710
 msgid "Save As..."
-msgstr "Salvar como..."
+msgstr "Сохранить как..."
 
 #: main.c:4719 main.c:5031
 msgid "Quit"
-msgstr "Sair"
+msgstr "Выход"
 
 #: main.c:4727
 msgid "File"
-msgstr "Arquivo"
+msgstr "Файл"
 
 #: main.c:4734
 msgid "Copy"
-msgstr "Copiar"
+msgstr "Копировать"
 
 #: main.c:4746
 msgid "Flip horizontally"
-msgstr "ReflexЦo horizontal"
+msgstr "Перевернуть горизонтально"
 
 #: main.c:4752
 msgid "Flip vertically"
-msgstr "ReflexЦo vertical"
+msgstr "Перевернуть вертикально"
 
 #: main.c:4759
 msgid "Undo"
-msgstr "Desfazer"
+msgstr "Отменить"
 
 #: main.c:4767
 msgid "Redo"
-msgstr "Refazer"
+msgstr "Повторить"
 
 #: main.c:4777
 msgid "Edit"
-msgstr "Editar"
+msgstr "Правка"
 
 #: main.c:4784
 msgid "Zoom in"
-msgstr "Ampliar"
+msgstr "[+]"
 
 #: main.c:4790
 msgid "Zoom out"
-msgstr "Reduzir"
+msgstr "[-]"
 
 #: main.c:4801 main.c:4996
 msgid "Center"
-msgstr "Centralizar"
+msgstr "Центр"
 
 #: main.c:4809
 msgid "Grid rect/rhomb/off"
-msgstr "Grade retang/hexag/deslig"
+msgstr "Сетка 4/6/нет"
 
 #: main.c:4815
 msgid "View"
-msgstr "ExibiГЦo"
+msgstr "Просмотр"
 
 #: main.c:4823
 msgid "Templates..."
-msgstr "Moldes..."
+msgstr "Заготовки..."
 
 #: main.c:4832
 msgid "Calculate Formula Weight"
-msgstr "Calcular Massa Molecular"
+msgstr "Молекулярная масса"
 
 #: main.c:4840
 msgid "Clean up drawing"
-msgstr "Organizar figura"
+msgstr "Подчистка рисунка"
 
 #: main.c:4846
 msgid "Tools"
-msgstr "Ferramentas"
+msgstr "Инструменты"
 
 #: main.c:4854 main.c:5039
 msgid "About"
-msgstr "Sobre"
+msgstr "?"
 
 #: main.c:4863 main.c:4872
 msgid "Help"
-msgstr "Ajuda"
+msgstr "Справка"
 
 #: main.c:4895
 msgid "Load"
-msgstr "Carregar"
+msgstr "Открыть"
 
 #: main.c:4900
 msgid "Load a chemtool sketch"
-msgstr "Carrega uma figura do Chemtool"
+msgstr "Открыть рисунок Chemtool"
 
 #: main.c:4909
 msgid "Add fragment from file"
-msgstr "Adiciona fragmento do arquivo"
+msgstr "Добавить фрагмент из файла"
 
 #: main.c:4918
 msgid "Add template structure"
-msgstr "Adiciona estrutura do molde"
+msgstr "Добавить готовую структуру"
 
 #: main.c:4926
 msgid "Save sketch to file"
-msgstr "Salva desenho para arquivo"
+msgstr "Сохранить рисунок Chemtool"
 
 #: main.c:4929
 msgid "Export"
-msgstr "Exportar"
+msgstr "Экспорт"
 
 #: main.c:4938
 msgid "Create EPS, XFig, PicTeX or XBM file"
-msgstr "Cria arquivo EPS, XFig, PicTeX ou XBM"
+msgstr "Создать файл EPS, XFig, PicTeX или XBM"
 
 #: main.c:4947
 msgid "Print file to a postscript printer"
-msgstr "Imprime um arquivo para impressora postscript"
+msgstr "Печатать на PS-принтер"
 
 #: main.c:4950
 msgid "Setup"
@@ -790,7 +787,7 @@ msgstr ""
 
 #: main.c:4957
 msgid "Setup default options"
-msgstr "ConfiguraГЦo padrЦo"
+msgstr "Установки по умолчанию"
 
 #: main.c:4966
 msgid "Save default options"
@@ -798,460 +795,461 @@ msgstr ""
 
 #: main.c:4969
 msgid "Import"
-msgstr "Importar"
+msgstr "Импорт"
 
 #: main.c:4975
 msgid "Read a file written in MDL/molfile format"
-msgstr "LЙ um arquivo em formato MDL/molfile"
+msgstr "Прочитать MDL MOL-файл"
 
 #: main.c:4978
 msgid "ImportPDB"
-msgstr "ImportarPDB"
+msgstr "Импорт PDB"
 
 #: main.c:4984
 msgid "Read a file written in PDB format"
-msgstr "LЙ um arquivo em formato PDB"
+msgstr "Прочитать PDB-файл"
 
 #: main.c:4987
 msgid "Zoom In"
-msgstr "Ampliar"
+msgstr "[+]"
 
 #: main.c:4992
 msgid "Increase zoom scale"
-msgstr "Amplia escala de zoom"
+msgstr "Увеличить масштаб"
 
 #: main.c:5002
 msgid "Center molecule in drawing area"
-msgstr "Centraliza molИcula na Аrea de desenho"
+msgstr "Центрировать молекулу"
 
 #: main.c:5005
 msgid "Zoom Out"
-msgstr "Reduzir"
+msgstr "[-]"
 
 #: main.c:5010
 msgid "Decrease zoom scale"
-msgstr "Reduz escala de zoom"
+msgstr "Уменьшить масштаб"
 
 #: main.c:5014
 msgid "Clear"
-msgstr "Limpar"
+msgstr "Очистить"
 
 #: main.c:5019
 msgid "Remove molecule"
-msgstr "Remove molИcula"
+msgstr "Удалить молекулу"
 
 #: main.c:5022
 msgid "FW"
-msgstr "MM"
+msgstr "Mасса"
 
 #: main.c:5027
 msgid "Calculate Formula Mass"
-msgstr "Calcula Massa Molecular"
+msgstr "Молекулярная масса"
 
 #: main.c:5036
 msgid "Exit Chemtool"
-msgstr "Sai do Chemtool"
+msgstr "Выйти из Chemtool"
 
 #: main.c:5045
 msgid "About Chemtool"
-msgstr "Sobre Chemtool"
+msgstr "О программе"
 
 #: main.c:5086
 msgid "Draw at 0/30/60/90 degree angles"
-msgstr "Desenha em Бngulos de 0/30/60/90 graus"
+msgstr "Рисовать под углом 0/30/60/90 градусов"
 
 #: main.c:5102
 msgid "Draw at 0/36/72/... degree angles"
-msgstr "Desenha em Бngulos de 0/36/72/... graus"
+msgstr "Рисовать под углом 0/36/72/... градусов"
 
 #: main.c:5124
 msgid "Draw at 18/54/90/... degree angles"
-msgstr "Desenha em Бngulos de 18/54/90/... graus"
+msgstr "Рисовать под углом 18/54/90/... градусов"
 
 #: main.c:5141
 msgid "Draw at 0/45/90... degree angles"
-msgstr "Desenha em Бngulos de 0/45/90/... graus"
+msgstr "Рисовать под углом 18/54/90/... градусов"
 
 #: main.c:5158
 msgid "Draw curves based on 4 control points"
-msgstr "Desenha curva baseada em 4 pontos de controle"
+msgstr "Рисовать кривые по 4 точкам"
 
 #: main.c:5174
 msgid "Draw left-justified text"
-msgstr "Insere texto alinhado Ю esquerda"
+msgstr "Текст (выравнивание влево)"
 
 #: main.c:5191
 msgid "Draw centered text"
-msgstr "Insere texto centralizado"
+msgstr "Текст (центрированный)"
 
 #: main.c:5208
 msgid "Draw right-justified text"
-msgstr "Insere texto alinhado Ю direita"
+msgstr "Текст (выравнивание вправо)"
 
 #: main.c:5236
 msgid "Set current textfont"
-msgstr "Seleciona fonte do texto"
+msgstr "Текущий шрифт"
 
 #: main.c:5266
 msgid "Choose default bond type"
-msgstr "Escolhe tipo de ligaГЦo padrЦo"
+msgstr "Тип связи по умолчанию"
 
 #: main.c:5283
 msgid "Select pen color"
-msgstr "Seleciona cor da pena"
+msgstr "Цвет пера"
 
 #: main.c:5288
 msgid "Bonds"
-msgstr "LigaГУes"
+msgstr "Связи"
 
 #: main.c:5293
 msgid "Toggle bond types"
-msgstr "Muda tipos de ligaГУes"
+msgstr "Переключение типа связи"
 
 #: main.c:5310
 msgid "Mark objects for moving, rotating or deleting"
-msgstr "Marca objeto para mover, girar ou apagar"
+msgstr "Выделить объекты для перемещения, вращения или удаления"
 
 #: main.c:5327
 msgid "Move marked object"
-msgstr "Move objetos marcados"
+msgstr "Переместить выделенный объект"
 
 #: main.c:5344
 msgid "Rotate marked object"
-msgstr "Gira objetos marcados"
+msgstr "Повернуть выделенный объект"
 
 #: main.c:5363
 msgid "Flip object horizontally"
-msgstr "Reflete objeto horizontalmente"
+msgstr "Перевернуть объект горизонтально"
 
 #: main.c:5381
 msgid "Flip object vertically"
-msgstr "Reflete objeto verticalmente"
+msgstr "Перевернуть объект вертикально"
 
 #: main.c:5407
 msgid "Copy marked object"
-msgstr "Copia objetos marcados"
+msgstr "Копировать отмеченный объект"
 
 #: main.c:5422
 msgid "Rescale marked object"
-msgstr "Muda escala de objetos marcados"
+msgstr "Масштабировать отмеченный объект"
 
 #: main.c:5441
 msgid "Draw brackets around object"
-msgstr "Desenha colchetes ao redor do objeto"
+msgstr "Квадратные скобки около объекта"
 
 #: main.c:5456
 msgid "Draw rounded brackets around object"
-msgstr "Desenha parЙnteses ao redor do objeto"
+msgstr "Круглые скобки около объекта"
 
 #: main.c:5471
 msgid "Draw round brackets around object"
-msgstr "Desenha parЙnteses ao redor do objeto"
+msgstr "Круглые скобки около объекта"
 
 #: main.c:5486
 msgid "Draw braces around object"
-msgstr "Desenha chaves ao redor do objeto"
+msgstr "Фигурные скобки около объекта"
 
+# XXX here finished
 #: main.c:5501
 msgid "Draw simple box around object"
-msgstr "Desenha retБngulo simples ao redor do objeto"
+msgstr "Простая рамка около объекта"
 
 #: main.c:5515
 msgid "Draw shaded box around object"
-msgstr "Desenha retБngulo sombreado ao redor do objeto"
+msgstr "Рамка с тенью около объекта"
 
 #: main.c:5529
 msgid "Draw fancy box around object"
-msgstr "Desenha retБngulo 3D ao redor do objeto"
+msgstr "Более другая рамка около объекта"
 
 #: main.c:5543
 msgid "Draw rounded box around object"
-msgstr "Desenha retБngulo arredondado ao redor do objeto"
+msgstr "Скругленная рамка около объекта"
 
 #: main.c:5560
 msgid "Draw brackets and boxes around object"
-msgstr "Desenha colchetes e retБngulos ao redor do objeto"
+msgstr "Скобки и рамки около объекта"
 
 #: main.c:5576
 msgid "Removes duplicate bonds, etc."
-msgstr "Remove ligaГУes duplicadas, etc."
+msgstr "Удалить дублирующиеся связи и т.п."
 
 #: main.c:5605
 msgid "Text :"
-msgstr "Texto: "
+msgstr "Текст:"
 
 #: main.c:5619
 msgid ""
 "Prefix a character with _ for subscript, ^ for superscript, @ for symbols, | "
 "for italic, # for bold text; e.g. H_2O, @a_D^2^0"
 msgstr ""
-"Anteceda um caractere com _ para Мndice, ^ para expoente, @ para sМmbolos, | "
-"para itАlico, # para negrito; e.g. H_2O, @a_D^2^0"
+"Предварите символ: _ для нижнего индекса, ^ - для верхнего, @ - греческий,| "
+"- курсив, # - жирный. Например, H_2O, @a_D^2^0"
 
 #: main.c:5624
 msgid "Select current text size"
-msgstr "Seleciona tamanho da fonte"
+msgstr "Размер текста"
 
 #: main.c:5753
 #, c-format
 msgid "Ready"
-msgstr "Pronto"
+msgstr "Готово"
 
 #: main.c:5816
 #, c-format
 msgid "chemtool: can't load any font\n"
-msgstr "chemtool: nЦo posso carregar nenhuma fonte\n"
+msgstr "chemtool: не могу загрузить подходящий шрифт\n"
 
 #: main.c:5954
 #, c-format
 msgid "Memory allocation problem (SIGSEGV) -"
-msgstr "Problema de alocaГЦo de memСria (SIGSEGV) -"
+msgstr "Проблема распределения памяти (SIGSEGV) - "
 
 #: main.c:5957
 #, c-format
 msgid "Invalid math somewhere (SIGFPE) -"
-msgstr "OperaГЦo matemАtica invАlida (SIGFPE) -"
+msgstr "Неправильная арифметика где-то (SIGFPE) - "
 
 #: main.c:5960
 #, c-format
 msgid "Memory access problem (SIGBUS) -"
-msgstr "Problema de alocaГЦo de memСria (SIGBUS) -"
+msgstr "Ошибка доступа к памяти (SIGBUS) - "
 
 #: main.c:5963
 #, c-format
 msgid "Ordered to quit (SIGHUP) - "
-msgstr "Ordenado para sair (SIGHUP) -"
+msgstr "Приказано выйти (SIGHUP) - "
 
 #: main.c:5965
 #, c-format
 msgid " dumping current drawing to file crashdump.cht\n"
-msgstr " salvando figura corrente para crashdump.cht\n"
+msgstr "бросаю текущее состояние в файл crashdump.cht\n"
 
 #: gtkfilesel.c:664
 msgid "Looking in:"
-msgstr "Examinando:"
+msgstr "Ищу в:"
 
 #: gtkfilesel.c:796
 msgid "Directories"
-msgstr "DiretСrios"
+msgstr "Каталоги"
 
 #: gtkfilesel.c:825
 msgid "Mask:"
-msgstr "MАscara:"
+msgstr "Шаблон:"
 
 #: gtkfilesel.c:838
 msgid "Files"
-msgstr "Arquivos"
+msgstr "Файлы"
 
 #: gtkfilesel.c:872
 msgid "OK"
-msgstr ""
+msgstr "ОК"
 
 #: gtkfilesel.c:916 gtkfilesel.c:2174
 #, c-format
 msgid "Directory unreadable: %s"
-msgstr "DiretСrio inacessМvel: %s"
+msgstr "Каталог нечитаем: %s"
 
 #: gtkfilesel.c:949
 msgid "Create Dir"
-msgstr "Criar dir"
+msgstr "Создать каталог"
 
 #: gtkfilesel.c:960 gtkfilesel.c:1375
 msgid "Delete File"
-msgstr "Apagar arquivo"
+msgstr "Удалить файл"
 
 #: gtkfilesel.c:971 gtkfilesel.c:1480
 msgid "Rename File"
-msgstr "Renomear arquivo"
+msgstr "Переименовать файл"
 
 #: gtkfilesel.c:1173
 msgid "Error"
-msgstr "Erro"
+msgstr "Ошибка"
 
 #: gtkfilesel.c:1271
 msgid "Create Directory"
-msgstr "Criar diretСrio"
+msgstr "Создать каталог"
 
 #: gtkfilesel.c:1285
 msgid "Directory name:"
-msgstr "Nome do diretСrio:"
+msgstr "Имя каталога:"
 
 #: gtkfilesel.c:1297
 msgid "Create"
-msgstr "Criar"
+msgstr "Создать"
 
 #: gtkfilesel.c:1397
 msgid "Delete"
-msgstr "Apagar"
+msgstr "Удалить"
 
 #: gtkfilesel.c:1512
 msgid "Rename"
-msgstr "Renomear"
+msgstr "Переименовать"
 
 #: gtkfilesel.c:2155
 msgid "Selection: "
-msgstr "SeleГЦo: "
+msgstr "Выбор:"
 
 #: inout.c:5767
 #, c-format
 msgid "Consider installing Babel/OpenBabel for file format conversions...\n"
-msgstr "Favor instalar Babel/OpenBabel para conversУes de arquivos...\n"
+msgstr "Попробуйте Babel/OpenBabel для конвертирования форматов...\n"
 
 #: templates.hx:2
 msgid "Cyclopentadienyl"
-msgstr "Ciclopentadienilo"
+msgstr "Циклопентадиенил"
 
 #: templates.hx:2
 msgid "Benzene"
-msgstr "Benzeno"
+msgstr "Бензол"
 
 #: templates.hx:2
 msgid "Naphthalene"
-msgstr "Naftaleno"
+msgstr "Нафталин"
 
 #: templates.hx:2
 msgid "Azulene"
-msgstr "Azuleno"
+msgstr "Азулен"
 
 #: templates.hx:3
 msgid "Adamantane"
-msgstr "Adamantano"
+msgstr "Адамантан"
 
 #: templates.hx:3 templates.hx:5
 msgid "Cyclohexane"
-msgstr "Cicloexano"
+msgstr "Циклогексан"
 
 #: templates.hx:3
 msgid "Steroid backbone"
-msgstr "Esqueleto de esterСide"
+msgstr "Стероидный скелет"
 
 #: templates.hx:3
 msgid "Cycloheptatriene"
-msgstr "Cicloeptatrieno"
+msgstr "Циклопентатриен"
 
 #: templates.hx:3
 msgid "Cyclooctatetraene"
-msgstr "Cicloctatetraeno"
+msgstr "Циклооктатетраен"
 
 #: templates.hx:4
 msgid "Fluorene"
-msgstr "Fluoreno"
+msgstr "Флуорен"
 
 #: templates.hx:4
 msgid "Spiro[4.5]decane"
-msgstr "Espiro[4.5]decano"
+msgstr "Спиро[4.5]декан"
 
 #: templates.hx:4
 msgid "Heptalene"
-msgstr "Heptaleno"
+msgstr "Гептален"
 
 #: templates.hx:4
 msgid "Fulvalene"
-msgstr "Fulvaleno"
+msgstr "Фульвален"
 
 #: templates.hx:4
 msgid "Dicyclopentadiene"
-msgstr "Diciclopentadieno"
+msgstr "Дициклопентадиен"
 
 #: templates.hx:5
 msgid "Indene"
-msgstr "Indeno"
+msgstr "Индол"
 
 #: templates.hx:5
 msgid "Biphenyl"
-msgstr "Bifenila"
+msgstr "Бифенил"
 
 #: templates.hx:5
 msgid "Norbornane"
-msgstr "Norbornano"
+msgstr "Норборнан"
 
 #: templates.hx:5
 msgid "Binaphthyl"
-msgstr "Binaftila"
+msgstr "Бинафтил"
 
 #: templates.hx:6
 msgid "Coronene"
-msgstr "Coroneno"
+msgstr "Коронен"
 
 #: templates.hx:8
 msgid "Pyranose core"
-msgstr "Esqueleto de piranose"
+msgstr "Ядрро пиранозы"
 
 #: templates.hx:8
 msgid "Furanose core"
-msgstr "Esqueleto de furanose"
+msgstr "Ядро фуранозы"
 
 #: templates.hx:8
 msgid "Ribofuranose"
-msgstr "Ribofuranose"
+msgstr "Рибофураноза"
 
 #: templates.hx:8
 msgid "Fructose"
-msgstr "Frutose"
+msgstr "Фруктоза"
 
 #: templates.hx:8
 msgid "Galactose"
-msgstr "Galactose"
+msgstr "Галактоза"
 
 #: templates.hx:9
 msgid "Glucose"
-msgstr "Glicose"
+msgstr "Глюкоза"
 
 #: templates.hx:9
 msgid "Mannose"
-msgstr "Manose"
+msgstr "Манноза"
 
 #: templates.hx:9
 msgid "Fucose"
-msgstr ""
+msgstr "Фукоза"
 
 #: templates.hx:9
 msgid "Xylose"
-msgstr "Xilose"
+msgstr "Ксилоза"
 
 #: templates.hx:9
 msgid "Neuraminic acid"
-msgstr "аcido neuramМnico"
+msgstr "Нейраминовая кислота"
 
 #: templates.hx:10
 msgid "Sucrose"
-msgstr "Sacarose"
+msgstr "Сахароза"
 
 #: templates.hx:10
 msgid "Maltose"
-msgstr ""
+msgstr "Мальтоза"
 
 #: templates.hx:10
 msgid "Lactose"
-msgstr ""
+msgstr "Лактоза"
 
 #: templates.hx:14
 msgid "Adenine"
-msgstr "Adenina"
+msgstr "Аденин"
 
 #: templates.hx:14
 msgid "Guanine"
-msgstr "Guanina"
+msgstr "Гуанин"
 
 #: templates.hx:14
 msgid "Thymine"
-msgstr "Timina"
+msgstr "Тимин"
 
 #: templates.hx:14
 msgid "Cytosine"
-msgstr "Citosina"
+msgstr "Цитозин"
 
 #: templates.hx:14
 msgid "Uracil"
-msgstr "Uracila"
+msgstr "Урацил"
 
 #: templates.hx:15
 msgid "Porphine"
-msgstr "Porfina"
+msgstr "Порфин"
 
 #: templates.hx:15
 msgid "Caffeine"
-msgstr "CafeМna"
+msgstr "Кофеин"
 
 #: templates.hx:15
 msgid "Evans auxiliary"
@@ -1291,134 +1289,115 @@ msgstr ""
 
 #: templates.hx:26
 msgid "p orbital"
-msgstr "Orbital p"
+msgstr "p-орбиталь"
 
 #: templates.hx:26
 msgid "plus"
-msgstr "mais"
+msgstr "плюс"
 
 #: templates.hx:26
 msgid "minus"
-msgstr "menos"
+msgstr "минус"
 
 #: templates.hx:26
 msgid "rearrangement"
-msgstr "rearranjo"
+msgstr "перегруппировка"
 
 #~ msgid "Help - somebody ate my atoms (hp->n=%d, da_root.next NULL)!!!\n"
-#~ msgstr ""
-#~ "Socorro - alguИm comeu meus Аtomos  (hp->n=%d, da_root.next NULL)!!!\n"
+#~ msgstr "Ай! Кто-то съел мои атомы (hp->n=%d, da_root.next NULL)!!!\n"
 
 #~ msgid "Help - somebody ate my atoms (d=%d,hp->n=%d)!!!\n"
-#~ msgstr "Socorro - alguИm comeu meus Аtomos (d=%d,hp->n=%d)!!!\n"
+#~ msgstr "Ай! Кто-то съел мои атомы (d=%d,hp->n=%d)!!!\n"
 
 #~ msgid "failed to load font %s !!!\n"
-#~ msgstr "erro ao carregar a fonte %s !!!\n"
+#~ msgstr "не могу загрузить шрифт %s !!!\n"
 
 #~ msgid "Failed to load symbol font, using standard font\n"
-#~ msgstr "Erro ao carregar fonte de sМmbolos, serА usada fonte padrЦo\n"
+#~ msgstr "Не могу загрузить шрифт Symbol, использую обычный\n"
 
 #~ msgid "Error creating directory \""
-#~ msgstr "Erro ao criar diretСrio \""
+#~ msgstr "Ошибка создания каталога \""
 
 #~ msgid "Error deleting file \""
-#~ msgstr "Erro ao apagar arquivo \""
+#~ msgstr "Ошибка при удалении файла \""
 
 #~ msgid "Really delete file \""
-#~ msgstr "Realmente apagar arquivo \""
+#~ msgstr "Действительно удалить файл \""
 
 #~ msgid "Error renaming file \""
-#~ msgstr "Erro ao renomear arquivo \""
+#~ msgstr "Ошибка переименования файла \""
 
 #~ msgid "Rename file \""
-#~ msgstr "Renomear arquivo \""
+#~ msgstr "Переименовать файл \""
 
 #~ msgid "\" to:"
-#~ msgstr "\" para:"
+#~ msgstr "\" в: "
 
 #~ msgid "Name too long"
-#~ msgstr "Nome muito longo"
+#~ msgstr "Слишком длинное имя"
 
 #~ msgid "Chemtool Version "
-#~ msgstr "Chemtool VersЦo"
+#~ msgstr "Версия Chemtool "
 
 #~ msgid "endless molfile???\n"
-#~ msgstr "arquivo mol sem fim???\n"
+#~ msgstr "бесконечный .MOL???\n"
 
 #~ msgid "expecting na %d nb %d\n"
-#~ msgstr "esperando na %d nb %d\n"
+#~ msgstr "ожидаю na %d nb %d\n"
 
 #~ msgid "Molecule exported from chemtool\n"
-#~ msgstr "MolИcula exportada do chemtool\n"
-
-#~ msgid ""
-#~ "<desc>\n"
-#~ "Created with Chemtool 1.6.9 from file %s \n"
-#~ "</desc>\n"
-#~ msgstr ""
-#~ "<desc>\n"
-#~ "Criado com Chemtool 1.6.9 a partir do arquivo %s \n"
-#~ "</desc>\n"
+#~ msgstr "Молекула экспортирована из Chemtool\n"
 
 #~ msgid "undefined text direction in svg output\n"
-#~ msgstr "direГЦo de texto indefinido na saМda svg\n"
-
-#~ msgid "Created by"
-#~ msgstr "Criado por"
+#~ msgstr "неопределенное направление текста в выводе svg\n"
 
 #~ msgid "no emf font parameters for zoom factor %d\n"
-#~ msgstr "sem parБmetros de font emf para fator de ampliaГЦo %d\n"
+#~ msgstr "отсутствуют параметры шрифта emf для масштаба %d\n"
 
 #~ msgid "undefined text direction in emf output\n"
-#~ msgstr "direГЦo de texto indefinido na saМda emf\n"
+#~ msgstr "неопределенное направление текста в выводе emf\n"
 
 #~ msgid "no figfont parameters for zoom factor %d\n"
-#~ msgstr "sem parБmetros figfont para fator de ampliaГЦo %d\n"
-
-#~ msgid "# generated by Chemtool "
-#~ msgstr "# gerado por Chemtool"
+#~ msgstr "отсутствуют параметры шрифта фигур для масштаба %d\n"
 
 #~ msgid "no figfont parameters for fontsize %d\n"
-#~ msgstr "sem parБmetros figfont para tamanho de fonte %d\n"
+#~ msgstr "отсутствуют параметры шрифта фигур для размера шрифта %d\n"
 
 #~ msgid "undefined text direction in xfig output\n"
-#~ msgstr "direГЦo de texto indefinido na saМda xfig\n"
+#~ msgstr "неопределенное направление текста в выводе xfig\n"
 
 #~ msgid "no translation for %d\n"
-#~ msgstr "sem traduГЦo para %d\n"
+#~ msgstr "не переведено: %d\n"
 
 #~ msgid "could not close fig file"
-#~ msgstr "nЦo foi fechado arquivo fig"
-
-#~ msgid "Chemtool 1.6.9"
-#~ msgstr "Chemtool 1.6.9"
+#~ msgstr "не могу закрыть файл fig"
 
 #~ msgid "program cht not available or unable to write to"
-#~ msgstr "programa cht nЦo disponМvel ou nЦo pТde gravar em"
-
-#~ msgid "Chemtool 1.6.9 (%s)"
-#~ msgstr "Chemtool 1.6.9 (%s)"
+#~ msgstr "программа cht недоступна (возможно, по записи)"
 
 #~ msgid "File selection"
-#~ msgstr "SeleГЦo de arquivo"
+#~ msgstr "Выбор файла"
 
 #~ msgid "_Configurable options"
-#~ msgstr "OpГУes _configurАveis"
+#~ msgstr "Изменяемые параметры"
+
+#~ msgid "Print _scale factor :"
+#~ msgstr "Масштаб при печати:"
 
 #~ msgid "No error"
-#~ msgstr "Sem erros"
+#~ msgstr "Нет ошибок"
 
 #~ msgid "Bad parameter passed to undo function"
-#~ msgstr "ParБmetro errado para funГЦo desfazer"
+#~ msgstr "Функции отмены передан неверный параметр"
 
 #~ msgid "Out of memory"
-#~ msgstr "Sem memСria"
+#~ msgstr "Не хватает памяти"
 
 #~ msgid "No active undo session"
-#~ msgstr "Sem sessЦo para desfazer ativa"
+#~ msgstr "Нечего отменять"
 
 #~ msgid "Nothing to undo/redo"
-#~ msgstr "Nada para desfazer/refazer"
+#~ msgstr "Нечего отменять/повторять"
 
 #~ msgid "No undoable memory limit set"
-#~ msgstr "Sem limite de memСria para desfazer"
+#~ msgstr "Не установлен предел памяти на отмену"

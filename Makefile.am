@@ -23,6 +23,7 @@ DEFS = -DLOCALEDIR=\"$(localedir)\" @DEFS@
 
 # Make sure the gettext.h include file is found.
 AM_CPPFLAGS = -I. -I$(srcdir) @GTK_CFLAGS@
+AM_CFLAGS = -Wall -Wextra -Werror -pedantic -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wold-style-definition -Wshadow
 
 # Link time dependencies.
 LDADD = @LIBINTL@ @GTK_LIBS@ @EMFLIBS@ 

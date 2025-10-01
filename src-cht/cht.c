@@ -1,6 +1,14 @@
 /* Output from p2c 1.21alpha-07.Dec.93, the Pascal-to-C translator */
 /* From input file "cht-1.7.pp" */
 
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wold-style-definition"
+#pragma GCC diagnostic ignored "-Wstrict-prototypes"
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
+#pragma GCC diagnostic ignored "-Wshift-negative-value"
+#endif
+
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -22,8 +30,6 @@
 #include <stdio.h>
 #include <unistd.h>
 #define DOUBLE double
-
-
 
 /* If the following heuristic fails, compile -DBSD=0 for non-BSD systems,
    or -DBSD=1 for BSD systems. */
@@ -498,6 +504,14 @@ extern Anyptr __MallocTemp__;
 #endif    /* P2C_H */
 
 
+
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
+#endif
+
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
+#endif
 
 /* End. */
 

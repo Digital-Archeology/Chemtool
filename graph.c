@@ -4,7 +4,10 @@
 
 #include <string.h>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #include "ct1.h"
+#pragma GCC diagnostic pop
 #ifdef GTK2
 PangoFontDescription *font[7], *smallfont[7], *symbfont[7], 
                      *ssymbfont[7], *slfont[7], 
@@ -89,15 +92,10 @@ void
 CopyPlane ()
 /* updates the display with the contents of the background pixmap */
 {
-  GdkRectangle update_rect;
   gdk_draw_pixmap (drawing_area->window,
 		   drawing_area->style->
 		   fg_gc[GTK_WIDGET_STATE (drawing_area)], picture, 0, 0, 0,
 		   0, head.pix_width, head.pix_height);
-  update_rect.x = 0;
-  update_rect.y = 0;
-  update_rect.width = (guint16)head.pix_width;
-  update_rect.height = (guint16)head.pix_height;
 }
 
 void
@@ -486,9 +484,8 @@ Display_Mol ()
 }
 
 void
-draw_preview_bonds (x, y, tx, ty, b)
+draw_preview_bonds (int x, int y, int tx, int ty, int b)
 /* calls the individual bond functions to create the preview image */
-     int x, y, tx, ty, b;
 {
   struct xy_co *coord;
 
@@ -844,7 +841,7 @@ DrawWiggly (int x, int y, int tx, int ty, int active, int color)
 }
 
 void
-DrawArrow (int x, int y, int tx, int ty, int head, int active, int color)
+DrawArrow (int x, int y, int tx, int ty, int arrow_head, int active, int color)
 /* draws an arrow with either full or one-sided arrowhead */
 {
   int xlen, ylen, xbase, ybase;
@@ -886,7 +883,7 @@ if (select_char (tx,ty,1) != NULL){
   mypoints[1].x = (gint16) ((xbase + 0.1 * ylen*scalefact) * size_factor);
   mypoints[1].y = (gint16) ((ybase - 0.1 * xlen*scalefact) * size_factor);
 
-  if (head == 1)
+  if (arrow_head == 1)
     {
       mypoints[2].x = (gint16) (xbase * size_factor);	/*on baseline */
       mypoints[2].y = (gint16) (ybase * size_factor);
@@ -1166,7 +1163,7 @@ Drawspline (int x0, int y0, int x1, int y1, int x2, int y2, int x3, int y3,
 
 
 void
-Drawstring (int x, int y, char *cc, int direct, int active, int thecolor, int serif_flag, int size, int preview)
+Drawstring (int x, int y, char *cc, int direct, int active, int thecolor, int serif_mode, int size, int preview)
 /* draws a label with sub- and superscripting, symbols and text justification */
 {
   int ha, tw, a;
@@ -1290,11 +1287,15 @@ memset(l,0,8*sizeof(gchar));
 	{
 	  symbol[d] = TRUE;
 	  text[d] = hl;
-	if (text[d] == '+') 
-	  text[d]=8005;//QUAK
-	else if (text[d] == '-') 
-	  text[d]=8006;//QUAK
-          c = g_utf8_next_char(c);
+    if (text[d] == '+')
+      {
+        text[d] = 8005;  /* QUAK */
+      }
+    else if (text[d] == '-')
+      {
+        text[d] = 8006;  /* QUAK */
+      }
+    c = g_utf8_next_char (c);
 	  --n;
 	}
 
@@ -1881,7 +1882,7 @@ g_unichar_to_utf8(text[d],l);
 	      gdk_draw_text (picture, slfont[fontsize], thegc, x, y + ha, l, (gint)strlen (l));
 #endif
 	    }
-	  else if (serif_flag)
+    else if (serif_mode)
 	    {
 #ifdef GTK2
               pango_layout_set_text(thelayout,l,-1);

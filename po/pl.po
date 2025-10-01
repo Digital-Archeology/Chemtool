@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2008-12-13 16:16+0100\n"
 "Last-Translator: Micha³ Smoczyk\n"
 "Language-Team:  <pl@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -394,8 +395,7 @@ msgstr ""
 "Michael Banck\n"
 "Thomas Volk\n"
 "\n"
-"http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool.html"
-"\n"
+"http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool.html\n"
 "Polskie t³umaczenie: Nikodem Ku¼nik, Micha³ Smoczyk"
 
 #: main.c:3450
@@ -918,7 +918,8 @@ msgstr "Zmiana typu wi±zañ"
 
 #: main.c:5310
 msgid "Mark objects for moving, rotating or deleting"
-msgstr "Zaznaczanie obiektów, które mo¿na w nastêpstwie przesuwaæ, obracaæ lub usuwaæ"
+msgstr ""
+"Zaznaczanie obiektów, które mo¿na w nastêpstwie przesuwaæ, obracaæ lub usuwaæ"
 
 #: main.c:5327
 msgid "Move marked object"
@@ -1104,7 +1105,8 @@ msgstr "Wybór: "
 #: inout.c:5767
 #, c-format
 msgid "Consider installing Babel/OpenBabel for file format conversions...\n"
-msgstr "Zainstalowanie Babel/OpenBabel umo¿liwi konwersje plików chemicznych...\n"
+msgstr ""
+"Zainstalowanie Babel/OpenBabel umo¿liwi konwersje plików chemicznych...\n"
 
 #: templates.hx:2
 msgid "Cyclopentadienyl"
@@ -1313,4 +1315,3 @@ msgstr "minus"
 #: templates.hx:26
 msgid "rearrangement"
 msgstr "przegrupowanie"
-

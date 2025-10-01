@@ -1,18 +1,17 @@
-# CHEMTOOL.
-# Copyright (C) 2004 Free Software Foundation, Inc.
-# Flávio Massao Matsumoto <fmatsumo@quimica.ufpr.br>, 2004.
+# Dutch translation for chemtool.
+# Copyright (C) 2005 Free Software Foundation, Inc.
+# Myckel Habets <myckel@sdf.lonestar.org>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Chemtool 1.6.1\n"
+"Project-Id-Version: Chemtool-1.6.3\n"
 "Report-Msgid-Bugs-To: martin@ruby.chemie.uni-freiburg.de\n"
 "POT-Creation-Date: 2007-05-23 23:58+0200\n"
-"PO-Revision-Date: 2004-03-18 09:44BRST\n"
-"Last-Translator: Flávio M. Matsumoto <fmatsumo@ufpr.br>\n"
-"Language-Team: Brazilian Portuguese\n"
-"Language: \n"
+"PO-Revision-Date: 2005-01-10 18:53+0100\n"
+"Last-Translator: Myckel Habets <myckel@sdf.lonestar.org>\n"
+"Language-Team: NONE\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: main.c:217
@@ -20,16 +19,16 @@ msgid ""
 "The current drawing is not saved !\n"
 "Do you really wish to continue ?"
 msgstr ""
-"A figura corrente não foi salva !\n"
-"Deseja realmente continuar ?"
+"De huidige tekening is niet opgeslagen !\n"
+"Wilt u echt doorgaan?"
 
 #: main.c:225 main.c:293
 msgid "Yes"
-msgstr "Sim"
+msgstr "Ja"
 
 #: main.c:240 main.c:308
 msgid "No"
-msgstr "Não"
+msgstr "Nee"
 
 #: main.c:284
 #, c-format
@@ -39,10 +38,10 @@ msgid ""
 "already exists !\n"
 "Overwrite it ?"
 msgstr ""
-"Arquivo\n"
+"Bestand\n"
 "%s\n"
-"já existe !\n"
-"Sobrepor ?"
+"bestaat al !\n"
+"Overschrijven ?"
 
 #: main.c:660
 #, c-format
@@ -51,7 +50,7 @@ msgid ""
 "Next ring drawn will have %d sides"
 msgstr ""
 "\n"
-"O próximo anel desenhado terá %d lados"
+"De volgende getekende ring zal %d kanten hebben"
 
 #: main.c:1033
 #, c-format
@@ -60,11 +59,11 @@ msgid ""
 "Imported %d bonds and %d labels"
 msgstr ""
 "\n"
-"Importados %d ligações e %d rótulos"
+"%d bindingen en %d labels geimporteerd"
 
 #: main.c:1359 main.c:2667 main.c:5829
 msgid "unnamed"
-msgstr "sem_nome"
+msgstr "naamloos"
 
 #: main.c:1361
 #, c-format
@@ -73,7 +72,7 @@ msgid ""
 "Ready"
 msgstr ""
 "\n"
-"Pronto"
+"Gereed"
 
 #: main.c:1389
 #, c-format
@@ -82,7 +81,7 @@ msgid ""
 "Helper process failed - %s %s %s %s!"
 msgstr ""
 "\n"
-"Processo externo falhou - %s %s %s %s!"
+"Helpprogramma faalde - %s %s %s %s!"
 
 #: main.c:1394
 #, c-format
@@ -90,6 +89,8 @@ msgid ""
 "\n"
 "%s    %s  %s  %s"
 msgstr ""
+"\n"
+"%s    %s  %s  %s"
 
 #: main.c:1416
 #, c-format
@@ -98,7 +99,7 @@ msgid ""
 "Drawing printed!"
 msgstr ""
 "\n"
-"Figura impressa!"
+"Tekening afgedrukt!"
 
 #: main.c:1420
 #, c-format
@@ -107,45 +108,45 @@ msgid ""
 "Failed to print drawing !"
 msgstr ""
 "\n"
-"Erro na impressão da figura !"
+"Kon tekening niet afdrukken !"
 
 #: main.c:1783
 #, c-format
 msgid "invalid angle mode %d\n"
-msgstr "modo de ângulo inválido %d\n"
+msgstr "ongeldige hoekmodus %d\n"
 
 #: main.c:1803
 #, c-format
 msgid "invalid text mode %d\n"
-msgstr "modo de texto inválido %d\n"
+msgstr "ongeldige tekstmodus %d\n"
 
 #: main.c:2353
 msgid "Load from file..."
-msgstr "Carregar do arquivo..."
+msgstr "laden van bestand..."
 
 #: main.c:2394
 msgid "Import MDL file..."
-msgstr "Importar arquivo MDL..."
+msgstr "Importeer MDL bestand..."
 
 #: main.c:2434
 msgid "Import via BABEL..."
-msgstr "Importar via BABEL"
+msgstr "Importeer via BABEL..."
 
 #: main.c:2456
 msgid "Export via BABEL..."
-msgstr "Exportar via BABEL"
+msgstr "Exporteer via BABEL..."
 
 #: main.c:2478
 msgid "Import PDB file..."
-msgstr "Importar arquivo PDB..."
+msgstr "Importeer PDB bestand..."
 
 #: main.c:2521
 msgid "Add from file..."
-msgstr "Adicionar do arquivo..."
+msgstr "Toevoegen van bestand..."
 
 #: main.c:2637
 msgid "Save as..."
-msgstr "Salvar como..."
+msgstr "Opslaan als..."
 
 #: main.c:2656
 #, c-format
@@ -154,7 +155,7 @@ msgid ""
 "Nothing to save"
 msgstr ""
 "\n"
-"Nada para salvar"
+"Niets om op te slaan"
 
 #: main.c:2682
 #, c-format
@@ -163,7 +164,7 @@ msgid ""
 "Writing to %s failed !"
 msgstr ""
 "\n"
-"Erro ao gravar para %s !"
+"Kon niet naar %s schrijven!"
 
 #: main.c:2687
 #, c-format
@@ -172,7 +173,7 @@ msgid ""
 "Drawing saved in %s (%d bonds, %d labels)"
 msgstr ""
 "\n"
-"Figura salva em %s (%d ligações, %d rótulos)"
+"Tekening als %s opgeslagen (%d bindingen, %d labels)"
 
 #: main.c:2821 main.c:3176
 #, c-format
@@ -181,8 +182,9 @@ msgid ""
 " %s\n"
 "failed !\n"
 msgstr ""
-"Erro ao gravar para\n"
-" %s !\n"
+"Kon niet naar\n"
+"%s\n"
+"schrijven!\n"
 
 #: main.c:2829
 #, c-format
@@ -191,7 +193,7 @@ msgid ""
 "Drawing exported as %s (%d bonds, %d labels)"
 msgstr ""
 "\n"
-"Figura exportada como %s (%d ligações, %d rótulos)"
+"Tekening als %s geexporteerd (%d bindingen, %d labels)"
 
 #: main.c:2906
 #, c-format
@@ -201,7 +203,7 @@ msgstr ""
 #: main.c:2979 main.c:3060 main.c:3101 main.c:3138
 #, c-format
 msgid "Unable to open %s\n"
-msgstr "Não posso abrir %s\n"
+msgstr "Kan %s niet openen\n"
 
 #: main.c:2986
 #, c-format
@@ -210,7 +212,7 @@ msgid ""
 " does not appear to be a Chemtool file\n"
 msgstr ""
 "%s\n"
-" não parecer ser um arquivo do Chemtool\n"
+" lijkt geen Chemtool bestand te zijn\n"
 
 #: main.c:2996
 #, c-format
@@ -218,13 +220,13 @@ msgid ""
 "%s was created by a newer version.\n"
 "Some features may be lost.\n"
 msgstr ""
-"%s foi criado por uma versão mais nova.\n"
-"Algumas características podem se perder.\n"
+"%s was met een nieuwere versie van Chemtool gemaakt.\n"
+"Enkele gegevens kunnen verloren zijn gegaan.\n"
 
 #: main.c:3009
 #, c-format
 msgid "Error loading %s \n"
-msgstr "Erro ao carregar %s \n"
+msgstr "%s kan niet geladen worden\n"
 
 #: main.c:3048 main.c:3089 main.c:3126
 #, c-format
@@ -233,12 +235,12 @@ msgid ""
 "Choose orientation (Ctrl-Mouse1 for z), press Enter when done"
 msgstr ""
 "\n"
-"Escolha orientação (Ctrl-Mouse1 para z), pressione Enter quando pronto"
+"Kies richting (Ctrl-Muis1 voor z), druk Enter als u klaar bent"
 
 #: main.c:3067 main.c:3145
 #, c-format
 msgid "Problems converting %s\n"
-msgstr "Problemas ao converter %s\n"
+msgstr "Problemen met conversie van %s\n"
 
 #: main.c:3181
 #, c-format
@@ -247,9 +249,9 @@ msgid ""
 " %s\n"
 " (%d bonds, %d labels)\n"
 msgstr ""
-"Figura salva em\n"
-" %s\n"
-" (%d ligações, %d rótulos)\n"
+"Tekening als\n"
+"%s\n"
+"opgeslagen (%d bindingen, %d labels)\n"
 
 #: main.c:3259
 msgid ""
@@ -308,66 +310,70 @@ msgid ""
 "If you find any bugs or have a question or suggestion, please contact the\n"
 "main author, martin@ruby.chemie.uni-freiburg.de"
 msgstr ""
-"Clique e arraste o mouse para desenhar ligações na tela. \n"
-"O botão direito é usado para apagar objetos, ligações\n"
-"ou texto, dependendo do modo de edição que está ativo.\n"
+"Klik en sleep the muis om bindingen in het tekenvlak te tekenen.\n"
+"De rechter muisknop wordt gebruikt om objecten te verwijderen - zowel\n"
+"bindingen als tekst, afhankelijk van welke tekenmodus actief is.\n"
 "\n"
-"Os botões com diferentes tipos de anéis selecionam modos de edição com "
-"deter-\n"
-"minados ângulos, mas é possível desenhar em qualquer ângulo em todos os "
-"modos.\n"
+"De knoppen met verschillende ringtypes selecteren de tekenmoduses\n"
+"met de gewenste hoeken, maar je kan ook in elke hoek in alle moduses "
+"tekenen.\n"
 "\n"
-"O botão contendo uma linha segmentada permite desenhar curvas marcando-se\n"
-"pontos de controle ao longo da curva (um spline cúbico).\n"
-"Você pode selecionar o tipo de ligação e a cor usando botões apropriados\n"
-"ou mudar depois clicando na ligação desejada, no modo Ligações.\n"
+"De knop met de gesegmenteerde lijn laat u curves tekenen door\n"
+"controlepunten langs de curve aan te geven.\n"
+"U kan de bindingstype en kleur selecteren met de daarvoor aangegeven knop\n"
+"of verander het later door klikken op de gewenste binding in bindingsmodus.\n"
 "\n"
-"Para desenhar um sistema cíclico, pressione Ctrl junto com a tecla\n"
-"do número correspondente ao número de lados do polígono, e então\n"
-"desenhe uma dos lados enquanto pressiona a tecla Ctrl.\n"
+"Om een cyclisch systeem te tekenen, druk tegelijk op de CTRL toets en de\n"
+"numerieke toets overeenkomend met het aantal zijden van de polygon, en\n"
+"teken dan een zijde terwijl u de CTRL knop ingedrukt houdt.\n"
 "\n"
-"Para adicinar rótulos, escreva-o na caixa de texto na parte superiordireita "
-"da janela\n"
-"e os posicione-os na tela com o mouse. Podem-se usar alguns atalhos de\n"
-"teclado para rótulos comuns durante o modo de desenho de ligação:\n"
-"Pressione a tecla 'c', or n, o, p, s, f para adicionar o símbolo do elemento "
-"na\n"
-"posição corrente de desenho, 1, 2 e 3 para CH, CH_2 e CH_3, l para Cl,\n"
-"e * para um ponto grande.\n"
+"Voor het tekenen van tekstlabels, schrijf ze in de tekstregel bovenin het \n"
+"venster en plaats ze in het tekenvenster met de muis. U kan ook een aantal\n"
+"sneltoetsen voor veelvuldig gebruikte tekstlabels gebruiken als u in "
+"bindings-\n"
+"tekenmodus bent: Druk de 'c' toets, of n, o, p, s, f om een element symbool "
+"op\n"
+"de huidige tekenpositie te tekenen. 1, 2 en 3 voor CH, CH_2 en CH_3, l voor "
+"Cl,\n"
+"* voor een dikke punt.\n"
 "\n"
-"As teclas do teclado numérico insere uma linha de 'par eletrônico'\n"
-"ao redor do símbolo do átomo na posição correspondente à localização\n"
-"da tecla ao redor do centro do teclado numérico (5).\n"
+"De toetsen va het nummerieke toetsenbord voegen elk een 'electronenpaar' "
+"lijn\n"
+"om een atoomsymbool in, in de positie overeenkomend met de locatie van de "
+"toets\n"
+"ten opzichte van de centrum van het numerieke toetsenbord.\n"
 "\n"
-"O modo texto usa os seguintes prefixos para formatação:\n"
-"_ para índices, ^ for expoentes, @ para símbolos (caracteres gregos),\n"
-"| para caracteres em itálico e # para negrito.\n"
-"Quando a caixa de texto estiver vazia, ao clicar em qualquer rótulo na área\n"
-"de desenho copia-se o rótulo na caixa para se poder usar de novo.\n"
+"De tekstmodus gebruikt de volgende prefixes voor speciale tekst:\n"
+"_ voor subscript, ^ voor superscript, @ voor symbolen (griekse tekens),\n"
+"| voor schuin geschreven tekens en # voor vette tekst.\n"
+"Als de tekstregel leeg is, kliken op een tekstlabel in het tekenvenster\n"
+"copieert die tekstlabel in de tekstregel voor hergebruik.\n"
 "\n"
-"O desenho é feito mais facilmente com o mouse, mas se pode usar \n"
-"as teclas do cursor junto com o Ctrl para um posicionamento exato.\n"
-"Quando usado com a tecla Alt, as teclas do cursor move uma grade\n"
-"retangular ou hexagonal que pode ser projetado na área de desenho.\n"
+"Tekenen is het makkelijkst met de muis, maar ook de cursor toetsen\n"
+"in combinatie met de CTRL toets kan gebruikt worden voor exacte\n"
+"positionering. Als de Alt toets gebruikt wordt, verplaatsen de cursor\n"
+"toetsen de vierkantige of zeskantige raster die op het tekenvenster\n"
+"geprojecteerd kan worden.\n"
 "\n"
-"Se for necessária uma função de desenho que não há no chemtool,\n"
-"exporte em formato fig e edite sua figura no programa xfig \n"
-"do Brian Smith. O trasfig/fig2dev que o acompanha é necessário para que\n"
-"o chemtool imprima e exporte para eps ou LaTeX, enquanto que o fig, \n"
-"XBM e SVG são gerado diretamente. Outro programa auxiliar útil e "
-"recomendado\n"
-"é o Babel - tanto na versão original, como no novo projeto Openabel. Em "
-"ambas\n"
-"as versões o chemtool é capaz de importar dados de arquivos de formatos\n"
-"variados, enquanto somente a importação e a exportação em formato de "
-"arquivo\n"
-"mol está contido no programa chemtools.\n"
+"Als u algemene tekenfunties nodig heeft, die niet door chemtool geleverd\n"
+"worden, probeer te exporteren naar fig formaat en bewerk uw tekening in\n"
+"Brian Smith's xfig programma. Zijn bijgeleverde transfig/fig2dev is nodig\n"
+"voor chemtool voor afdrukken en exporteren naar eps of LaTeX, terwijl de "
+"fig,\n"
+"XBM en SVG uitvoer direct gegenereerd worden. Nog een bruikbaar en "
+"aanbevolen\n"
+"hulpprogramma is Babel - zowel in zijn originele versie als in de vorm van "
+"het\n"
+"nieuwe OpenBabel project. Door gebruik van een van de versies, is chemtool "
+"in\n"
+"staat gegevens in exotische bestandsformaten te importeren, terwijl alleen\n"
+"molfile im- en export in chemtool ingebouwd is.\n"
 "\n"
-"Mais ajuda pode ser encontrado na página de man do chemtool e no arquivo\n"
-"README incluído no código fonte ou ainda no site da web.\n"
-"Este arquivo normalmente é encontrado em /usr/share/doc/packages/chemtool.\n"
-"Se você encontrar algum bug, tem uma questão ou sugestão, favor contactar\n"
-"o autor principal, martin@ruby.chemie.uni-freiburg.de"
+"Meer help is beschikbaar in de handleidingspagina van chemtool en in het\n"
+"bestand README, bijgeleverd in de bron distributie en op de website. Deze\n"
+"zou normaal in /usr/share/doc/packages/chemtool te vinden moeten zijn.\n"
+"Als u bugs vind, suggesties of vragen heeft, neem a.u.b. contact op met de\n"
+"schrijver, martin@ruby.chemie.uni-freiburg.de (Duitse of Engelse taal a.u.b.)"
 
 #: main.c:3336
 msgid ""
@@ -381,39 +387,39 @@ msgid ""
 "\n"
 "http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool.html"
 msgstr ""
-" Chemtool Versão 1.6.14\n"
-"por\n"
+" Chemtool Versie 1.6.14\n"
+"door\n"
 "Martin Kroeker,\n"
 "Radek Liboska,\n"
 "Michael Banck\n"
-"e\n"
+"en\n"
 "Thomas Volk\n"
 "\n"
 "http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool.html"
 
 #: main.c:3450
 msgid "PDB labels:"
-msgstr "Rótulos PDB:"
+msgstr "PDB Labels:"
 
 #: main.c:3453
 msgid "All"
-msgstr "Todos"
+msgstr "Alle"
 
 #: main.c:3461
 msgid "non-H"
-msgstr "sem H"
+msgstr "niet-H"
 
 #: main.c:3470
 msgid "no numbers"
-msgstr "sem números"
+msgstr "zonder nummers"
 
 #: main.c:3479
 msgid "non H,no numbers"
-msgstr "sem H, sem números"
+msgstr "zonder H, geen nummers"
 
 #: main.c:3489 main.c:3833 main.c:4139
 msgid "None"
-msgstr "Nenhum"
+msgstr "Geen"
 
 #: main.c:3501
 msgid "SDF entry:"
@@ -433,15 +439,15 @@ msgstr ""
 
 #: main.c:3589
 msgid "Latex / EPS scale factor :"
-msgstr "Escala Latex / EPS :"
+msgstr "Latex / EPS schalingsfactor :"
 
 #: main.c:3708
 msgid "Unknown error"
-msgstr "Erro desconhecido"
+msgstr "Onbekende fout"
 
 #: main.c:3732 main.c:4010
 msgid "Configurable options"
-msgstr "Opções configuráveis"
+msgstr "Instellingen"
 
 #: main.c:3767
 msgid "_General"
@@ -461,35 +467,35 @@ msgstr ""
 
 #: main.c:3811
 msgid "_Background color:"
-msgstr "Cor do _fundo: "
+msgstr "Achtergrond_kleur:"
 
 #: main.c:3819
 msgid "Add filled _white rectangle under labels"
-msgstr "Adiciona retângulo _branco sob rótulos"
+msgstr "_Witte achtergrond onder labels"
 
 #: main.c:3834 main.c:4148
 msgid "EPSI"
-msgstr ""
+msgstr "EPSI"
 
 #: main.c:3835 main.c:4157
 msgid "TIFF mono"
-msgstr ""
+msgstr "TIFF mono"
 
 #: main.c:3836 main.c:4165
 msgid "TIFF color"
-msgstr ""
+msgstr "TIFF kleur"
 
 #: main.c:3841
 msgid "_Data directory:"
-msgstr "_Diretório de dados:"
+msgstr "_Gegevensdirectory:"
 
 #: main.c:3848
 msgid "E_xtension:"
-msgstr "E_xtensão:"
+msgstr "_Uitbreiding:"
 
 #: main.c:3856
 msgid "Preview image to add to _EPS files:"
-msgstr "Visualiza imagem a adicionar a arquivos _eps:"
+msgstr "_Voorbeeld plaatje om aan EPS bestanden toe te voegen:"
 
 #: main.c:3863 main.c:4184
 msgid "Support national character sets in labels"
@@ -497,7 +503,7 @@ msgstr ""
 
 #: main.c:3883
 msgid "Base bond _length:"
-msgstr "Comprimento de _ligação base:"
+msgstr "Standaard bindings_lengte:"
 
 #: main.c:3891
 msgid "Double bond _separation:"
@@ -505,83 +511,83 @@ msgstr ""
 
 #: main.c:3904
 msgid "_Printing"
-msgstr "Imprimir"
+msgstr "Afdrukken"
 
 #: main.c:3934 main.c:4049
 msgid "Portrait"
-msgstr "Vertical"
+msgstr "Staand"
 
 #: main.c:3935 main.c:4054
 msgid "Landscape"
-msgstr "Horizontal"
+msgstr "Liggend"
 
 #: main.c:3949
 msgid "Print _command:"
-msgstr "_Comando de impressão:"
+msgstr "Afdruk_commando:"
 
 #: main.c:3956
 msgid "Printer _name:"
-msgstr "_Nome da impressora:"
+msgstr "Printer_naam:"
 
 #: main.c:3963
 msgid "Paper si_ze:"
-msgstr "_Tamanho de papel:"
+msgstr "Papier_formaat"
 
 #: main.c:3970
 msgid "_Orientation:"
-msgstr "_Orientação:"
+msgstr "_Orientatie:"
 
 #: main.c:3977
 msgid "Print sc_ale factor:"
-msgstr "E_scala de impressão:"
+msgstr "_Schalingsfactor:"
 
 #: main.c:3993
 msgid "Select background color"
-msgstr "Seleciona cor de fundo"
+msgstr "Selecteer achtergrondkleur"
 
 #: main.c:4019
 msgid "Paper size:"
-msgstr "Tamanho de papel:"
+msgstr "Papierformaat"
 
 #: main.c:4044
 msgid "Orientation:"
-msgstr "Orientação:"
+msgstr "Orientatie:"
 
 #: main.c:4069
 msgid "Print scale factor :"
-msgstr "Escala de impressão:"
+msgstr "Schalingsfactor :"
 
 #: main.c:4094
 msgid "Print command:"
-msgstr "Comando de impressão:"
+msgstr "Afdrukcommando:"
 
 #: main.c:4134
 msgid "Preview image to add to eps files :"
-msgstr "Visualiza imagem a adicionar a arquivos eps:"
+msgstr "Voorbeeld plaatje om aan eps bestanden toe te voegen :"
 
 #: main.c:4198
 msgid "Background color :"
-msgstr "Cor do fundo: "
+msgstr "Achtergrondkleur :"
 
 #: main.c:4212
 msgid "Add filled white rectangle under labels"
-msgstr "Adiciona retângulo branco sob rótulos"
+msgstr "Witte achtergrond onder labels"
 
 #: main.c:4225
 msgid "Printer name:"
-msgstr "Nome da impressora:"
+msgstr "Printernaam:"
 
 #: main.c:4238
 msgid "Data directory:"
-msgstr "Diretório de dados:"
+msgstr "Gegevensdirectory:"
 
 #: main.c:4251
 msgid "Extension:"
-msgstr "Extensão:"
+msgstr "Uitbreiding:"
 
 #: main.c:4264
 msgid "Base bondlength (10.668mm) :"
-msgstr "Comprimento de ligação base (10,668mm):"
+msgstr "Standaard bindingslengte (10.668mm) :"
 
 #: main.c:4278
 msgid "Doublebond separation (4 pixel) :"
@@ -589,200 +595,200 @@ msgstr ""
 
 #: main.c:4298
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: main.c:4308 gtkfilesel.c:880 gtkfilesel.c:1306 gtkfilesel.c:1407
 #: gtkfilesel.c:1522
 msgid "Cancel"
-msgstr "Cancela"
+msgstr "Annuleren"
 
 #: main.c:4327 main.c:4912
 msgid "Templates"
-msgstr "Moldes"
+msgstr "Sjablonen"
 
 #: main.c:4338 main.c:4340
 msgid "Carbocycles"
-msgstr "Anéis"
+msgstr "Carbocyclen"
 
 #: main.c:4378 main.c:4380
 msgid "Sugars"
-msgstr "Açúcares"
+msgstr "Suikers"
 
 #: main.c:4422 main.c:4424
 msgid "Heterocycles"
-msgstr "Heterocíclicos"
+msgstr "Heterocyclen"
 
 #: main.c:4466 main.c:4468
 msgid "Amino Acids"
-msgstr "Aminos-ácido"
+msgstr "Aminozuren"
 
 #: main.c:4511 main.c:4513
 msgid "Symbols"
-msgstr "Símbolos"
+msgstr "Symbolen"
 
 #: main.c:4559 gtkfilesel.c:1196
 msgid "Close"
-msgstr "Fechar"
+msgstr "Sluiten"
 
 #: main.c:4605
 msgid "New"
-msgstr "Novo"
+msgstr "Nieuw"
 
 #: main.c:4613
 msgid "Open"
-msgstr "Abrir"
+msgstr "Openen"
 
 #: main.c:4621 main.c:4904
 msgid "Add"
-msgstr "Adicionar"
+msgstr "Toevoegen"
 
 #: main.c:4629
 msgid "Import MOL"
-msgstr "Importar MOL"
+msgstr "Importeer MOL"
 
 #: main.c:4637
 msgid "Import PDB"
-msgstr "Importar PDB"
+msgstr "Importeer PDB"
 
 #: main.c:4645
 msgid "Import (Babel)"
-msgstr "Importar (Babel)"
+msgstr "Importeer (Babel)"
 
 #: main.c:4653
 msgid "Export..."
-msgstr "Exportar..."
+msgstr "Exporteer..."
 
 #: main.c:4661
 msgid "Export (Babel)"
-msgstr "Exportar (Babel)"
+msgstr "Exporteer (Babel)..."
 
 #: main.c:4670 main.c:4941
 msgid "Print"
-msgstr "Imprimir"
+msgstr "Afdrukken"
 
 #: main.c:4678
 msgid "Setup Defaults"
-msgstr "Configuração padrão"
+msgstr "Standaardinstellingen"
 
 #: main.c:4693 main.c:4960
 msgid "Save Config"
-msgstr "Salvar config"
+msgstr "Configuratie opslaan"
 
 #: main.c:4702 main.c:4921
 msgid "Save"
-msgstr "Salvar"
+msgstr "Opslaan"
 
 #: main.c:4710
 msgid "Save As..."
-msgstr "Salvar como..."
+msgstr "Opslaan als..."
 
 #: main.c:4719 main.c:5031
 msgid "Quit"
-msgstr "Sair"
+msgstr "Afsluiten"
 
 #: main.c:4727
 msgid "File"
-msgstr "Arquivo"
+msgstr "Bestand"
 
 #: main.c:4734
 msgid "Copy"
-msgstr "Copiar"
+msgstr "Kopieren"
 
 #: main.c:4746
 msgid "Flip horizontally"
-msgstr "Reflexão horizontal"
+msgstr "Horizontaal spiegelen"
 
 #: main.c:4752
 msgid "Flip vertically"
-msgstr "Reflexão vertical"
+msgstr "Vertikaal spiegelen"
 
 #: main.c:4759
 msgid "Undo"
-msgstr "Desfazer"
+msgstr "Ongedaan maken"
 
 #: main.c:4767
 msgid "Redo"
-msgstr "Refazer"
+msgstr "Nogmaals"
 
 #: main.c:4777
 msgid "Edit"
-msgstr "Editar"
+msgstr "Bewerken"
 
 #: main.c:4784
 msgid "Zoom in"
-msgstr "Ampliar"
+msgstr "Vergroten"
 
 #: main.c:4790
 msgid "Zoom out"
-msgstr "Reduzir"
+msgstr "Verkleinen"
 
 #: main.c:4801 main.c:4996
 msgid "Center"
-msgstr "Centralizar"
+msgstr "Centreren"
 
 #: main.c:4809
 msgid "Grid rect/rhomb/off"
-msgstr "Grade retang/hexag/deslig"
+msgstr "Raster quadr./hex./uit"
 
 #: main.c:4815
 msgid "View"
-msgstr "Exibição"
+msgstr "Beeld"
 
 #: main.c:4823
 msgid "Templates..."
-msgstr "Moldes..."
+msgstr "Sjablonen..."
 
 #: main.c:4832
 msgid "Calculate Formula Weight"
-msgstr "Calcular Massa Molecular"
+msgstr "Bereken Molecuulmassa"
 
 #: main.c:4840
 msgid "Clean up drawing"
-msgstr "Organizar figura"
+msgstr "Tekening opschonen"
 
 #: main.c:4846
 msgid "Tools"
-msgstr "Ferramentas"
+msgstr "Gereedschappen"
 
 #: main.c:4854 main.c:5039
 msgid "About"
-msgstr "Sobre"
+msgstr "Info"
 
 #: main.c:4863 main.c:4872
 msgid "Help"
-msgstr "Ajuda"
+msgstr "Help"
 
 #: main.c:4895
 msgid "Load"
-msgstr "Carregar"
+msgstr "Laden"
 
 #: main.c:4900
 msgid "Load a chemtool sketch"
-msgstr "Carrega uma figura do Chemtool"
+msgstr "Laad een chemtool tekening"
 
 #: main.c:4909
 msgid "Add fragment from file"
-msgstr "Adiciona fragmento do arquivo"
+msgstr "Fragment van bestand toevoegen"
 
 #: main.c:4918
 msgid "Add template structure"
-msgstr "Adiciona estrutura do molde"
+msgstr "Structuur sjabloon toevoegen"
 
 #: main.c:4926
 msgid "Save sketch to file"
-msgstr "Salva desenho para arquivo"
+msgstr "Tekening naar bestand opslaan"
 
 #: main.c:4929
 msgid "Export"
-msgstr "Exportar"
+msgstr "Exporteren"
 
 #: main.c:4938
 msgid "Create EPS, XFig, PicTeX or XBM file"
-msgstr "Cria arquivo EPS, XFig, PicTeX ou XBM"
+msgstr "Maak een EPS, XFig, PicTeX of XBM bestand"
 
 #: main.c:4947
 msgid "Print file to a postscript printer"
-msgstr "Imprime um arquivo para impressora postscript"
+msgstr "Druk bestand af naar een postscript printer"
 
 #: main.c:4950
 msgid "Setup"
@@ -790,7 +796,7 @@ msgstr ""
 
 #: main.c:4957
 msgid "Setup default options"
-msgstr "Configuração padrão"
+msgstr "Standaardinstellingen"
 
 #: main.c:4966
 msgid "Save default options"
@@ -798,408 +804,409 @@ msgstr ""
 
 #: main.c:4969
 msgid "Import"
-msgstr "Importar"
+msgstr "Importeer"
 
 #: main.c:4975
 msgid "Read a file written in MDL/molfile format"
-msgstr "Lê um arquivo em formato MDL/molfile"
+msgstr "Lees een bestand, geschreven in MDL/molfile formaat"
 
 #: main.c:4978
 msgid "ImportPDB"
-msgstr "ImportarPDB"
+msgstr "Importeer PDB"
 
 #: main.c:4984
 msgid "Read a file written in PDB format"
-msgstr "Lê um arquivo em formato PDB"
+msgstr "Lees een bestand, geschreven in PDB formaat"
 
 #: main.c:4987
 msgid "Zoom In"
-msgstr "Ampliar"
+msgstr "Inzoomen"
 
 #: main.c:4992
 msgid "Increase zoom scale"
-msgstr "Amplia escala de zoom"
+msgstr "Vergroot de zoomfactor"
 
 #: main.c:5002
 msgid "Center molecule in drawing area"
-msgstr "Centraliza molécula na área de desenho"
+msgstr "Centreert molekuul in tekengebied"
 
 #: main.c:5005
 msgid "Zoom Out"
-msgstr "Reduzir"
+msgstr "Uitzoomen"
 
 #: main.c:5010
 msgid "Decrease zoom scale"
-msgstr "Reduz escala de zoom"
+msgstr "Verkleint de zoomfactor"
 
 #: main.c:5014
 msgid "Clear"
-msgstr "Limpar"
+msgstr "Wissen"
 
 #: main.c:5019
 msgid "Remove molecule"
-msgstr "Remove molécula"
+msgstr "Wist de tekening"
 
 #: main.c:5022
 msgid "FW"
-msgstr "MM"
+msgstr "MW"
 
 #: main.c:5027
 msgid "Calculate Formula Mass"
-msgstr "Calcula Massa Molecular"
+msgstr "Bereken Molecuulgewicht"
 
 #: main.c:5036
 msgid "Exit Chemtool"
-msgstr "Sai do Chemtool"
+msgstr "Sluit Chemtool af"
 
 #: main.c:5045
 msgid "About Chemtool"
-msgstr "Sobre Chemtool"
+msgstr "Info over Chemtool"
 
 #: main.c:5086
 msgid "Draw at 0/30/60/90 degree angles"
-msgstr "Desenha em ângulos de 0/30/60/90 graus"
+msgstr "Tekenen met 0/30/60/90 graden"
 
 #: main.c:5102
 msgid "Draw at 0/36/72/... degree angles"
-msgstr "Desenha em ângulos de 0/36/72/... graus"
+msgstr "Tekenen met 0/36/72 graden"
 
 #: main.c:5124
 msgid "Draw at 18/54/90/... degree angles"
-msgstr "Desenha em ângulos de 18/54/90/... graus"
+msgstr "Tekenen met 18/54/90 graden"
 
 #: main.c:5141
 msgid "Draw at 0/45/90... degree angles"
-msgstr "Desenha em ângulos de 0/45/90/... graus"
+msgstr "Tekenen met 0/45/90 graden"
 
 #: main.c:5158
 msgid "Draw curves based on 4 control points"
-msgstr "Desenha curva baseada em 4 pontos de controle"
+msgstr "Teken curven gebaseerd op 4 controlepunten"
 
 #: main.c:5174
 msgid "Draw left-justified text"
-msgstr "Insere texto alinhado à esquerda"
+msgstr "Tekst links uitlijnen"
 
 #: main.c:5191
 msgid "Draw centered text"
-msgstr "Insere texto centralizado"
+msgstr "Tekst centreren"
 
 #: main.c:5208
 msgid "Draw right-justified text"
-msgstr "Insere texto alinhado à direita"
+msgstr "Tekst rechts uitlijnen"
 
 #: main.c:5236
 msgid "Set current textfont"
-msgstr "Seleciona fonte do texto"
+msgstr "Huidige lettertype instellen"
 
 #: main.c:5266
 msgid "Choose default bond type"
-msgstr "Escolhe tipo de ligação padrão"
+msgstr "Kies standaard bindingstype"
 
 #: main.c:5283
 msgid "Select pen color"
-msgstr "Seleciona cor da pena"
+msgstr "Selecteer tekenkleur"
 
 #: main.c:5288
 msgid "Bonds"
-msgstr "Ligações"
+msgstr "Bindingen"
 
 #: main.c:5293
 msgid "Toggle bond types"
-msgstr "Muda tipos de ligações"
+msgstr "Aan/uit bindingstypen"
 
 #: main.c:5310
 msgid "Mark objects for moving, rotating or deleting"
-msgstr "Marca objeto para mover, girar ou apagar"
+msgstr "Markeer objecten voor verplaatsen, rotatie en verwijdering"
 
 #: main.c:5327
 msgid "Move marked object"
-msgstr "Move objetos marcados"
+msgstr "Verplaats gemarkeerd object"
 
 #: main.c:5344
 msgid "Rotate marked object"
-msgstr "Gira objetos marcados"
+msgstr "Roteer gemarkeerd object"
 
 #: main.c:5363
 msgid "Flip object horizontally"
-msgstr "Reflete objeto horizontalmente"
+msgstr "Spiegel object horizontaal"
 
 #: main.c:5381
 msgid "Flip object vertically"
-msgstr "Reflete objeto verticalmente"
+msgstr "Spiegel object vertikaal"
 
 #: main.c:5407
 msgid "Copy marked object"
-msgstr "Copia objetos marcados"
+msgstr "Kopieer gemarkeerd object"
 
 #: main.c:5422
 msgid "Rescale marked object"
-msgstr "Muda escala de objetos marcados"
+msgstr "Vergroot/verklein gemarkeerd object"
 
 #: main.c:5441
 msgid "Draw brackets around object"
-msgstr "Desenha colchetes ao redor do objeto"
+msgstr "Teken haken om object"
 
 #: main.c:5456
 msgid "Draw rounded brackets around object"
-msgstr "Desenha parênteses ao redor do objeto"
+msgstr "Teken ronde haken om object"
 
 #: main.c:5471
 msgid "Draw round brackets around object"
-msgstr "Desenha parênteses ao redor do objeto"
+msgstr "Teken ronde haken om object"
 
 #: main.c:5486
 msgid "Draw braces around object"
-msgstr "Desenha chaves ao redor do objeto"
+msgstr "Teken krulhaken om object"
 
 #: main.c:5501
 msgid "Draw simple box around object"
-msgstr "Desenha retângulo simples ao redor do objeto"
+msgstr "Teken simpel vierkant om object"
 
 #: main.c:5515
 msgid "Draw shaded box around object"
-msgstr "Desenha retângulo sombreado ao redor do objeto"
+msgstr "Teken vierkant met schaduw om object"
 
 #: main.c:5529
 msgid "Draw fancy box around object"
-msgstr "Desenha retângulo 3D ao redor do objeto"
+msgstr "Teken omtekend vierkant om object"
 
 #: main.c:5543
 msgid "Draw rounded box around object"
-msgstr "Desenha retângulo arredondado ao redor do objeto"
+msgstr "Teken afgerond vierkant om object"
 
 #: main.c:5560
 msgid "Draw brackets and boxes around object"
-msgstr "Desenha colchetes e retângulos ao redor do objeto"
+msgstr "Teken haken en vierkanten om object"
 
 #: main.c:5576
 msgid "Removes duplicate bonds, etc."
-msgstr "Remove ligações duplicadas, etc."
+msgstr "Verwijder dubbel getekende bindingen, etc."
 
 #: main.c:5605
 msgid "Text :"
-msgstr "Texto: "
+msgstr "Tekst :"
 
 #: main.c:5619
 msgid ""
 "Prefix a character with _ for subscript, ^ for superscript, @ for symbols, | "
 "for italic, # for bold text; e.g. H_2O, @a_D^2^0"
 msgstr ""
-"Anteceda um caractere com _ para índice, ^ para expoente, @ para símbolos, | "
-"para itálico, # para negrito; e.g. H_2O, @a_D^2^0"
+"Prefix een teken met _ voor subscript, ^ voor superscript, @ voor symbolen, "
+"| voor schuin, # voor dikke tekst; bijv. H_2O, @a_D^2^0"
 
 #: main.c:5624
 msgid "Select current text size"
-msgstr "Seleciona tamanho da fonte"
+msgstr "Selecteer huidige tekstgrootte"
 
 #: main.c:5753
 #, c-format
 msgid "Ready"
-msgstr "Pronto"
+msgstr "Klaar"
 
 #: main.c:5816
 #, c-format
 msgid "chemtool: can't load any font\n"
-msgstr "chemtool: não posso carregar nenhuma fonte\n"
+msgstr "chemtool: kan geen lettertype laden\n"
 
 #: main.c:5954
 #, c-format
 msgid "Memory allocation problem (SIGSEGV) -"
-msgstr "Problema de alocação de memória (SIGSEGV) -"
+msgstr "Geheugentoewijzingsprobleem (SIGSEGV) -"
 
 #: main.c:5957
 #, c-format
 msgid "Invalid math somewhere (SIGFPE) -"
-msgstr "Operação matemática inválida (SIGFPE) -"
+msgstr "Rekenfout (SIGFPE) -"
 
 #: main.c:5960
 #, c-format
 msgid "Memory access problem (SIGBUS) -"
-msgstr "Problema de alocação de memória (SIGBUS) -"
+msgstr "Geheugetoegangsprobleem (SIGBUS) -"
 
 #: main.c:5963
 #, c-format
 msgid "Ordered to quit (SIGHUP) - "
-msgstr "Ordenado para sair (SIGHUP) -"
+msgstr "Afsluitingssignaal (SIGHUP) -"
 
 #: main.c:5965
 #, c-format
 msgid " dumping current drawing to file crashdump.cht\n"
-msgstr " salvando figura corrente para crashdump.cht\n"
+msgstr " dump huidige tekening in bestand crashdump.cht\n"
 
 #: gtkfilesel.c:664
 msgid "Looking in:"
-msgstr "Examinando:"
+msgstr "Huidige locatie:"
 
 #: gtkfilesel.c:796
 msgid "Directories"
-msgstr "Diretórios"
+msgstr "Directories"
 
 #: gtkfilesel.c:825
 msgid "Mask:"
-msgstr "Máscara:"
+msgstr "Weergave:"
 
 #: gtkfilesel.c:838
 msgid "Files"
-msgstr "Arquivos"
+msgstr "Bestanden"
 
 #: gtkfilesel.c:872
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: gtkfilesel.c:916 gtkfilesel.c:2174
 #, c-format
 msgid "Directory unreadable: %s"
-msgstr "Diretório inacessível: %s"
+msgstr "Directory niet leesbaar: %s"
 
 #: gtkfilesel.c:949
 msgid "Create Dir"
-msgstr "Criar dir"
+msgstr "Directory Aanmaken"
 
 #: gtkfilesel.c:960 gtkfilesel.c:1375
 msgid "Delete File"
-msgstr "Apagar arquivo"
+msgstr "Bestand Verwijderen"
 
 #: gtkfilesel.c:971 gtkfilesel.c:1480
 msgid "Rename File"
-msgstr "Renomear arquivo"
+msgstr "Bestand Hernoemen"
 
 #: gtkfilesel.c:1173
 msgid "Error"
-msgstr "Erro"
+msgstr "Fout"
 
 #: gtkfilesel.c:1271
 msgid "Create Directory"
-msgstr "Criar diretório"
+msgstr "Directory Aanmaken"
 
 #: gtkfilesel.c:1285
 msgid "Directory name:"
-msgstr "Nome do diretório:"
+msgstr "Directorynaam:"
 
 #: gtkfilesel.c:1297
 msgid "Create"
-msgstr "Criar"
+msgstr "Aanmaken"
 
 #: gtkfilesel.c:1397
 msgid "Delete"
-msgstr "Apagar"
+msgstr "Verwijderen"
 
 #: gtkfilesel.c:1512
 msgid "Rename"
-msgstr "Renomear"
+msgstr "Hernoemen"
 
 #: gtkfilesel.c:2155
 msgid "Selection: "
-msgstr "Seleção: "
+msgstr "Selectie: "
 
 #: inout.c:5767
 #, c-format
 msgid "Consider installing Babel/OpenBabel for file format conversions...\n"
-msgstr "Favor instalar Babel/OpenBabel para conversões de arquivos...\n"
+msgstr ""
+"Overweeg Babel/Openbabel te installeren voor bestandsformaat conversies...\n"
 
 #: templates.hx:2
 msgid "Cyclopentadienyl"
-msgstr "Ciclopentadienilo"
+msgstr ""
 
 #: templates.hx:2
 msgid "Benzene"
-msgstr "Benzeno"
+msgstr "Benzeen"
 
 #: templates.hx:2
 msgid "Naphthalene"
-msgstr "Naftaleno"
+msgstr "Naphthaleen"
 
 #: templates.hx:2
 msgid "Azulene"
-msgstr "Azuleno"
+msgstr "Azuleen"
 
 #: templates.hx:3
 msgid "Adamantane"
-msgstr "Adamantano"
+msgstr "Adamantaan"
 
 #: templates.hx:3 templates.hx:5
 msgid "Cyclohexane"
-msgstr "Cicloexano"
+msgstr "Cyclohexaan"
 
 #: templates.hx:3
 msgid "Steroid backbone"
-msgstr "Esqueleto de esteróide"
+msgstr "SteroÃ¯d"
 
 #: templates.hx:3
 msgid "Cycloheptatriene"
-msgstr "Cicloeptatrieno"
+msgstr "Cycloheptatrieen"
 
 #: templates.hx:3
 msgid "Cyclooctatetraene"
-msgstr "Cicloctatetraeno"
+msgstr "Cyclooctatetraeen"
 
 #: templates.hx:4
 msgid "Fluorene"
-msgstr "Fluoreno"
+msgstr "Fluoreen"
 
 #: templates.hx:4
 msgid "Spiro[4.5]decane"
-msgstr "Espiro[4.5]decano"
+msgstr "Spiro[4.5]decaan"
 
 #: templates.hx:4
 msgid "Heptalene"
-msgstr "Heptaleno"
+msgstr "Heptaleen"
 
 #: templates.hx:4
 msgid "Fulvalene"
-msgstr "Fulvaleno"
+msgstr "Fulvaleen"
 
 #: templates.hx:4
 msgid "Dicyclopentadiene"
-msgstr "Diciclopentadieno"
+msgstr "Dicyclopentadieen"
 
 #: templates.hx:5
 msgid "Indene"
-msgstr "Indeno"
+msgstr "Indeen"
 
 #: templates.hx:5
 msgid "Biphenyl"
-msgstr "Bifenila"
+msgstr ""
 
 #: templates.hx:5
 msgid "Norbornane"
-msgstr "Norbornano"
+msgstr "Norbornaan"
 
 #: templates.hx:5
 msgid "Binaphthyl"
-msgstr "Binaftila"
+msgstr ""
 
 #: templates.hx:6
 msgid "Coronene"
-msgstr "Coroneno"
+msgstr "Coroneen"
 
 #: templates.hx:8
 msgid "Pyranose core"
-msgstr "Esqueleto de piranose"
+msgstr "Pyranose kern"
 
 #: templates.hx:8
 msgid "Furanose core"
-msgstr "Esqueleto de furanose"
+msgstr "Furanose kern"
 
 #: templates.hx:8
 msgid "Ribofuranose"
-msgstr "Ribofuranose"
+msgstr ""
 
 #: templates.hx:8
 msgid "Fructose"
-msgstr "Frutose"
+msgstr ""
 
 #: templates.hx:8
 msgid "Galactose"
-msgstr "Galactose"
+msgstr ""
 
 #: templates.hx:9
 msgid "Glucose"
-msgstr "Glicose"
+msgstr ""
 
 #: templates.hx:9
 msgid "Mannose"
-msgstr "Manose"
+msgstr ""
 
 #: templates.hx:9
 msgid "Fucose"
@@ -1207,15 +1214,15 @@ msgstr ""
 
 #: templates.hx:9
 msgid "Xylose"
-msgstr "Xilose"
+msgstr ""
 
 #: templates.hx:9
 msgid "Neuraminic acid"
-msgstr "Ácido neuramínico"
+msgstr "Neuraminezuur"
 
 #: templates.hx:10
 msgid "Sucrose"
-msgstr "Sacarose"
+msgstr "Sucrose"
 
 #: templates.hx:10
 msgid "Maltose"
@@ -1227,39 +1234,39 @@ msgstr ""
 
 #: templates.hx:14
 msgid "Adenine"
-msgstr "Adenina"
+msgstr "Adenine"
 
 #: templates.hx:14
 msgid "Guanine"
-msgstr "Guanina"
+msgstr "Guanine"
 
 #: templates.hx:14
 msgid "Thymine"
-msgstr "Timina"
+msgstr "Thymine"
 
 #: templates.hx:14
 msgid "Cytosine"
-msgstr "Citosina"
+msgstr "Cytosine"
 
 #: templates.hx:14
 msgid "Uracil"
-msgstr "Uracila"
+msgstr ""
 
 #: templates.hx:15
 msgid "Porphine"
-msgstr "Porfina"
+msgstr "Porphine"
 
 #: templates.hx:15
 msgid "Caffeine"
-msgstr "Cafeína"
+msgstr "Caffeine"
 
 #: templates.hx:15
 msgid "Evans auxiliary"
-msgstr ""
+msgstr "Evans Auxiliar"
 
 #: templates.hx:15
 msgid "SAMP auxiliary"
-msgstr ""
+msgstr "SAMP Auxiliar"
 
 #: templates.hx:15
 msgid "Imidazole"
@@ -1291,65 +1298,66 @@ msgstr ""
 
 #: templates.hx:26
 msgid "p orbital"
-msgstr "Orbital p"
+msgstr "P-orbitaal"
 
 #: templates.hx:26
 msgid "plus"
-msgstr "mais"
+msgstr "plus"
 
 #: templates.hx:26
 msgid "minus"
-msgstr "menos"
+msgstr "minus"
 
 #: templates.hx:26
 msgid "rearrangement"
-msgstr "rearranjo"
+msgstr "herschikking"
 
 #~ msgid "Help - somebody ate my atoms (hp->n=%d, da_root.next NULL)!!!\n"
-#~ msgstr ""
-#~ "Socorro - alguém comeu meus átomos  (hp->n=%d, da_root.next NULL)!!!\n"
+#~ msgstr "Help - atomen verloren (hp->n=%d, da_root.next NULL)!!!\n"
 
 #~ msgid "Help - somebody ate my atoms (d=%d,hp->n=%d)!!!\n"
-#~ msgstr "Socorro - alguém comeu meus átomos (d=%d,hp->n=%d)!!!\n"
+#~ msgstr "Help - atomen verloren (d=%d,hp->n=%d)!!!\n"
 
 #~ msgid "failed to load font %s !!!\n"
-#~ msgstr "erro ao carregar a fonte %s !!!\n"
+#~ msgstr "Lettertype %s niet gevonden !!!\n"
 
 #~ msgid "Failed to load symbol font, using standard font\n"
-#~ msgstr "Erro ao carregar fonte de símbolos, será usada fonte padrão\n"
+#~ msgstr ""
+#~ "Symboollettertype kon niet geladen worden, terugvallen naar standaard "
+#~ "lettertype\n"
 
 #~ msgid "Error creating directory \""
-#~ msgstr "Erro ao criar diretório \""
+#~ msgstr "Fout bij aanmaken van directory\""
 
 #~ msgid "Error deleting file \""
-#~ msgstr "Erro ao apagar arquivo \""
+#~ msgstr "Fout bij verwijderen van bestand\""
 
 #~ msgid "Really delete file \""
-#~ msgstr "Realmente apagar arquivo \""
+#~ msgstr "Bestand Verwijderen? \""
 
 #~ msgid "Error renaming file \""
-#~ msgstr "Erro ao renomear arquivo \""
+#~ msgstr "Fout bij hernoemen van bestand \""
 
 #~ msgid "Rename file \""
-#~ msgstr "Renomear arquivo \""
+#~ msgstr "Bestand hernoemen \""
 
 #~ msgid "\" to:"
-#~ msgstr "\" para:"
+#~ msgstr "\" naar:"
 
 #~ msgid "Name too long"
-#~ msgstr "Nome muito longo"
+#~ msgstr "Naam te lang"
 
 #~ msgid "Chemtool Version "
-#~ msgstr "Chemtool Versão"
+#~ msgstr "Chemtool Versie"
 
 #~ msgid "endless molfile???\n"
-#~ msgstr "arquivo mol sem fim???\n"
+#~ msgstr "oneindig molbestand???\n"
 
 #~ msgid "expecting na %d nb %d\n"
-#~ msgstr "esperando na %d nb %d\n"
+#~ msgstr "verwacht na %d nb %d\n"
 
 #~ msgid "Molecule exported from chemtool\n"
-#~ msgstr "Molécula exportada do chemtool\n"
+#~ msgstr "Molecuul geexporteerd van chemtool\n"
 
 #~ msgid ""
 #~ "<desc>\n"
@@ -1357,68 +1365,84 @@ msgstr "rearranjo"
 #~ "</desc>\n"
 #~ msgstr ""
 #~ "<desc>\n"
-#~ "Criado com Chemtool 1.6.9 a partir do arquivo %s \n"
+#~ "Gemaakt met Chemtool 1.6.9 van bestand %s \n"
 #~ "</desc>\n"
 
 #~ msgid "undefined text direction in svg output\n"
-#~ msgstr "direção de texto indefinido na saída svg\n"
+#~ msgstr "ongedefinieerde tekstrichting in svg uitvoer\n"
 
 #~ msgid "Created by"
-#~ msgstr "Criado por"
+#~ msgstr "Gemaakt door"
 
 #~ msgid "no emf font parameters for zoom factor %d\n"
-#~ msgstr "sem parâmetros de font emf para fator de ampliação %d\n"
+#~ msgstr "geen emf lettertypeparameters voor zoomfactor %d\n"
 
 #~ msgid "undefined text direction in emf output\n"
-#~ msgstr "direção de texto indefinido na saída emf\n"
+#~ msgstr "ongedefinieerde tekstrichting in svg uitvoer\n"
 
 #~ msgid "no figfont parameters for zoom factor %d\n"
-#~ msgstr "sem parâmetros figfont para fator de ampliação %d\n"
+#~ msgstr "geen fig lettertypeparameters voor zoomfactor %d\n"
 
 #~ msgid "# generated by Chemtool "
-#~ msgstr "# gerado por Chemtool"
+#~ msgstr "# gegenereerd door Chemtool"
 
 #~ msgid "no figfont parameters for fontsize %d\n"
-#~ msgstr "sem parâmetros figfont para tamanho de fonte %d\n"
+#~ msgstr "geen fig lettertypeparameters voor lettergrootte %d\n"
 
 #~ msgid "undefined text direction in xfig output\n"
-#~ msgstr "direção de texto indefinido na saída xfig\n"
+#~ msgstr "ongedefinieerde tekstrichting in xfig uitvoer\n"
 
 #~ msgid "no translation for %d\n"
-#~ msgstr "sem tradução para %d\n"
+#~ msgstr "geen vertaling voor %d\n"
 
 #~ msgid "could not close fig file"
-#~ msgstr "não foi fechado arquivo fig"
+#~ msgstr "kon fig bestand niet sluiten"
+
+#~ msgid " "
+#~ msgstr " "
+
+#~ msgid "TIFFm"
+#~ msgstr "TIFFm"
+
+#~ msgid "TIFFc"
+#~ msgstr "TIFFc"
 
 #~ msgid "Chemtool 1.6.9"
 #~ msgstr "Chemtool 1.6.9"
 
 #~ msgid "program cht not available or unable to write to"
-#~ msgstr "programa cht não disponível ou não pôde gravar em"
+#~ msgstr ""
+#~ "programma cht: niet beschikbaar of kan niet schrijven naar programma"
+
+#~ msgid ".rad"
+#~ msgstr ".rad"
+
+#~ msgid " ?"
+#~ msgstr " ?"
 
 #~ msgid "Chemtool 1.6.9 (%s)"
 #~ msgstr "Chemtool 1.6.9 (%s)"
 
 #~ msgid "File selection"
-#~ msgstr "Seleção de arquivo"
+#~ msgstr "Bestandsselectie"
 
 #~ msgid "_Configurable options"
-#~ msgstr "Opções _configuráveis"
+#~ msgstr "_Instellingen"
 
 #~ msgid "No error"
-#~ msgstr "Sem erros"
+#~ msgstr "Geen foutmelding"
 
 #~ msgid "Bad parameter passed to undo function"
-#~ msgstr "Parâmetro errado para função desfazer"
+#~ msgstr "Ongeldige parameter aan \"ongedaan maken\" funtie gegeven"
 
 #~ msgid "Out of memory"
-#~ msgstr "Sem memória"
+#~ msgstr "Geheugentekort"
 
 #~ msgid "No active undo session"
-#~ msgstr "Sem sessão para desfazer ativa"
+#~ msgstr "Geen actieve \"ongedaan maken\" sessie"
 
 #~ msgid "Nothing to undo/redo"
-#~ msgstr "Nada para desfazer/refazer"
+#~ msgstr "Niets voor \"ongedaan maken\\nogmaals\""
 
 #~ msgid "No undoable memory limit set"
-#~ msgstr "Sem limite de memória para desfazer"
+#~ msgstr "Geen \"ongedaan maken\" geheugenlimiet ingesteld"

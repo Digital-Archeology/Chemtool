@@ -39,6 +39,10 @@
 #endif
 
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wshadow"
+
+
 GtkWidget *filew;
 GtkWidget *templates;
 GtkWidget *messagew, *message;
@@ -148,6 +152,7 @@ static gint
 configure_event (GtkWidget * mainw, GdkEventConfigure * event)
 /* callback function to create an empty white drawing area on startup */
 {
+  (void) event;
 
   if (picture)
     gdk_pixmap_unref (picture);
@@ -169,6 +174,7 @@ static gint
 configure_preview (GtkWidget * mainw, GdkEventConfigure * event)
 /* callback function to create an empty white drawing area on startup */
 {
+  (void) event;
   if (preview) {
       gdk_pixmap_unref (preview);
 	preview=NULL;
@@ -340,7 +346,7 @@ button_press_event (GtkWidget * mainw, GdkEventButton * event)
   int i, spt;
   char *tmpstr;
 
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
     
   draw_ok= 1; /* valid data, allow drawing */
   if (event->button == 1 && picture != NULL)	/* Button 1 actions: */
@@ -506,16 +512,12 @@ static gint
 button_release_event (GtkWidget * mainw, GdkEventButton * event)
 /* completes drawing actions upon release of the mouse button */
 {
-  int event_x, event_y;
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
   
   draw_ok = 0; 
   if (event->button == 1 && picture != NULL)
 /* release of the first (left) button */
     {
-      event_x = (int) event->x;
-      event_y = (int) event->y;
       if (drawmode == 0)
 	{
 	  /* in line mode, adds bond from previous to current position */
@@ -572,6 +574,7 @@ static gint
 motion_notify_event (GtkWidget * widget, GdkEventMotion * event)
 /* handles mouse movement while a button is down */
 {
+  (void) widget;
   gint x, y;
   GdkModifierType state;
 
@@ -896,66 +899,64 @@ int x,y;
 	}
 	  break;
 	case GDK_Left:
-		  if (event->state & GDK_SHIFT_MASK){
-	 pendown=1;
-	 draw_ok=1;
-	 XWarpPointer(GDK_DISPLAY(),None,None,0,0,0,0,-1,0); 
-		(void)gdk_window_get_pointer(drawing_area->window,&x,&y,NULL);
-		Put_vector(x,y);
-	 }else{
-	 	 pendown=0;
-	 	draw_ok=0;
-	 XWarpPointer(GDK_DISPLAY(),None,None,0,0,0,0,-1,0); 
-	}
-	 gtk_signal_emit_stop_by_name (GTK_OBJECT(mainw), 
-	                                             "key_press_event");
+    if (event->state & GDK_SHIFT_MASK) {
+      pendown = 1;
+      draw_ok = 1;
+      XWarpPointer (GDK_DISPLAY (), None, None, 0, 0, 0, 0, -1, 0);
+      (void) gdk_window_get_pointer (drawing_area->window, &x, &y, NULL);
+      Put_vector (x, y);
+    } else {
+      pendown = 0;
+      draw_ok = 0;
+      XWarpPointer (GDK_DISPLAY (), None, None, 0, 0, 0, 0, -1, 0);
+    }
+    gtk_signal_emit_stop_by_name (GTK_OBJECT (mainw),
+                                 "key_press_event");
 	 break; 
 	case GDK_Right:
-		  if (event->state & GDK_SHIFT_MASK){
-	 pendown=1;
-	 draw_ok=1;
-	 XWarpPointer(GDK_DISPLAY(),None,None,0,0,0,0,1,0); 
-		(void)gdk_window_get_pointer(drawing_area->window,&x,&y,NULL);
-		Put_vector(x,y);
-	}else{
-		 pendown=0;
-	 	draw_ok=0;
-	}
-	 XWarpPointer(GDK_DISPLAY(),None,None,0,0,0,0,1,0); 
-	 gtk_signal_emit_stop_by_name (GTK_OBJECT(mainw), 
-	                                             "key_press_event");
+    if (event->state & GDK_SHIFT_MASK) {
+      pendown = 1;
+      draw_ok = 1;
+      XWarpPointer (GDK_DISPLAY (), None, None, 0, 0, 0, 0, 1, 0);
+      (void) gdk_window_get_pointer (drawing_area->window, &x, &y, NULL);
+      Put_vector (x, y);
+    } else {
+      pendown = 0;
+      draw_ok = 0;
+      XWarpPointer (GDK_DISPLAY (), None, None, 0, 0, 0, 0, 1, 0);
+    }
+    gtk_signal_emit_stop_by_name (GTK_OBJECT (mainw),
+                                 "key_press_event");
 	 break; 
 	case GDK_Up:
-		  if (event->state & GDK_SHIFT_MASK){
-	 pendown=1;
-	 draw_ok=1;
-	 XWarpPointer(GDK_DISPLAY(),None,None,0,0,0,0,0,-1); 
-		(void)gdk_window_get_pointer(drawing_area->window,&x,&y,NULL);
-		Put_vector(x,y);
-	}else{
-		 pendown=0;
-	 	draw_ok=0;
-	 XWarpPointer(GDK_DISPLAY(),None,None,0,0,0,0,0,-1); 
-	}
-	 gtk_signal_emit_stop_by_name (GTK_OBJECT(mainw), 
-	                                             "key_press_event");
+    if (event->state & GDK_SHIFT_MASK) {
+      pendown = 1;
+      draw_ok = 1;
+      XWarpPointer (GDK_DISPLAY (), None, None, 0, 0, 0, 0, 0, -1);
+      (void) gdk_window_get_pointer (drawing_area->window, &x, &y, NULL);
+      Put_vector (x, y);
+    } else {
+      pendown = 0;
+      draw_ok = 0;
+      XWarpPointer (GDK_DISPLAY (), None, None, 0, 0, 0, 0, 0, -1);
+    }
+    gtk_signal_emit_stop_by_name (GTK_OBJECT (mainw),
+                                 "key_press_event");
 	 break; 
 	case GDK_Down:
-		  if (event->state & GDK_SHIFT_MASK){
-	 pendown=1;
-	 draw_ok=1;
-		(void)gdk_window_get_pointer(drawing_area->window,&x,&y,NULL);
-		Put_vector(x,y);
-	 XWarpPointer(GDK_DISPLAY(),None,None,0,0,0,0,0,1);
-	 }
-	else
-	{
-	 pendown=0;
-	 draw_ok=0;
-	 XWarpPointer(GDK_DISPLAY(),None,None,0,0,0,0,0,1); 
-	 }
-	 gtk_signal_emit_stop_by_name (GTK_OBJECT(mainw), 
-	                                             "key_press_event");
+    if (event->state & GDK_SHIFT_MASK) {
+      pendown = 1;
+      draw_ok = 1;
+      (void) gdk_window_get_pointer (drawing_area->window, &x, &y, NULL);
+      Put_vector (x, y);
+      XWarpPointer (GDK_DISPLAY (), None, None, 0, 0, 0, 0, 0, 1);
+    } else {
+      pendown = 0;
+      draw_ok = 0;
+      XWarpPointer (GDK_DISPLAY (), None, None, 0, 0, 0, 0, 0, 1);
+    }
+    gtk_signal_emit_stop_by_name (GTK_OBJECT (mainw),
+                                 "key_press_event");
 	 break; 
 	case GDK_Return:
 		(void)gdk_window_get_pointer(drawing_area->window,&x,&y,NULL);
@@ -982,44 +983,48 @@ int x,y;
     {  
       switch (event->keyval){
 	case GDK_Left:
-		  if (event->state & GDK_SHIFT_MASK)
-	 XWarpPointer(GDK_DISPLAY(),None,None,0,0,0,0,-5,0); 
-	 else
-	 XWarpPointer(GDK_DISPLAY(),None,None,0,0,0,0,-1,0); 
-	 gtk_signal_emit_stop_by_name (GTK_OBJECT(mainw), 
-	                                             "key_press_event");
-		(void)gdk_window_get_pointer(drawing_area->window,&x,&y,NULL);
-		Put_pmove(x,y,0);
+    if (event->state & GDK_SHIFT_MASK) {
+      XWarpPointer (GDK_DISPLAY (), None, None, 0, 0, 0, 0, -5, 0);
+    } else {
+      XWarpPointer (GDK_DISPLAY (), None, None, 0, 0, 0, 0, -1, 0);
+    }
+    gtk_signal_emit_stop_by_name (GTK_OBJECT (mainw),
+                                 "key_press_event");
+    (void) gdk_window_get_pointer (drawing_area->window, &x, &y, NULL);
+    Put_pmove (x, y, 0);
 	 break; 
 	case GDK_Right:
-		  if (event->state & GDK_SHIFT_MASK)
-	 XWarpPointer(GDK_DISPLAY(),None,None,0,0,0,0,5,0); 
-	else
-	 XWarpPointer(GDK_DISPLAY(),None,None,0,0,0,0,1,0); 
-	 gtk_signal_emit_stop_by_name (GTK_OBJECT(mainw), 
-	                                             "key_press_event");
-		(void)gdk_window_get_pointer(drawing_area->window,&x,&y,NULL);
-		Put_pmove(x,y,0);
+    if (event->state & GDK_SHIFT_MASK) {
+      XWarpPointer (GDK_DISPLAY (), None, None, 0, 0, 0, 0, 5, 0);
+    } else {
+      XWarpPointer (GDK_DISPLAY (), None, None, 0, 0, 0, 0, 1, 0);
+    }
+    gtk_signal_emit_stop_by_name (GTK_OBJECT (mainw),
+                                 "key_press_event");
+    (void) gdk_window_get_pointer (drawing_area->window, &x, &y, NULL);
+    Put_pmove (x, y, 0);
 	 break; 
 	case GDK_Up:
-		  if (event->state & GDK_SHIFT_MASK)
-	 XWarpPointer(GDK_DISPLAY(),None,None,0,0,0,0,0,-5); 
-	else
-	 XWarpPointer(GDK_DISPLAY(),None,None,0,0,0,0,0,-1); 
-	 gtk_signal_emit_stop_by_name (GTK_OBJECT(mainw), 
-	                                             "key_press_event");
-		(void)gdk_window_get_pointer(drawing_area->window,&x,&y,NULL);
-		Put_pmove(x,y,0);
+    if (event->state & GDK_SHIFT_MASK) {
+      XWarpPointer (GDK_DISPLAY (), None, None, 0, 0, 0, 0, 0, -5);
+    } else {
+      XWarpPointer (GDK_DISPLAY (), None, None, 0, 0, 0, 0, 0, -1);
+    }
+    gtk_signal_emit_stop_by_name (GTK_OBJECT (mainw),
+                                 "key_press_event");
+    (void) gdk_window_get_pointer (drawing_area->window, &x, &y, NULL);
+    Put_pmove (x, y, 0);
 	 break; 
 	case GDK_Down:
-		  if (event->state & GDK_SHIFT_MASK)
-	 XWarpPointer(GDK_DISPLAY(),None,None,0,0,0,0,0,5); 
-	else
-	 XWarpPointer(GDK_DISPLAY(),None,None,0,0,0,0,0,1); 
-	 gtk_signal_emit_stop_by_name (GTK_OBJECT(mainw), 
-	                                             "key_press_event");
-		(void)gdk_window_get_pointer(drawing_area->window,&x,&y,NULL);
-		Put_pmove(x,y,0);
+    if (event->state & GDK_SHIFT_MASK) {
+      XWarpPointer (GDK_DISPLAY (), None, None, 0, 0, 0, 0, 0, 5);
+    } else {
+      XWarpPointer (GDK_DISPLAY (), None, None, 0, 0, 0, 0, 0, 1);
+    }
+    gtk_signal_emit_stop_by_name (GTK_OBJECT (mainw),
+                                 "key_press_event");
+    (void) gdk_window_get_pointer (drawing_area->window, &x, &y, NULL);
+    Put_pmove (x, y, 0);
 	 break; 
 	case GDK_Return:
 		Unmark_all();
@@ -1244,6 +1249,7 @@ void
 Zoom (GtkWidget * mainw, gpointer inout)
 /* increase or decrease zoom scale (two steps to either side ) */
 {
+  (void) mainw;
   if (inout && !strcmp ((char *) inout , "1"))
     {
       if (zoom_factor != 0)
@@ -1268,6 +1274,7 @@ void
 Grid (GtkWidget * mainw)
 /* show or hide grid */
 {
+  (void) mainw;
       if (gridtype < 2)
 	gridtype ++;
 	  else
@@ -1378,7 +1385,7 @@ void
 do_fw ()
 {
   int error;
-  char errtext[255];
+  char errtext[1024];
   size_t msglen = 254;
 
   strcpy (formula, "program cht not available or unable to write to");
@@ -1435,6 +1442,8 @@ print_ps ()
 /* ************** Callback for Configurable Options Dialog ************** */
 
 int options_dialog_ok (GtkWidget *widget, gpointer data) {
+  (void) widget;
+  (void) data;
     int newint;
     GdkColor color;
 
@@ -1511,6 +1520,8 @@ void prepare_options_dialog () {
 }
 
 int print_setup_menu_activate (GtkWidget *widget, gpointer data) {
+  (void) widget;
+  (void) data;
     prepare_options_dialog ();
     gtk_widget_show (printer_dialog);
     return TRUE;
@@ -1524,7 +1535,7 @@ char tmpstr[10];
 double bondlen_new;
 int doubledist_new;
 
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   if (atoi (change) == 1)
     {
@@ -1589,7 +1600,7 @@ newpaper (GtkWidget * mainw, gpointer newpaper)
 {
   int i;
 
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   for (i = 0; i < 11; i++)
     {
@@ -1605,8 +1616,7 @@ newpaper (GtkWidget * mainw, gpointer newpaper)
 int
 neworient (GtkWidget * mainw, gpointer newo)
 {
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
   neworientation = atoi (newo);
   return TRUE;
 }
@@ -1614,8 +1624,7 @@ neworient (GtkWidget * mainw, gpointer newo)
 int
 newprcmd (GtkWidget * mainw, gpointer newc)
 {
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
   newprintcommand = atoi (newc);
   return TRUE;
 }
@@ -1623,8 +1632,7 @@ newprcmd (GtkWidget * mainw, gpointer newc)
 int
 newepsopt (GtkWidget * mainw, gpointer newo)
 {
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
   newepsoption = atoi (newo);
   return TRUE;
 }
@@ -1632,8 +1640,7 @@ newepsopt (GtkWidget * mainw, gpointer newo)
 int 
 toggle_whiteout (GtkWidget *mainw, gpointer dummy)
 {
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 if (use_whiteout==0)
 	use_whiteout=1;
 else
@@ -1644,8 +1651,7 @@ return TRUE;
 int 
 toggle_intlchars (GtkWidget *mainw, gpointer dummy)
 {
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 if (use_intlchars==0)
 	use_intlchars=1;
 else
@@ -1659,7 +1665,7 @@ set_bgcolor (GtkWidget * mainw, GtkColorSelection *colorsel)
 {
 gdouble thecolor[4];
 
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
 gtk_color_selection_get_color(colorsel,thecolor);
 bgred=(int)(thecolor[0]*65535);
@@ -1687,8 +1693,7 @@ background.blue=(gushort)bgblue;
 static void
 set_fontsize (GtkWidget *mainw, gpointer newfont)
 {
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   curfontsize=GPOINTER_TO_INT(newfont);
 }
@@ -1699,7 +1704,7 @@ int babelcmd (GtkWidget *mainw, gpointer newc)
   babel=strdup(newc);
 /*@end@*/  
 
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   if (loadsave==7){
     char expn[512];
@@ -1728,8 +1733,8 @@ Set_Textmode (GtkWidget * mainw, GdkEvent * the_event)
   widget acquires the focus in one of the drawing modes. This is
   necessary to prevent interpretation of the typed text as shortcuts */
 {
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
+  (void) the_event;
     
   if (drawmode != 1)
     gtk_toggle_button_set_active ((GtkToggleButton *) ltextbutton,
@@ -1739,8 +1744,7 @@ Set_Textmode (GtkWidget * mainw, GdkEvent * the_event)
 void
 Change_Font (GtkWidget * mainw)
 {
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
 if (serif_flag == 0) {
 		serif_flag=1;
@@ -1760,8 +1764,7 @@ Change_Text (GtkWidget * mainw, gpointer textdir)
    'radio button' status of the toolbar line - this is rather  messy, as 
    we have to find out which button to deactivate */
 {
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   if (importflag != 0)
     return;
@@ -1848,8 +1851,7 @@ Change_Text (GtkWidget * mainw, gpointer textdir)
 void
 set_bond (GtkWidget * mainw, gpointer bondnum)
 {
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   curbond = atoi (bondnum);
 }
@@ -1859,8 +1861,7 @@ Bondmode (GtkWidget * mainw)
 /* Callback to enter bondtype changing mode - handles 'radio button'
    status of the toolbar after checking which button to deactivate */
 {
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   if (importflag != 0)
     return;
@@ -1937,8 +1938,7 @@ Movemode (GtkWidget * mainw)
 /* Callback function to enter 'move marked fragment' mode - checks and
    updates radio button status of the toolbar */
 {
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   if (importflag != 0)
     return;
@@ -2015,8 +2015,7 @@ Markmode (GtkWidget * mainw)
 /* Callback function to set 'mark fragment' mode, checks and updates
    radio button state of the toolbar */
 {
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   if (importflag != 0)
     return;
@@ -2093,8 +2092,7 @@ Rotatemode (GtkWidget * mainw)
 /* Callback function to set 'rotate marked fragment' mode - checks and
    updates radio button state of the toolbar */
 {
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   if (drawmode == 8)
     {
@@ -2169,8 +2167,7 @@ Rescalemode (GtkWidget * mainw)
 /* Callback function to set 'rescale marked fragment' mode - checks and
    updates radio button state of the toolbar */
 {
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   if (importflag != 0)
     return;
@@ -2249,8 +2246,7 @@ Splinemode (GtkWidget * mainw)
 /* Callback function to set 'rescale marked fragment' mode - checks and
    updates radio button state of the toolbar */
 {
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   if (drawmode == 3)
     {
@@ -2324,7 +2320,7 @@ Change_Angle (GtkWidget * mainw, gpointer newangle)
 {
   gboolean activate = (gboolean) FALSE;
 
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   if (importflag != 0)
     return;
@@ -2429,7 +2425,7 @@ Load ()
   if (babelout>-1) gtk_widget_hide (babelexpmenu);
 #ifndef GTK2
   strcpy (datadir, gtk_entry_get_text (GTK_ENTRY (defaultdir)));
-  if (datamask!=NULL && (int)strlen (datamask))
+  if (datamask[0] != '\0')
     gtk_file_selection_complete (GTK_FILE_SELECTION (filew),
 				 strcat (datadir, datamask));
   else
@@ -2580,7 +2576,7 @@ Add ()
   gtk_window_set_title (GTK_WINDOW (filew), _("Add from file..."));
 #ifndef GTK2
   strcpy (datadir, gtk_entry_get_text (GTK_ENTRY (defaultdir)));
-  if (datamask!=NULL && (int)strlen (datamask))
+  if (datamask[0] != '\0')
     gtk_file_selection_complete (GTK_FILE_SELECTION (filew),
 				 strcat (datadir, datamask));
   else
@@ -2691,7 +2687,7 @@ SaveAs ()
     return;
   loadsave = 2;
     savedpicture =  gdk_pixmap_ref(picture);
-  if (filename != NULL)
+  if (filename[0] != '\0')
     gtk_file_selection_set_filename (GTK_FILE_SELECTION (filew), filename);
   gtk_window_set_title (GTK_WINDOW (filew), _("Save as..."));
   gtk_widget_hide (preview_area);
@@ -2711,8 +2707,8 @@ Save ()
   char errtext[255];
 
   if (hp->n + hp->nc + hp->nsp == 0)
-     {
-	snprintf(errtext,255,_("\nNothing to save") );
+  {
+	  snprintf (errtext, sizeof (errtext), _("\nNothing to save") );
 #ifdef GTK2
         gtk_text_buffer_insert(msgtextbuffer, &iter, errtext, -1);
         gtk_adjustment_set_value(msgadjustment, gtk_adjustment_get_value(msgadjustment)+12.);
@@ -2738,11 +2734,11 @@ Save ()
       }
       if (error != 0)
 	{
-	  snprintf (errtext,255, _("\nWriting to %s failed !"), filename);
+    snprintf (errtext, sizeof (errtext), _("\nWriting to %s failed !"), filename);
 	}
       else
 	{
-	  snprintf (errtext,255,
+    snprintf (errtext, sizeof (errtext),
 		   _("\nDrawing saved in %s (%d bonds, %d labels)"),
 		   filename, hp->n, hp->nc);
 	  modify = 0;
@@ -2794,8 +2790,7 @@ do_export (GtkWidget * mainw, GtkFileSelection * exp)
    and displays messagebox with file statistics or error message afterwards */
 {
   struct stat stbuf;
-
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   gtk_widget_hide (expw);
   if (hp->n + hp->nc + hp->nsp == 0)
@@ -2811,10 +2806,9 @@ do_export (GtkWidget * mainw, GtkFileSelection * exp)
 void
 really_export ()
 {
-  size_t msglen = 255;
   float expscale;
   int error = 0;
-  char errtext[255];
+  char errtext[1024];
   FILE *fp;
   
   expscale =
@@ -2883,14 +2877,14 @@ really_export ()
    }
   if (error != 0)
     {
-      snprintf (errtext, msglen, _("Writing to\n %s\nfailed !\n"), expname);
+  snprintf (errtext, sizeof (errtext), _("Writing to\n %s\nfailed !\n"), expname);
       gtk_label_set_text (GTK_LABEL (message), errtext);
       gtk_widget_show (messagew);
       gtk_grab_add (messagew);
     }
   else
     {
-      snprintf (errtext, msglen,
+  snprintf (errtext, sizeof (errtext),
 		_("\nDrawing exported as %s (%d bonds, %d labels)"),
 		expname, hp->n, hp->nc);
 #ifdef GTK2
@@ -2911,7 +2905,7 @@ exp_mode (GtkWidget * mainw, gpointer mode)
   char *exten[10] = { ".fig", ".tex", ".eps", ".xbm", ".svg", ".mol", ".emf", ".sxd", ".png", ".asy" };
   int i, n;
 
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   strcpy (expn, gtk_file_selection_get_filename (GTK_FILE_SELECTION (expw)));
   n = (int) strlen (expn);
@@ -2935,7 +2929,7 @@ void
 pdb_mode (GtkWidget * mainw, gpointer mode)
 /* callback function to set pdb label handling */
 {
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   pdbmode = atoi (mode);
   if (pdbmode < 0 || pdbmode > 4)
@@ -2949,7 +2943,7 @@ sdf_mode (GtkWidget * mainw, gpointer mode)
 char myfile[255];
 char labeltext[40];
 
-  mainw = mainw; /* Avoid gcc unused parameter warning */
+  (void) mainw;
 
   switch ( atoi (mode)) {
         case 0:
@@ -3010,10 +3004,12 @@ file_ok_sel (GtkWidget * mainw, GtkFileSelection * fs)
    message dialog if necessary */
 {
   int error;
-  char errtext[255];
+  char errtext[1024];
   char oldname[512];
   char *tempstr;
   struct stat stbuf;
+
+  (void) mainw;
 
   gtk_widget_hide (filew);
   gtk_grab_remove (filew);
@@ -3021,10 +3017,14 @@ file_ok_sel (GtkWidget * mainw, GtkFileSelection * fs)
   strcpy (oldname, filename);
   strcpy (filename,
 	  gtk_file_selection_get_filename (GTK_FILE_SELECTION (fs)));
-  if (datadir == NULL || (int)strlen (datadir) == 0)
+  if (datadir[0] == '\0')
     {
       tempstr = strrchr (filename, '/');
-      strncpy (datadir, filename, strlen (filename) - strlen (tempstr) + 1);
+      size_t dirlen = tempstr ? (size_t)(tempstr - filename + 1) : 0;
+      if (dirlen >= sizeof (datadir))
+        dirlen = sizeof (datadir) - 1;
+      memcpy (datadir, filename, dirlen);
+      datadir[dirlen] = '\0';
 #if (GTK_MINOR_VERSION >2)
       gtk_entry_set_text (GTK_ENTRY (datadir_entry), datadir);
 #else
@@ -3040,21 +3040,21 @@ file_ok_sel (GtkWidget * mainw, GtkFileSelection * fs)
 	case 0:
 	  modify = 0;
 	  mark.flag = 0;
-	  snprintf (errtext,255, "Chemtool %s (%s)", VERSION, filename);
+    snprintf (errtext, sizeof (errtext), "Chemtool %s (%s)", VERSION, filename);
 	  gtk_window_set_title (GTK_WINDOW (window), errtext);
 #ifdef LIBUNDO
 	  undo_snapshot ();
 #endif
 	  break;
 	case 1:
-	  snprintf (errtext,255, _("Unable to open %s\n"), filename);
+    snprintf (errtext, sizeof (errtext), _("Unable to open %s\n"), filename);
 	  strcpy (filename, oldname);
 	  gtk_label_set_text (GTK_LABEL (message), errtext);
 	  gtk_widget_show (messagew);
 	  gtk_grab_add (messagew);
 	  break;
 	case 2:
-	  snprintf (errtext,255, _("%s\n does not appear to be a Chemtool file\n"),
+    snprintf (errtext, sizeof (errtext), _("%s\n does not appear to be a Chemtool file\n"),
 		   filename);
 	  strcpy (filename, oldname);
 	  gtk_label_set_text (GTK_LABEL (message), errtext);
@@ -3063,13 +3063,13 @@ file_ok_sel (GtkWidget * mainw, GtkFileSelection * fs)
 	  break;
 	case 3:
 	  modify = 0;
-	  snprintf (errtext,255,
+    snprintf (errtext, sizeof (errtext),
 		   _("%s was created by a newer version.\nSome features may be lost.\n"),
 		   filename);
 	  gtk_label_set_text (GTK_LABEL (message), errtext);
 	  gtk_widget_show (messagew);
 	  gtk_grab_add (messagew);
-	  snprintf (errtext,255, "Chemtool %s (%s)", VERSION, filename);
+    snprintf (errtext, sizeof (errtext), "Chemtool %s (%s)", VERSION, filename);
 	  gtk_window_set_title (GTK_WINDOW (window), errtext);
 #ifdef LIBUNDO
 	  undo_snapshot ();
@@ -3077,7 +3077,7 @@ file_ok_sel (GtkWidget * mainw, GtkFileSelection * fs)
 	  break;
 	default:
 	  clear_data ();
-	  snprintf (errtext,255, _("Error loading %s \n"), filename);
+    snprintf (errtext, sizeof (errtext), _("Error loading %s \n"), filename);
 	  gtk_label_set_text (GTK_LABEL (message), errtext);
 	  gtk_widget_show (messagew);
 	  gtk_grab_add (messagew);
@@ -3086,7 +3086,7 @@ file_ok_sel (GtkWidget * mainw, GtkFileSelection * fs)
       Display_Mol ();
       break;
     case 2:
-      if (datamask!=NULL && (int)strlen (datamask)) {
+  if (datamask[0] != '\0') {
         tempstr = strrchr (filename,'.');
         if (!tempstr || strcmp(tempstr,datamask)) {
           strcat (filename,".");
@@ -3116,13 +3116,13 @@ file_ok_sel (GtkWidget * mainw, GtkFileSelection * fs)
 	  if (strrchr (filename, '.')
 	      && strrchr (filename, '.') > strrchr (filename, '/'))
 	    filename[(int) (strrchr (filename, '.') - filename)] = '\0';
-	  snprintf (errtext,255, "Chemtool %s (%s)", VERSION, filename);
+    snprintf (errtext, sizeof (errtext), "Chemtool %s (%s)", VERSION, filename);
 	  gtk_window_set_title (GTK_WINDOW (window), errtext);
 #ifdef LIBUNDO
 	  undo_snapshot ();
 #endif
 
-	  snprintf (errtext,255,
+    snprintf (errtext, sizeof (errtext),
 		   _("\nChoose orientation (Ctrl-Mouse1 for z), press Enter when done"));
 #ifdef GTK2
           gtk_text_buffer_insert (msgtextbuffer, &iter, errtext, -1);
@@ -3135,14 +3135,14 @@ file_ok_sel (GtkWidget * mainw, GtkFileSelection * fs)
 					TRUE);
 	  break;
 	case 1:
-	  snprintf (errtext,255, _("Unable to open %s\n"), filename);
+    snprintf (errtext, sizeof (errtext), _("Unable to open %s\n"), filename);
 	  strcpy (filename, oldname);
 	  gtk_label_set_text (GTK_LABEL (message), errtext);
 	  gtk_widget_show (messagew);
 	  gtk_grab_add (messagew);
 	  break;
 	case 2:
-	  snprintf (errtext,255, _("Problems converting %s\n"), filename);
+    snprintf (errtext, sizeof (errtext), _("Problems converting %s\n"), filename);
 	  gtk_label_set_text (GTK_LABEL (message), errtext);
 	  gtk_widget_show (messagew);
 	  gtk_grab_add (messagew);
@@ -3163,7 +3163,7 @@ file_ok_sel (GtkWidget * mainw, GtkFileSelection * fs)
 #ifdef LIBUNDO
 	  undo_snapshot ();
 #endif
-	  snprintf (errtext,255,
+    snprintf (errtext, sizeof (errtext),
 		   _("\nChoose orientation (Ctrl-Mouse1 for z), press Enter when done"));
 #ifdef GTK2
           gtk_text_buffer_insert (msgtextbuffer, &iter, errtext, -1);
@@ -3176,7 +3176,7 @@ file_ok_sel (GtkWidget * mainw, GtkFileSelection * fs)
 					TRUE);
 	  break;
 	case 1:
-	  snprintf (errtext,255, _("Unable to open %s\n"), filename);
+    snprintf (errtext, sizeof (errtext), _("Unable to open %s\n"), filename);
 	  strcpy (filename, oldname);
 	  gtk_label_set_text (GTK_LABEL (message), errtext);
 	  gtk_widget_show (messagew);
@@ -3193,13 +3193,13 @@ file_ok_sel (GtkWidget * mainw, GtkFileSelection * fs)
 	  if (strrchr (filename, '.')
 	      && strrchr (filename, '.') > strrchr (filename, '/'))
 	    filename[(int) (strrchr (filename, '.') - filename)] = '\0';
-	  snprintf (errtext,255, "Chemtool %s (%s)", VERSION, filename);
+    snprintf (errtext, sizeof (errtext), "Chemtool %s (%s)", VERSION, filename);
 	  gtk_window_set_title (GTK_WINDOW (window), errtext);
 #ifdef LIBUNDO
 	  undo_snapshot ();
 #endif
 
-	  snprintf (errtext,255,
+    snprintf (errtext, sizeof (errtext),
 		   _
 		   ("\nChoose orientation (Ctrl-Mouse1 for z), press Enter when done"));
 #ifdef GTK2
@@ -3213,14 +3213,14 @@ file_ok_sel (GtkWidget * mainw, GtkFileSelection * fs)
 					TRUE);
 	  break;
 	case 1:
-	  snprintf (errtext,255, _("Unable to open %s\n"), filename);
+    snprintf (errtext, sizeof (errtext), _("Unable to open %s\n"), filename);
 	  strcpy (filename, oldname);
 	  gtk_label_set_text (GTK_LABEL (message), errtext);
 	  gtk_widget_show (messagew);
 	  gtk_grab_add (messagew);
 	  break;
 	case 2:
-	  snprintf (errtext,255, _("Problems converting %s\n"), filename);
+    snprintf (errtext, sizeof (errtext), _("Problems converting %s\n"), filename);
 	  gtk_label_set_text (GTK_LABEL (message), errtext);
 	  gtk_widget_show (messagew);
 	  gtk_grab_add (messagew);
@@ -3238,7 +3238,7 @@ void
 reallysave ()
 {
   int error;
-  char errtext[255];
+  char errtext[1024];
   FILE *fp;
 
   if ((fp = fopen (filename, "w")) == NULL)
@@ -3251,11 +3251,11 @@ reallysave ()
     }
   if (error != 0)
     {
-      snprintf (errtext,255, _("Writing to\n %s\nfailed !\n"), filename);
+  snprintf (errtext, sizeof (errtext), _("Writing to\n %s\nfailed !\n"), filename);
     }
   else
     {
-      snprintf (errtext,255,
+  snprintf (errtext, sizeof (errtext),
 	       _("Drawing saved in\n %s\n (%d bonds, %d labels)\n"),
 	       filename, hp->n, hp->nc);
       modify = 0;
@@ -3263,7 +3263,7 @@ reallysave ()
   gtk_label_set_text (GTK_LABEL (message), errtext);
   gtk_widget_show (messagew);
   gtk_grab_add (messagew);
-  snprintf (errtext,255, "Chemtool %s (%s)", VERSION, filename);
+  snprintf (errtext, sizeof (errtext), "Chemtool %s (%s)", VERSION, filename);
   gtk_window_set_title (GTK_WINDOW (window), errtext);
 }
 
@@ -6128,7 +6128,7 @@ gtk_widget_realize(fontselw);
   if (use_intlchars==1) gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(intlbutton),TRUE);
   snprintf(msgtmp,100,"%6.4f",bondlen_mm);
   gtk_entry_set_text (GTK_ENTRY (base_bondlen),msgtmp);
-  if (datadir && (int)strlen (datadir) > 1)
+  if (datadir[0] != '\0')
   {
     gtk_entry_set_text (GTK_ENTRY (defaultdir), datadir);
     gtk_entry_set_text (GTK_ENTRY (defaultext), datamask);
@@ -6137,7 +6137,7 @@ gtk_widget_realize(fontselw);
     strcpy (datadir, gtk_entry_get_text (GTK_ENTRY (defaultdir)));
   }
 #else              
-  if (datadir != NULL && (int)strlen (datadir) > 1)
+  if (datadir[0] != '\0')
     {
       char dir_mask[PATH_MAX];
       strcpy (dir_mask, datadir);
@@ -6255,13 +6255,12 @@ show_penmenu ()
 }
 
 void
-ct_crash (signal)
-     int signal;
+ct_crash (int sig)
 {
   FILE *fp;
   fp = fopen ("crashdump.cht", "w");
   save_mol (fp, 0);
-  switch (signal)
+  switch (sig)
     {
     case SIGSEGV:
       fprintf (stderr, _("Memory allocation problem (SIGSEGV) -"));
@@ -6292,6 +6291,10 @@ void
 getpreview (GtkWidget * w, gint row, gint column, GdkEventButton * bevent,
 	    gpointer data)
 {
+  (void) w;
+  (void) row;
+  (void) column;
+  (void) data;
   char myfile[255];
 
   if (bevent && bevent->type == GDK_2BUTTON_PRESS)
@@ -6332,4 +6335,6 @@ void
    icon = gdk_pixmap_create_from_xpm_d(win, &iconmask, NULL, chemtool_xpm);
    gdk_window_set_icon(win, NULL, icon, iconmask);
  }
+
+#pragma GCC diagnostic pop
 

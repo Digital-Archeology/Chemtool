@@ -6,7 +6,10 @@
 #include <stdlib.h>
 #include <math.h>
 #include <sys/stat.h>
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #include <gtk/gtk.h>
+#pragma GCC diagnostic pop
 
 #ifndef MAXPATHLEN
 #  ifdef PATH_MAX
@@ -204,6 +207,7 @@ extern void Save(void);
 extern void Quit(void);
 void Zoom(GtkWidget*, gpointer);
 void Change_Text(GtkWidget*, gpointer);
+void Change_Font(GtkWidget*);
 void Change_Angle(GtkWidget*, gpointer);
 extern void flip_horiz(void);
 extern void flip_vert(void);
@@ -256,6 +260,8 @@ void yesnodialog (void (*)(void));
 void CheckAndClear(void);
 void yesnodialog2 (void (*)(void),char*);
 void do_fw(void);
+void Grid(GtkWidget*);
+void change_color(GtkWidget*, gpointer);
 void set_bond (GtkWidget* , gpointer);
 void Bondmode (GtkWidget*);
 void Movemode (GtkWidget*);
@@ -284,6 +290,14 @@ void Import(void);
 void Import_PDB(void);
 void SaveAs(void);
 void Export(void);
+int options_dialog_ok(GtkWidget*, gpointer);
+void prepare_options_dialog(void);
+int print_setup_menu_activate(GtkWidget*, gpointer);
+int babelcmd(GtkWidget*, gpointer);
+void Import_Babel(void);
+void Export_Babel(void);
+void pdb_mode(GtkWidget*, gpointer);
+void sdf_mode(GtkWidget*, gpointer);
 
 extern void add_bracket(void);
 extern void add_r_bracket(void);

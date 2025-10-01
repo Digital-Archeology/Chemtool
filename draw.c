@@ -4,7 +4,10 @@
 
 #include <string.h>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #include "ct1.h"
+#pragma GCC diagnostic pop
 void
 Add_atom (int event_x, int event_y)
 /* reads the string from the text entry box and inserts it at the current
@@ -121,7 +124,7 @@ Add_vector (int cbond)
 }
 
 void
-Add_ring (int draw_angle, int curbond, int ringtype)
+Add_ring (int ring_angle, int curbond, int ringtype)
 /* adds a polygon clockwise around the previous and current position */
 {
   double length;		/* length of the drawn bond */
@@ -131,7 +134,6 @@ Add_ring (int draw_angle, int curbond, int ringtype)
   double angle;			/* absolute angle on drawing surface */
   double o_angle;		/* outside angle of the polygon */
   double i_angle;		/* inside angle of the polygon */
-  double a;			/* temp angle used for aromates */
   double mx, my;		/* center point */
   int aromatic = 0;		/* logical: draw aromate? */
   float percent = 0.7;		/* percentage of ring radius/polygon radius */
@@ -149,7 +151,7 @@ Add_ring (int draw_angle, int curbond, int ringtype)
     }
   else
     {
-      switch (draw_angle)
+  switch (ring_angle)
 	{
 	case 1:		/* Hexagon */
 	default:
@@ -217,10 +219,10 @@ Add_ring (int draw_angle, int curbond, int ringtype)
 
   if ((hp->x - hp->tx) || (hp->y - hp->ty))
     {
-      /* if angle > 180°, subtract from 2pi */
+      /* if angle > 180ï¿½, subtract from 2pi */
       if (hp->ty > hp->y)
 	{
-	  /* first we calculate the angle of the given bond 
+	  /* first we calculate the angle of the given bond
 	   * relative to the drawing surface */
 	  angle = (2 * M_PI - acos ((hp->tx - hp->x) / length));
 	}
@@ -238,44 +240,35 @@ Add_ring (int draw_angle, int curbond, int ringtype)
 
       /* draw the polygon */
       for (i = 0; i < type; i++)
-	{
-	  x0 =
-	    (int) rint (mx +
-			radius * sin (i * o_angle +
-				      (3 * M_PI / type - angle)));
-	  y0 =
-	    (int) rint (my -
-			radius * cos (i * o_angle +
-				      (3 * M_PI / type - angle)));
-	  x1 =
-	    (int) rint (mx +
-			radius * sin ((i + 1) * o_angle +
-				      (3 * M_PI / type - angle)));
-	  y1 =
-	    (int) rint (my -
-			radius * cos ((i + 1) * o_angle +
-				      (3 * M_PI / type - angle)));
-	  /* if conjugated double bonds are selected, 
-	   * draw kekule style rings 
-	   * draw every second bond as double bond */
-	  if ((aromatic == 1 && (i + 1) % 2) || (aromatic == 2 && i % 2))
-	    {
-	      /* get the angle of the current bond to the canvas */
-	      if (y1 > y0)
-		{
-		  a = (2 * M_PI - acos ((x1 - x0) / length));
-		}
-	      else
-		{
-		  a = (acos ((x1 - x0) / length));
-		}
-	      add_struct (x0, y0, x1, y1, 2, 1, 1, 0, curpen);
-	    }
-	  else
-	    {
-	      add_struct (x0, y0, x1, y1, curbond, 1, 1, 0, curpen);
-	    }
-	}
+  {
+    x0 =
+      (int) rint (mx +
+            radius * sin (i * o_angle +
+            (3 * M_PI / type - angle)));
+    y0 =
+      (int) rint (my -
+            radius * cos (i * o_angle +
+            (3 * M_PI / type - angle)));
+    x1 =
+      (int) rint (mx +
+            radius * sin ((i + 1) * o_angle +
+            (3 * M_PI / type - angle)));
+    y1 =
+      (int) rint (my -
+            radius * cos ((i + 1) * o_angle +
+            (3 * M_PI / type - angle)));
+    /* if conjugated double bonds are selected,
+     * draw kekule style rings
+     * draw every second bond as double bond */
+    if ((aromatic == 1 && (i + 1) % 2) || (aromatic == 2 && i % 2))
+      {
+        add_struct (x0, y0, x1, y1, 2, 1, 1, 0, curpen);
+      }
+    else
+      {
+        add_struct (x0, y0, x1, y1, curbond, 1, 1, 0, curpen);
+      }
+  }
       /* draw a benzene ring into the polygon if curbond is ring */
       if (aromatic == 3)
 	{
@@ -332,7 +325,6 @@ Del_vector (int event_x, int event_y)
   modify = True;
   Display_Mol ();
 }
-
 void
 Invert_vector (int event_x, int event_y)
 /* exchanges start and endpoint coordinates of a bond (to change direction of
@@ -368,11 +360,11 @@ Add_double (int event_x, int event_y)
    8 - single arrow
    9 - half arrow
    10 - wide single
-   11 - circle 
+      angle = (2 * M_PI - acos ((x1 - x0) / length));
    12 - dotted line
    13 - crossing single line
    14 - left partial double
-   15 - right partial double
+      angle = (acos ((x1 - x0) / length));
    16 - dashed bond
    17 - curved half arrow (shortcut)
    18 - uniform triple
@@ -382,13 +374,10 @@ Add_double (int event_x, int event_y)
  */
 {
   struct data *hdc;
-  int dx, dy;
 
   hdc = select_vector (event_x, event_y, size_factor);
   if (hdc)
     {
-      dx = hdc->x - hdc->tx;
-      dy = hdc->y - hdc->ty;
       if (hdc->bond >= 19)
 	hdc->bond = 0;
       else
@@ -1074,6 +1063,7 @@ Put_pscale (int event_x, int event_y, int aniso)
 {
   int x;
   int dx;
+  (void) event_y;
   if (!draw_ok) return;
   x = round_coord (event_x, size_factor);
 
@@ -1091,18 +1081,15 @@ Add_number (int event_x, int event_y)
 /* insert an automatically incremented atom number at the current
    cursor position*/
 {
-  struct xy_co *coord;
-  gchar name[10];
+  gchar name[16];
   int x, y;
 
-  snprintf(name,9,"%d",++atnum); 
+  snprintf (name, sizeof name, "%d", ++atnum);
   if (strlen (name))
     {
       x = round_coord (event_x, size_factor);
       y = round_coord (event_y, size_factor);
-      coord = position (x, y, x, y, No_angle);
       del_char (select_char (event_x, event_y, size_factor));
-/*      add_char (coord->x, coord->y, name, text_direct, 0, curpen, serif_flag, curfontsize);*/
       add_char (x, y, name, Middle_Text, 0, curpen, serif_flag, 0);
       modify = True;
       Display_Mol ();

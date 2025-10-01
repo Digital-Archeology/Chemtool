@@ -3,7 +3,10 @@
  */
 
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #include "ct1.h"
+#pragma GCC diagnostic pop
 #include "inout.h"
 #include <string.h>
 #include <unistd.h>
@@ -31,6 +34,13 @@ extern GdkFont *font[7],*smallfont[7],*symbfont[7],*boldfont[7],*slfont[7];
 #endif
 
 static char babeloutp[4];
+
+char **intype = NULL;
+char **inmode = NULL;
+int babelin = -1;
+char **outtype = NULL;
+char **outmode = NULL;
+int babelout = -1;
 
 int
 save_mol (FILE * fp, int partial)
@@ -395,16 +405,21 @@ load_preview (char *filename)
   res = fscanf (fp, "%s %i", str, &n);
   if (res == 2 && !strcmp (str, "atoms"))
     {
-      if (size_factor < 0.15)
-	fontsize=0;
-      else
-	fontsize=1;
+			if (size_factor < 0.15)
+				{
+					fontsize = 0;
+				}
+			else
+				{
+					fontsize = 1;
+				}
 
-	res = fgetc(fp);
-        if (res == EOF) {
-          fclose(fp);
-          return(2);
-        }
+			res = fgetc (fp);
+			if (res == EOF)
+				{
+					fclose (fp);
+					return (2);
+				}
 
       for (d = 0; d < n; d++)
 	{
@@ -599,7 +614,7 @@ import_pdb (char *filename)
   int pdboffset = 500;
   int at0, con[6];
   FILE *fp;
-  int *atnum=NULL;
+	int *atom_numbers = NULL;
   int found=0;
 
 #ifdef GTK2
@@ -640,10 +655,10 @@ import_pdb (char *filename)
 	  pdbz = realloc (pdbz, (i + 1) * sizeof (double));
 	  atjust = realloc (atjust, (i + 1) * sizeof (short));
 	  atcode = realloc (atcode, (i + 1) * sizeof (char *));
-	  atnum = realloc (atnum,(i+1)*sizeof(int));
+	atom_numbers = realloc (atom_numbers, (i + 1) * sizeof (int));
 	  atcode[i] = malloc (9 * sizeof (char));
 	  atjust[i] = 0;
-	  res = sscanf (line, "%s %d %s %*6c %*6c %lf %lf %lf", code, &atnum[i],atcode[i],
+	res = sscanf (line, "%s %d %s %*6c %*6c %lf %lf %lf", code, &atom_numbers[i], atcode[i],
 		  &pdbx[i], &pdby[i], &pdbz[i]);
 	  if (res < 6) { 
 	    fclose (fp);
@@ -679,14 +694,14 @@ import_pdb (char *filename)
 		{
 	        found=0;
 		for (m=0;m<=pdbn;m++){
-			if (atnum[m]==at0) {
+					if (atom_numbers[m] == at0) {
 				at0=m+1;
 				found=1;
 				break;
 				}
 			}	
 		for (m=0;m<=pdbn;m++){
-			if (atnum[m]==con[i]) {
+					if (atom_numbers[m] == con[i]) {
 				con[i]=m+1;
 				found++;
 				break;
@@ -733,8 +748,8 @@ import_pdb (char *filename)
     }
 
   fclose (fp);
-free (atnum);
-atnum=NULL;
+free (atom_numbers);
+atom_numbers = NULL;
   pdbxcent = (pdbxmax + pdbxmin) / 2.;
   pdbycent = (pdbymax + pdbymin) / 2.;
   pdbzcent = (pdbzmax + pdbzmin) / 2.;
@@ -912,7 +927,7 @@ pdbstore ()
 	    case 3:		/* only non-H without numeric identifiers */
 	      if (!strncmp (atcode[i], "H", 1))
 		break;
-	      /* fall through to case 2 otherwise */
+	      /* fall through */
 	    case 2:		/* all labels, without the numeric part */
 	      j = (int) strcspn (atcode[i], "1234567890");
 	      strncpy (tmpstr, atcode[i], (size_t)j);
@@ -969,7 +984,7 @@ import_mdl_mol (char *filename, int skip)
 /*  int bond = 0; */ /* Chemtool bondstyle */
   float mdlfactor = 60.0;	/* conversion factor .cht <-> .mol */
   int mdloffset = 200;
-  int text_direct = 0;		/* Chemtool text direction */
+	int label_direction = 0;		/* Chemtool text direction */
   int d, e;			/* dummy variables */
   int v3=0;
   char line[255];
@@ -1226,10 +1241,10 @@ import_mdl_mol (char *filename, int skip)
       if (res == 0) break;
       /* found a label "label" at atom "atom1" */
       /* check for numbers, interpret as indices: */
-      text_direct = 0;
+	label_direction = 0;
       f = (int)strlen (label);
-      if (f == 1)
-	text_direct = -1;	/*center label if only one character */
+			if (f == 1)
+				label_direction = -1;       /* center label if only one character */
       for (e = 0; label[e] != '\0'; e++)
 	{
 	  if (isdigit (label[e]))
@@ -1237,7 +1252,7 @@ import_mdl_mol (char *filename, int skip)
 	      /* If there's a number at the beginning, assume right-
 	       * justified text: */
 	      if (e == 0)
-		text_direct = -2;
+                label_direction = -2;
 	      /* copy already processed string in auxiliary string 'line': */
 	      strncpy (line, label, (size_t)e);
 	      /* append a '_', the number and a NULL-string: */
@@ -1254,7 +1269,7 @@ import_mdl_mol (char *filename, int skip)
 	}
       strcpy (atcode[atom1 - 1], label);
 
-      atjust[atom1 - 1] = (short)text_direct;
+	atjust[atom1 - 1] = (short) label_direction;
 
       res = fscanf (fp, "%s %s", aaa, line);
     }
@@ -1317,7 +1332,7 @@ preview_mdl_mol (char *filename, int skip)
 /*  int bond = 0; */ /* Chemtool bondstyle */
   float mdlfactor = 60.0;	/* conversion factor .cht <-> .mol */
   float previewscale;
-  int text_direct = 0;		/* Chemtool text direction */
+	int label_direction = 0;		/* Chemtool text direction */
   int d, e;			/* dummy variables */
   GdkRectangle update_rect;
   int v3=0;
@@ -1566,10 +1581,10 @@ preview_mdl_mol (char *filename, int skip)
       if (res == 0) break;
       /* found a label "label" at atom "atom1" */
       /* check for numbers, interpret as indices: */
-      text_direct = 0;
+	label_direction = 0;
       f = (int)strlen (label);
-      if (f == 1)
-	text_direct = -1;	/*center label if only one character */
+			if (f == 1)
+				label_direction = -1;       /* center label if only one character */
       for (e = 0; label[e] != '\0'; e++)
 	{
 	  if (isdigit (label[e]))
@@ -1577,7 +1592,7 @@ preview_mdl_mol (char *filename, int skip)
 	      /* If there's a number at the beginning, assume right-
 	       * justified text: */
 	      if (e == 0)
-		text_direct = -2;
+	        label_direction = -2;
 	      /* copy already processed string in auxiliary string 'line': */
 	      strncpy (line, label, (size_t)e);
 	      /* append a '_', the number and a NULL-string: */
@@ -1594,7 +1609,7 @@ preview_mdl_mol (char *filename, int skip)
 	}
       strcpy (atcode[atom1 - 1], label);
 
-      atjust[atom1 - 1] = (short)text_direct;
+	atjust[atom1 - 1] = (short) label_direction;
 
       res = fscanf (fp, "%s %s", aaa, line);
     }
@@ -1683,7 +1698,7 @@ import_babel (char *filename)
 /*  int bond = 0; */ /* Chemtool bondstyle */
   float mdlfactor = 60.0;	/* conversion factor .cht <-> .mol */
   int mdloffset = 200;
-  int text_direct = 0;		/* Chemtool text direction */
+	int label_direction = 0;		/* Chemtool text direction */
   int d, e;			/* dummy variables */
   char line[255];
   double pdbxmin = 100000., pdbxmax = -100000., pdbymin = 1000000., pdbymax =
@@ -1875,10 +1890,10 @@ fprintf(stderr, "expecting na %d nb %d\n",a,b);
       if (res <1) break;
       /* found a label "label" at atom "atom1" */
       /* check for numbers, interpret as indices: */
-      text_direct = 0;
+	label_direction = 0;
       f = (int)strlen (label);
-      if (f == 1)
-	text_direct = -1;	/*center label if only one character */
+			if (f == 1)
+				label_direction = -1;       /* center label if only one character */
       for (e = 0; label[e] != '\0'; e++)
 	{
 	  if (isdigit (label[e]))
@@ -1886,7 +1901,7 @@ fprintf(stderr, "expecting na %d nb %d\n",a,b);
 	      /* If there's a number at the beginning, assume right-
 	       * justified text: */
 	      if (e == 0)
-		text_direct = -2;
+	        label_direction = -2;
 	      /* copy already processed string in auxiliary string 'line': */
 	      strncpy (line, label, (size_t)e);
 	      /* append a '_', the number and a NULL-string: */
@@ -1902,7 +1917,7 @@ fprintf(stderr, "expecting na %d nb %d\n",a,b);
 	    }
 	}
       strcpy (atcode[atom1 - 1], label);
-      atjust[atom1 - 1] = (short)text_direct;
+	atjust[atom1 - 1] = (short) label_direction;
 
       res = fscanf (fp, "%s %s", aaa, line);
     }
@@ -2364,10 +2379,10 @@ export_svg (char *filename)
 	  if (hp_b->bond == 5)
 	    {
     bond_already_tuned = 0;
-  x1 = tx - (int) (0.1 * (float) (ty - y));
-  y1 = ty + (int) (0.1 * (float) (tx - x));
-  x2 = tx + (int) (0.1 * (float) (ty - y));
-  y2 = ty - (int) (0.1 * (float) (tx - x));
+	  x1 = tx - (int) (0.1 * (float) (ty - y));
+	  y1 = ty + (int) (0.1 * (float) (tx - x));
+	  x2 = tx + (int) (0.1 * (float) (ty - y));
+	  y2 = ty - (int) (0.1 * (float) (tx - x));
 factor=1.;
   hp_bx=da_root.next;
   for (dd = 0; dd < hp->n; dd++)
@@ -2375,16 +2390,15 @@ factor=1.;
     
       if (hp_bx->bond == 10)
 	{
-	  if (
-	      (abs (hp_bx->x * factor - tx) < 3
-	       && abs (hp_bx->y * factor - ty) < 3)
-	      || (abs (hp_bx->tx * factor - tx) < 3
-		  && abs (hp_bx->ty * factor - ty) < 3))
+	  if ((fabsf ((hp_bx->x * factor) - tx) < 3
+	       && fabsf ((hp_bx->y * factor) - ty) < 3)
+	      || (fabsf ((hp_bx->tx * factor) - tx) < 3
+		  && fabsf ((hp_bx->ty * factor) - ty) < 3))
 	    {
 	      coord =
 		center_double_bond (hp_bx->x, hp_bx->y, hp_bx->tx, hp_bx->ty, db_dist);
-	      if (abs (hp_bx->x * factor - tx) < 3
-		  && abs (hp_bx->y * factor - ty) < 3)
+	      if (fabsf ((hp_bx->x * factor) - tx) < 3
+		  && fabsf ((hp_bx->y * factor) - ty) < 3)
 		{
 		  x1 = coord->x * factor;
 		  y1 = coord->y * factor;
@@ -2400,48 +2414,55 @@ factor=1.;
 		  x2 = coord->tx * factor;
 		  y2 = coord->ty * factor;
 		}
-	      area =  (0.5 * abs (x * (y1 - y2)
-				 + x1 * (y2 - y) + x2 * (y - y1)));
+	      area = 0.5f * fabsf ((float) (x * (y1 - y2)
+			       + x1 * (y2 - y) + x2 * (y - y1)));
 
-	      if (fabs (area) < 76. * factor)
+	      if (fabsf (area) < 76.f * factor)
 		{
 		  x1 = tx - (int) (0.05 * (float) (ty - y));
 		  y1 = ty + (int) (0.05 * (float) (tx - x));
 		  x2 = tx + (int) (0.05 * (float) (ty - y));
 		  y2 = ty - (int) (0.05 * (float) (tx - x));
 		}
-	      else bond_already_tuned = 1;
+	      else
+		bond_already_tuned = 1;
 
 	    } /* if connected to wide end of this wedge */
       } /* if adjoining bond is wide */
-      if (hp_bx->bond == 0 && !bond_already_tuned) {
-        if ((abs (hp_bx->x * factor - tx) < 3 && abs (hp_bx->y * factor - ty) < 3)
-          ||(abs (hp_bx->tx * factor - tx) < 3 && abs (hp_bx->ty * factor - ty) < 3))
+      if (hp_bx->bond == 0 && !bond_already_tuned)
+	{
+	  if ((fabsf ((hp_bx->x * factor) - tx) < 3
+	       && fabsf ((hp_bx->y * factor) - ty) < 3)
+	      || (fabsf ((hp_bx->tx * factor) - tx) < 3
+		  && fabsf ((hp_bx->ty * factor) - ty) < 3))
 
         /* let the wedge join smoothly alongside another bond */
-	{
-	  coord = intersect(x,y,x1,y1,hp_bx->x*factor,hp_bx->y*factor,
-			    hp_bx->tx*factor,hp_bx->ty*factor);
-	  coord->tx = coord->x;
-	  coord->ty = coord->y;
-	  coord = intersect(x,y,x2,y2,hp_bx->x*factor,hp_bx->y*factor,
-			    hp_bx->tx*factor,hp_bx->ty*factor);
-	  x1 = coord->tx; 
-          y1 = coord->ty;
-          x2 = coord->x;
-          y2 = coord->y;
+	    {
+	      coord = intersect (x, y, x1, y1,
+				    hp_bx->x * factor, hp_bx->y * factor,
+				    hp_bx->tx * factor, hp_bx->ty * factor);
+	      coord->tx = coord->x;
+	      coord->ty = coord->y;
+	      coord = intersect (x, y, x2, y2,
+				    hp_bx->x * factor, hp_bx->y * factor,
+				    hp_bx->tx * factor, hp_bx->ty * factor);
+	      x1 = coord->tx;
+	      y1 = coord->ty;
+	      x2 = coord->x;
+	      y2 = coord->y;
 
-	  area = 0.5 * abs (x * (y1 - y2)
-                                 + x1 * (y2 - y) + x2 * (y - y1));
+	      area = 0.5f * fabsf ((float) (x * (y1 - y2)
+				       + x1 * (y2 - y) + x2 * (y - y1)));
 
-          if (fabs (area) > 3300. * factor || fabs(area) < 1750. * factor)
-            {
-              x1 = tx - (int) (0.1 * (float) (ty - y));
-              y1 = ty + (int) (0.1 * (float) (tx - x));
-              x2 = tx + (int) (0.1 * (float) (ty - y));
-              y2 = ty - (int) (0.1 * (float) (tx - x));
-            }
-        } /* if connected to wide end of this wedge */
+	      if (fabsf (area) > 3300.f * factor
+	          || fabsf (area) < 1750.f * factor)
+		{
+		  x1 = tx - (int) (0.1 * (float) (ty - y));
+		  y1 = ty + (int) (0.1 * (float) (tx - x));
+		  x2 = tx + (int) (0.1 * (float) (ty - y));
+		  y2 = ty - (int) (0.1 * (float) (tx - x));
+		}
+	    } /* if connected to wide end of this wedge */
       } /* if adjoining bond is single, and not already adjusted */
       hp_bx = hp_bx->next;
       } /* for dd */ 
@@ -2505,12 +2526,12 @@ factor=1.;
 	    }
 	  if (hp_b->bond == 9)
 	    {
-            int   xlen = tx - x;
-            int   ylen = ty - y;
+	    xlen = tx - x;
+	    ylen = ty - y;
             float veclen = sqrt ((double)(xlen * xlen + ylen * ylen));
             float scalefact=64./veclen; /* keep arrowhead size constant (64=std length)*/
-            int xbase = (int) (tx - 0.2 *xlen*scalefact);
-            int ybase = (int) (ty - 0.2 *ylen*scalefact);
+	    xbase = (int) (tx - 0.2 *xlen*scalefact);
+	    ybase = (int) (ty - 0.2 *ylen*scalefact);
        
 	      fprintf (fp, "<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\"\n",
 		       x, y, xbase, ybase);
@@ -3061,9 +3082,11 @@ export_emf (char *filename)
       rval = exfig (fp, 0);
       if (rval != 0) 
         return(rval);
-      if (fclose (fp) != 0)
-        return(1);
-        
+			if (fclose (fp) != 0)
+				{
+					return(1);
+				}
+
 	snprintf (com,255, "fig2dev  -L emf %s> \"%s\"", tmpfile, filename);
       xfile = popen (com, "w");
 #endif        
@@ -3892,16 +3915,15 @@ xfig_wedge (FILE * fp, int x, int y, int tx, int ty, int factor, int latex)
     {
       if (hpc->bond == 10)
 	{
-	  if (
-	      (abs (hpc->x * factor - tx) < 3
-	       && abs (hpc->y * factor - ty) < 3)
-	      || (abs (hpc->tx * factor - tx) < 3
-		  && abs (hpc->ty * factor - ty) < 3))
+	  if ((abs ((hpc->x * factor) - tx) < 3
+	       && abs ((hpc->y * factor) - ty) < 3)
+	      || (abs ((hpc->tx * factor) - tx) < 3
+		  && abs ((hpc->ty * factor) - ty) < 3))
 	    {
 	      coord =
 		center_double_bond (hpc->x, hpc->y, hpc->tx, hpc->ty, db_dist);
-	      if (abs (hpc->x * factor - tx) < 3
-		  && abs (hpc->y * factor - ty) < 3)
+	      if (abs ((hpc->x * factor) - tx) < 3
+		  && abs ((hpc->y * factor) - ty) < 3)
 		{
 		  x1 = coord->x * factor;
 		  y1 = coord->y * factor;
@@ -3917,49 +3939,56 @@ xfig_wedge (FILE * fp, int x, int y, int tx, int ty, int factor, int latex)
 		  x2 = coord->tx * factor;
 		  y2 = coord->ty * factor;
 		}
-	      area = 0.5 * abs (x * (y1 - y2)
-				 + x1 * (y2 - y) + x2 * (y - y1));
+	      area = 0.5f * fabsf ((float) (x * (y1 - y2)
+			       + x1 * (y2 - y) + x2 * (y - y1)));
 
-	      if (fabs (area) < 76. * factor)
+	      if (fabsf (area) < 76.f * factor)
 		{
 		  x1 = tx - (int) (0.05 * (float) (ty - y));
 		  y1 = ty + (int) (0.05 * (float) (tx - x));
 		  x2 = tx + (int) (0.05 * (float) (ty - y));
 		  y2 = ty - (int) (0.05 * (float) (tx - x));
 		}
-	      else bond_already_tuned = 1;
+	      else
+		bond_already_tuned = 1;
 
 	    }
-	}
-      if (hpc->bond == 0 && !bond_already_tuned) {
-        if ((abs (hpc->x * factor - tx) < 3 && abs (hpc->y * factor - ty) < 3)
-          ||(abs (hpc->tx * factor - tx) < 3 && abs (hpc->ty * factor - ty) < 3))
+        }
+      if (hpc->bond == 0 && !bond_already_tuned)
+	{
+	  if ((abs ((hpc->x * factor) - tx) < 3
+	       && abs ((hpc->y * factor) - ty) < 3)
+	      || (abs ((hpc->tx * factor) - tx) < 3
+		  && abs ((hpc->ty * factor) - ty) < 3))
 
         /* let the wedge smooth along a another bond */
-	{
-	  coord = intersect(x,y,x1,y1,hpc->x*factor,hpc->y*factor,
-			    hpc->tx*factor,hpc->ty*factor);
-	  coord->tx = coord->x;
-	  coord->ty = coord->y;
-	  coord = intersect(x,y,x2,y2,hpc->x*factor,hpc->y*factor,
-			    hpc->tx*factor,hpc->ty*factor);
-	  x1 = coord->tx; 
-          y1 = coord->ty;
-          x2 = coord->x;
-          y2 = coord->y;
+	    {
+	      coord = intersect (x, y, x1, y1,
+				    hpc->x * factor, hpc->y * factor,
+				    hpc->tx * factor, hpc->ty * factor);
+	      coord->tx = coord->x;
+	      coord->ty = coord->y;
+	      coord = intersect (x, y, x2, y2,
+				    hpc->x * factor, hpc->y * factor,
+				    hpc->tx * factor, hpc->ty * factor);
+	      x1 = coord->tx;
+	      y1 = coord->ty;
+	      x2 = coord->x;
+	      y2 = coord->y;
 
-	  area = 0.5 * abs (x * (y1 - y2)
-                                 + x1 * (y2 - y) + x2 * (y - y1));
+	      area = 0.5f * fabsf ((float) (x * (y1 - y2)
+				       + x1 * (y2 - y) + x2 * (y - y1)));
 
-          if (fabs (area) > 3300. * factor || fabs(area) < 1750. * factor)
-            {
-              x1 = tx - (int) (0.1 * (float) (ty - y));
-              y1 = ty + (int) (0.1 * (float) (tx - x));
-              x2 = tx + (int) (0.1 * (float) (ty - y));
-              y2 = ty - (int) (0.1 * (float) (tx - x));
-            }
-        }
-      } 
+	      if (fabsf (area) > 3300.f * factor
+	          || fabsf (area) < 1750.f * factor)
+		{
+		  x1 = tx - (int) (0.1 * (float) (ty - y));
+		  y1 = ty + (int) (0.1 * (float) (tx - x));
+		  x2 = tx + (int) (0.1 * (float) (ty - y));
+		  y2 = ty - (int) (0.1 * (float) (tx - x));
+		}
+	    }
+      }
       hpc = hpc->next;
     }
 
@@ -4744,6 +4773,7 @@ int hax=0;
                   break;
                  case 949:
                   strcat(q,"@e");
+		          /* fall through */
                  case 966:
                   strcat(q,"@f");
                   break;
@@ -4841,7 +4871,7 @@ int hax=0;
 		char latexstr[255];
 		jj=0;
 		for (ii=0;ii<(int)strlen(hpacc);ii++){
-		if (hpacc[ii] == '°' ){
+		if ((unsigned char)hpacc[ii] == 0xB0){
 			    latexstr[jj++]='\0';
 			    strcat(latexstr,"$^{\\\\circ}$");
 			    jj += 10;
@@ -4889,11 +4919,10 @@ int hax=0;
 float tlen=0.;
 int cw;
 #ifdef GTK2
-gchar *c,*t;
+gchar *c;
 gsize pos,out;
       c=g_convert(hpacc,-1,"ISO8859-1","UTF-8",&pos,&out,NULL);
         if (!c) {
-        t=hpacc+(long)pos;
       c=g_convert_with_fallback(hpacc,-1,"ISO8859-1","UTF-8","?",NULL,NULL,NULL);
         }
 #else
@@ -6334,16 +6363,15 @@ factor=1.;
     
       if (hp_bx->bond == 10)
 	{
-	  if (
-	      (abs (hp_bx->x * factor - tx) < 3
-	       && abs (hp_bx->y * factor - ty) < 3)
-	      || (abs (hp_bx->tx * factor - tx) < 3
-		  && abs (hp_bx->ty * factor - ty) < 3))
+	      if ((fabsf (((float)hp_bx->x * factor) - (float)tx) < 3
+	       && fabsf (((float)hp_bx->y * factor) - (float)ty) < 3)
+	      || (fabsf (((float)hp_bx->tx * factor) - (float)tx) < 3
+		  && fabsf (((float)hp_bx->ty * factor) - (float)ty) < 3))
 	    {
 	      coord =
 		center_double_bond (hp_bx->x, hp_bx->y, hp_bx->tx, hp_bx->ty, db_dist);
-	      if (abs (hp_bx->x * factor - tx) < 3
-		  && abs (hp_bx->y * factor - ty) < 3)
+	      if (fabsf (((float)hp_bx->x * factor) - (float)tx) < 3
+		  && fabsf (((float)hp_bx->y * factor) - (float)ty) < 3)
 		{
 		  x1 = coord->x * factor;
 		  y1 = coord->y * factor;
@@ -6359,48 +6387,55 @@ factor=1.;
 		  x2 = coord->tx * factor;
 		  y2 = coord->ty * factor;
 		}
-	      area =  (0.5 * abs (x * (y1 - y2)
-				 + x1 * (y2 - y) + x2 * (y - y1)));
+	      area = 0.5f * fabsf ((float) (x * (y1 - y2)
+			       + x1 * (y2 - y) + x2 * (y - y1)));
 
-	      if (fabs (area) < 76. * factor)
+	      if (fabsf (area) < 76.f * factor)
 		{
 		  x1 = tx - (int) (0.05 * (float) (ty - y));
 		  y1 = ty + (int) (0.05 * (float) (tx - x));
 		  x2 = tx + (int) (0.05 * (float) (ty - y));
 		  y2 = ty - (int) (0.05 * (float) (tx - x));
 		}
-	      else bond_already_tuned = 1;
+	      else
+		bond_already_tuned = 1;
 
 	    } /* if connected to wide end of this wedge */
       } /* if adjoining bond is wide */
-      if (hp_bx->bond == 0 && !bond_already_tuned) {
-        if ((abs (hp_bx->x * factor - tx) < 3 && abs (hp_bx->y * factor - ty) < 3)
-          ||(abs (hp_bx->tx * factor - tx) < 3 && abs (hp_bx->ty * factor - ty) < 3))
+      if (hp_bx->bond == 0 && !bond_already_tuned)
+	{
+	  if ((fabsf (((float)hp_bx->x * factor) - (float)tx) < 3
+	       && fabsf (((float)hp_bx->y * factor) - (float)ty) < 3)
+	      || (fabsf (((float)hp_bx->tx * factor) - (float)tx) < 3
+		  && fabsf (((float)hp_bx->ty * factor) - (float)ty) < 3))
 
         /* let the wedge join smoothly alongside another bond */
-	{
-	  coord = intersect(x,y,x1,y1,hp_bx->x*factor,hp_bx->y*factor,
-			    hp_bx->tx*factor,hp_bx->ty*factor);
-	  coord->tx = coord->x;
-	  coord->ty = coord->y;
-	  coord = intersect(x,y,x2,y2,hp_bx->x*factor,hp_bx->y*factor,
-			    hp_bx->tx*factor,hp_bx->ty*factor);
-	  x1 = coord->tx; 
-          y1 = coord->ty;
-          x2 = coord->x;
-          y2 = coord->y;
+	    {
+	      coord = intersect (x, y, x1, y1,
+				    hp_bx->x * factor, hp_bx->y * factor,
+				    hp_bx->tx * factor, hp_bx->ty * factor);
+	      coord->tx = coord->x;
+	      coord->ty = coord->y;
+	      coord = intersect (x, y, x2, y2,
+				    hp_bx->x * factor, hp_bx->y * factor,
+				    hp_bx->tx * factor, hp_bx->ty * factor);
+	      x1 = coord->tx;
+	      y1 = coord->ty;
+	      x2 = coord->x;
+	      y2 = coord->y;
 
-	  area = 0.5 * abs (x * (y1 - y2)
-                                 + x1 * (y2 - y) + x2 * (y - y1));
+	      area = 0.5f * fabsf ((float) (x * (y1 - y2)
+				       + x1 * (y2 - y) + x2 * (y - y1)));
 
-          if (fabs (area) > 3300. * factor || fabs(area) < 1750. * factor)
-            {
-              x1 = tx - (int) (0.1 * (float) (ty - y));
-              y1 = ty + (int) (0.1 * (float) (tx - x));
-              x2 = tx + (int) (0.1 * (float) (ty - y));
-              y2 = ty - (int) (0.1 * (float) (tx - x));
-            }
-        } /* if connected to wide end of this wedge */
+	      if (fabsf (area) > 3300.f * factor
+	          || fabsf (area) < 1750.f * factor)
+		{
+		  x1 = tx - (int) (0.1 * (float) (ty - y));
+		  y1 = ty + (int) (0.1 * (float) (tx - x));
+		  x2 = tx + (int) (0.1 * (float) (ty - y));
+		  y2 = ty - (int) (0.1 * (float) (tx - x));
+		}
+	    } /* if connected to wide end of this wedge */
       } /* if adjoining bond is single, and not already adjusted */
       hp_bx = hp_bx->next;
       } /* for dd */ 
@@ -6459,12 +6494,12 @@ factor=1.;
 	    }
 	  if (hp_b->bond == 9)
 	    {
-            int   xlen = tx - x;
-            int   ylen = ty - y;
+	    xlen = tx - x;
+	    ylen = ty - y;
             float veclen = sqrt ((double)(xlen * xlen + ylen * ylen));
             float scalefact=64./veclen; /* keep arrowhead size constant (64=std length)*/
-            int xbase = (int) (tx - 0.2 *xlen*scalefact);
-            int ybase = (int) (ty - 0.2 *ylen*scalefact);
+	    xbase = (int) (tx - 0.2 *xlen*scalefact);
+	    ybase = (int) (ty - 0.2 *ylen*scalefact);
        
 	      fprintf (fp, "draw(pic, (%d,%d)--(%d,%d),%s);\n", 
 		       x, h-y, xbase, h-ybase, asycolor[hp_b->color]);
@@ -6757,9 +6792,13 @@ factor=1.;
       else
 	{
 	if (hp_sp->type == -1)
-	  fprintf (fp, "fill (pic, (%d,%d)..", hp_sp->x0, h-hp_sp->y0);
-        else
-	  fprintf (fp, "draw (pic, (%d,%d)..", hp_sp->x0, h-hp_sp->y0);
+	  {
+	    fprintf (fp, "fill (pic, (%d,%d)..", hp_sp->x0, h-hp_sp->y0);
+	  }
+	else
+	  {
+	    fprintf (fp, "draw (pic, (%d,%d)..", hp_sp->x0, h-hp_sp->y0);
+	  }
 	  fprintf (fp, "controls (%d,%d) and (%d,%d)..(%d,%d)", hp_sp->x1, h-hp_sp->y1,
 		   hp_sp->x2, h-hp_sp->y2, hp_sp->x3, h-hp_sp->y3);
 /*

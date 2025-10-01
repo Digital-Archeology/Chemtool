@@ -289,6 +289,9 @@ structures). Please let us know if you want specific molecules added to the
 templates - their name or ideally a regular chemtool drawing file is all we 
 need. (send email to martin@ruby.chemie.uni-freiburg.de)
 
+Digital Archeology has taken up maintainership of this template database and
+will continue curating the collection for the community.
+
 Importing from foreign file formats:
 
 Chemtool is able to import files written either in the PDB format originally
@@ -390,3 +393,7 @@ Webpage:
 http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool.html
 
 
+Isabelle Livingston     (Primary maintainer since 1.6.14)
+
+Digital Archeology has taken up maintainership of this template database and
+will continue curating the collection for the community.
