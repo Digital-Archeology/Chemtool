@@ -1,6 +1,14 @@
 /* Output from p2c 1.21alpha-07.Dec.93, the Pascal-to-C translator */
 /* From input file "cht-1.7.pp" */
 
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wold-style-definition"
+#pragma GCC diagnostic ignored "-Wstrict-prototypes"
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
+#pragma GCC diagnostic ignored "-Wshift-negative-value"
+#endif
+
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -22,8 +30,6 @@
 #include <stdio.h>
 #include <unistd.h>
 #define DOUBLE double
-
-
 
 /* If the following heuristic fails, compile -DBSD=0 for non-BSD systems,
    or -DBSD=1 for BSD systems. */
@@ -110,6 +116,7 @@
 #include <math.h>
 #include <setjmp.h>
 #include <assert.h>
+#include <limits.h>
 
 
 #ifndef NO_LACK
@@ -352,6 +359,14 @@ extern long    *P_expset    PP( (long *, long) );
 extern long     P_packset   PP( (long *) );
 extern FILE    *_skipspaces PP( (FILE *) );
 extern FILE    *_skipnlspaces PP( (FILE *) );
+extern int      my_toupper  PP( (int) );
+extern int      my_tolower  PP( (int) );
+extern int      strcicmp    PP( (Char *, Char *) );
+extern Void     strmove     PP( (int, Char *, int, Char *, int) );
+extern Void     strdelete   PP( (Char *, int, int) );
+extern Void     strinsert   PP( (Char *, Char *, int) );
+extern long     maxavail    PV();
+extern Char    *_ShowEscape PP( (Char *, int, int, Char *) );
 
 
 /* I/O error handling */
@@ -499,6 +514,14 @@ extern Anyptr __MallocTemp__;
 
 
 
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
+#endif
+
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
+#endif
+
 /* End. */
 
 
@@ -541,9 +564,7 @@ __p2c_jmp_buf *__top_jb;
 
 
 
-void PASCAL_MAIN(argc, argv)
-int argc;
-char **argv;
+void PASCAL_MAIN(int argc, Char **argv)
 {
     P_argc = argc;
     P_argv = argv;
@@ -560,8 +581,7 @@ char **argv;
 
 /* In case your system lacks these... */
 
-long my_labs(x)
-long x;
+long my_labs(long x)
 {
     return((x > 0) ? x : -x);
 }
@@ -573,53 +593,48 @@ long x;
 
 
 
-int my_toupper(c)
-int c;
+int my_toupper(int c)
 {
-    if (islower(c))
+  if (islower(c))
 	return _toupper(c);
-    else
+  else
 	return c;
 }
 
 
-int my_tolower(c)
-int c;
+int my_tolower(int c)
 {
-    if (isupper(c))
+  if (isupper(c))
 	return _tolower(c);
-    else
+  else
 	return c;
 }
 
 
 
-
-long ipow(a, b)
-long a, b;
+long ipow(long a, long b)
 {
-    long v;
+  long v;
 
-    if (a == 0 || a == 1)
+  if (a == 0 || a == 1)
 	return a;
-    if (a == -1)
+  if (a == -1)
 	return (b & 1) ? -1 : 1;
-    if (b < 0)
+  if (b < 0)
 	return 0;
-    if (a == 2)
+  if (a == 2)
 	return 1L << b;
-    v = (b & 1) ? a : 1;
-    while ((b >>= 1) > 0) {
+  v = (b & 1) ? a : 1;
+  while ((b >>= 1) > 0) {
 	a *= a;
 	if (b & 1)
 	    v *= a;
-    }
-    return v;
+  }
+  return v;
 }
 
 
-long P_imax(a, b)
-long a, b;
+long P_imax(long a, long b)
 {
     if (a > b)
 	return a;
@@ -627,8 +642,7 @@ long a, b;
 	return b;
 }
 
-long P_imin(a, b)
-long a, b;
+long P_imin(long a, long b)
 {
     if (a < b)
 	return a;
@@ -637,8 +651,7 @@ long a, b;
 }
 
 
-double P_rmax(a, b)
-double a, b;
+double P_rmax(double a, double b)
 {
     if (a > b)
 	return a;
@@ -646,8 +659,7 @@ double a, b;
 	return b;
 }
 
-double P_rmin(a, b)
-double a, b;
+double P_rmin(double a, double b)
 {
     if (a < b)
 	return a;
@@ -663,11 +675,9 @@ double a, b;
 /* Store in "ret" the substring of length "len" starting from "pos" (1-based).
    Store a shorter or null string if out-of-range.  Return "ret". */
 
-char *strsub(ret, s, pos, len)
-register char *ret, *s;
-register int pos, len;
+Char *strsub(Char *ret, Char *s, int pos, int len)
 {
-    register char *s2;
+    register Char *s2;
 
     if (--pos < 0 || len <= 0) {
         *ret = 0;
@@ -693,12 +703,10 @@ register int pos, len;
 /* Return the index of the first occurrence of "pat" as a substring of "s",
    starting at index "pos" (1-based).  Result is 1-based, 0 if not found. */
 
-int strpos2(s, pat, pos)
-char *s;
-register char *pat;
-register int pos;
+int strpos2(Char *s, Char *pat, int pos)
 {
-    register char *cp, ch;
+    register Char *cp;
+    register Char ch;
     register int slen;
 
     if (--pos < 0)
@@ -719,8 +727,7 @@ register int pos;
 
 /* Case-insensitive version of strcmp. */
 
-int strcicmp(s1, s2)
-register char *s1, *s2;
+int strcicmp(Char *s1, Char *s2)
 {
     register unsigned char c1, c2;
 
@@ -746,8 +753,7 @@ register char *s1, *s2;
 
 /* Trim blanks at left end of string. */
 
-char *strltrim(s)
-register char *s;
+Char *strltrim(Char *s)
 {
     while (Isspace(*s++)) ;
     return s - 1;
@@ -756,10 +762,9 @@ register char *s;
 
 /* Trim blanks at right end of string. */
 
-char *strrtrim(s)
-register char *s;
+Char *strrtrim(Char *s)
 {
-    register char *s2 = s;
+    register Char *s2 = s;
 
     if (!*s)
 	return s;
@@ -772,13 +777,10 @@ register char *s;
 
 /* Store in "ret" "num" copies of string "s".  Return "ret". */
 
-char *strrpt(ret, s, num)
-char *ret;
-register char *s;
-register int num;
+Char *strrpt(Char *ret, Char *s, int num)
 {
-    register char *s2 = ret;
-    register char *s1;
+    register Char *s2 = ret;
+    register Char *s1;
 
     while (--num >= 0) {
         s1 = s;
@@ -791,12 +793,9 @@ register int num;
 
 /* Store in "ret" string "s" with enough pad chars added to reach "size". */
 
-char *strpad(ret, s, padchar, num)
-char *ret;
-register char *s;
-register int padchar, num;
+Char *strpad(Char *ret, Char *s, int padchar, int num)
 {
-    register char *d = ret;
+    register Char *d = ret;
 
     if (s == d) {
 	while (*d++) ;
@@ -815,9 +814,7 @@ register int padchar, num;
    to index "dpos" of "d", lengthening "d" if necessary.  Length and
    indices must be in-range. */
 
-void strmove(len, s, spos, d, dpos)
-register char *s, *d;
-register int len, spos, dpos;
+Void strmove(int len, Char *s, int spos, Char *d, int dpos)
 {
     s += spos - 1;
     d += dpos - 1;
@@ -834,9 +831,7 @@ register int len, spos, dpos;
 /* Delete the substring of length "len" at index "pos" from "s".
    Delete less if out-of-range. */
 
-void strdelete(s, pos, len)
-register char *s;
-register int pos, len;
+Void strdelete(Char *s, int pos, int len)
 {
     register int slen;
 
@@ -856,9 +851,7 @@ register int pos, len;
 
 /* Insert string "src" at index "pos" of "dst". */
 
-void strinsert(src, dst, pos)
-register char *src, *dst;
-register int pos;
+Void strinsert(Char *src, Char *dst, int pos)
 {
     register int slen, dlen;
 
@@ -888,8 +881,7 @@ register int pos;
 
 /* Peek at next character of input stream; return EOF at end-of-file. */
 
-int P_peek(f)
-FILE *f;
+int P_peek(FILE *f)
 {
     int ch;
 
@@ -905,8 +897,7 @@ FILE *f;
    stdin is broken; remove the special case for it to be broken in a
    different way. */
 
-int P_eof(f)
-FILE *f;
+int P_eof(FILE *f)
 {
     register int ch;
 
@@ -928,8 +919,7 @@ FILE *f;
 
 /* Check if at end of line (or end of entire file). */
 
-int P_eoln(f)
-FILE *f;
+int P_eoln(FILE *f)
 {
     register int ch;
 
@@ -943,8 +933,7 @@ FILE *f;
 
 /* Skip whitespace (including newlines) in a file. */
 
-FILE *_skipnlspaces(f)
-FILE *f;
+FILE *_skipnlspaces(FILE *f)
 {
   register int ch;
 
@@ -959,8 +948,7 @@ FILE *f;
 
 /* Skip whitespace (not including newlines) in a file. */
 
-FILE *_skipspaces(f)
-FILE *f;
+FILE *_skipspaces(FILE *f)
 {
   register int ch;
 
@@ -975,10 +963,7 @@ FILE *f;
 
 /* Read a packed array of characters from a file. */
 
-Void P_readpaoc(f, s, len)
-FILE *f;
-char *s;
-int len;
+Void P_readpaoc(FILE *f, Char *s, int len)
 {
     int ch;
 
@@ -997,10 +982,7 @@ int len;
 	ungetc(ch, f);
 }
 
-Void P_readlnpaoc(f, s, len)
-FILE *f;
-char *s;
-int len;
+Void P_readlnpaoc(FILE *f, Char *s, int len)
 {
     int ch;
 
@@ -1020,8 +1002,7 @@ int len;
 
 /* Compute maximum legal "seek" index in file (0-based). */
 
-long P_maxpos(f)
-FILE *f;
+long P_maxpos(FILE *f)
 {
     long savepos = ftell(f);
     long val;
@@ -1037,9 +1018,7 @@ FILE *f;
 
 /* Use packed array of char for a file name. */
 
-Char *P_trimname(fn, len)
-register Char *fn;
-register int len;
+Char *P_trimname(Char *fn, int len)
 {
     static Char fnbuf[256];
     register Char *cp = fnbuf;
@@ -1056,12 +1035,12 @@ register int len;
 /* Pascal's "memavail" doesn't make much sense in Unix with virtual memory.
    We fix memory size as 10Meg as a reasonable compromise. */
 
-long memavail()
+long memavail(void)
 {
     return 10000000;            /* worry about this later! */
 }
 
-long maxavail()
+long maxavail(void)
 {
     return memavail();
 }
@@ -1078,8 +1057,7 @@ long maxavail()
 
 /* (Sets with 32 or fewer elements are normally stored as plain longs.) */
 
-long *P_setunion(d, s1, s2)         /* d := s1 + s2 */
-register long *d, *s1, *s2;
+long *P_setunion(long *d, long *s1, long *s2)         /* d := s1 + s2 */
 {
     long *dbase = d++;
     register int sz1 = *s1++, sz2 = *s2++;
@@ -1096,8 +1074,7 @@ register long *d, *s1, *s2;
 }
 
 
-long *P_setint(d, s1, s2)           /* d := s1 * s2 */
-register long *d, *s1, *s2;
+long *P_setint(long *d, long *s1, long *s2)           /* d := s1 * s2 */
 {
     long *dbase = d++;
     register int sz1 = *s1++, sz2 = *s2++;
@@ -1109,8 +1086,7 @@ register long *d, *s1, *s2;
 }
 
 
-long *P_setdiff(d, s1, s2)          /* d := s1 - s2 */
-register long *d, *s1, *s2;
+long *P_setdiff(long *d, long *s1, long *s2)          /* d := s1 - s2 */
 {
     long *dbase = d++;
     register int sz1 = *s1++, sz2 = *s2++;
@@ -1126,8 +1102,7 @@ register long *d, *s1, *s2;
 }
 
 
-long *P_setxor(d, s1, s2)         /* d := s1 / s2 */
-register long *d, *s1, *s2;
+long *P_setxor(long *d, long *s1, long *s2)         /* d := s1 / s2 */
 {
     long *dbase = d++;
     register int sz1 = *s1++, sz2 = *s2++;
@@ -1145,9 +1120,7 @@ register long *d, *s1, *s2;
 }
 
 
-int P_inset(val, s)                 /* val IN s */
-register unsigned val;
-register long *s;
+int P_inset(unsigned val, long *s)                 /* val IN s */
 {
     register int bit;
     bit = (int) (val % SETBITS);
@@ -1158,9 +1131,7 @@ register long *s;
 }
 
 
-long *P_addset(s, val)              /* s := s + [val] */
-register long *s;
-register unsigned val;
+long *P_addset(long *s, unsigned val)              /* s := s + [val] */
 {
     register long *sbase = s;
     register int bit, size;
@@ -1179,9 +1150,7 @@ register unsigned val;
 }
 
 
-long *P_addsetr(s, v1, v2)              /* s := s + [v1..v2] */
-register long *s;
-register unsigned v1, v2;
+long *P_addsetr(long *s, unsigned v1, unsigned v2)              /* s := s + [v1..v2] */
 {
     register long *sbase = s;
     register int b1, b2, size;
@@ -1199,22 +1168,42 @@ register unsigned v1, v2;
         s[v2] = 0;
         *s = (long)v2;
     }
-    s += v1;
-    if (v1 == v2) {
-        *s |= (~((-2L)<<(b2-b1))) << b1;
+  s += v1;
+  if (v1 == v2) {
+    unsigned int count = (unsigned int)(b2 - b1 + 1);
+    const unsigned int word_bits = (unsigned int)(sizeof(unsigned long) * CHAR_BIT);
+    unsigned long mask;
+
+    if (count >= word_bits) {
+      mask = ~0UL;
     } else {
-        *s++ |= (-1L) << b1;
-        while (++v1 < v2)
-            *s++ = -1;
-        *s |= ~((-2L) << b2);
+      mask = (1UL << count) - 1UL;
     }
+    mask <<= b1;
+    *s |= (long)mask;
+  } else {
+    const unsigned int word_bits = (unsigned int)(sizeof(unsigned long) * CHAR_BIT);
+    unsigned long mask = ~0UL;
+
+    if (b1 > 0) {
+      mask <<= b1;
+    }
+    *s++ |= (long)mask;
+    while (++v1 < v2)
+      *s++ = -1L;
+
+    if (b2 + 1 >= (int)word_bits) {
+      mask = ~0UL;
+    } else {
+      mask = (1UL << (b2 + 1)) - 1UL;
+    }
+    *s |= (long)mask;
+  }
     return sbase;
 }
 
 
-long *P_remset(s, val)              /* s := s - [val] */
-register long *s;
-register unsigned val;
+long *P_remset(long *s, unsigned val)              /* s := s - [val] */
 {
     register int bit;
     bit = (int) (val % SETBITS);
@@ -1228,8 +1217,7 @@ register unsigned val;
 }
 
 
-int P_setequal(s1, s2)              /* s1 = s2 */
-register long *s1, *s2;
+int P_setequal(long *s1, long *s2)              /* s1 = s2 */
 {
     register int size = *s1++;
     if (*s2++ != size)
@@ -1242,8 +1230,7 @@ register long *s1, *s2;
 }
 
 
-int P_subset(s1, s2)                /* s1 <= s2 */
-register long *s1, *s2;
+int P_subset(long *s1, long *s2)                /* s1 <= s2 */
 {
     register int sz1 = *s1++, sz2 = *s2++;
     if (sz1 > sz2)
@@ -1260,9 +1247,7 @@ register long *s1, *s2;
 /* s is a "smallset", i.e., a 32-bit or less set stored
    directly in a long. */
 
-long *P_expset(d, s)                /* d := s */
-register long *d;
-register long s;
+long *P_expset(long *d, long s)                /* d := s */
 {
     if (s) {
 	d[1] = s;
@@ -1273,8 +1258,7 @@ register long s;
 }
 
 
-long P_packset(s)                   /* convert s to a small-set */
-register long *s;
+long P_packset(long *s)                   /* convert s to a small-set */
 {
     if (*s++)
         return *s;
@@ -1288,17 +1272,17 @@ register long *s;
 
 
 
-int _OutMem()
+int _OutMem(void)
 {
     return _Escape(-2);
 }
 
-int _CaseCheck()
+int _CaseCheck(void)
 {
     return _Escape(-9);
 }
 
-int _NilCheck()
+int _NilCheck(void)
 {
     return _Escape(-3);
 }
@@ -1310,11 +1294,9 @@ int _NilCheck()
 /* The following is suitable for the HP Pascal operating system.
    It might want to be revised when emulating another system. */
 
-char *_ShowEscape(buf, code, ior, prefix)
-char *buf, *prefix;
-int code, ior;
+Char *_ShowEscape(Char *buf, int code, int ior, Char *prefix)
 {
-    char *bufp;
+  Char *bufp;
 
     if (prefix && *prefix) {
         strcpy(buf, prefix);
@@ -1396,10 +1378,9 @@ int code, ior;
 }
 
 
-int _Escape(code)
-int code;
+int _Escape(int code)
 {
-    char buf[100];
+  Char buf[100];
 
     P_escapecode = code;
     if (__top_jb) {
@@ -1415,20 +1396,17 @@ int code;
     exit(EXIT_FAILURE);
 }
 
-int _EscIO(code)
-int code;
+int _EscIO(int code)
 {
     P_ioresult = code;
     return _Escape(-10);
 }
 
-int _EscIO2(code, name)
-int code;
-char *name;
+int _EscIO2(int code, Char *name)
 {
     P_ioresult = code;
     if (!__top_jb && name && *name) {
-	char buf[100];
+  Char buf[100];
 	fprintf(stderr, "%s: %s\n",
 		name, _ShowEscape(buf, P_escapecode, P_ioresult, ""));
 	exit(EXIT_FAILURE);
@@ -2805,9 +2783,7 @@ Static Void doLabels()
 }
 
 
-int main(argc, argv)
-int argc;
-Char *argv[];
+int main(int argc, Char *argv[])
 {
   Char STR1[256], STR2[256];
   Char *TEMP;

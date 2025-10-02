@@ -142,7 +142,7 @@ extern int calc_vector(int dx, int dy);
 extern struct xy_co *multi_bonds(int mx, int my, int mtx, int mty, int r);
 extern struct xy_co *center_double_bond(int mx,int my,int mtx, int mty, int r);
 extern struct xy_co *intersect(int ax, int ay, int atx, int aty, int bx, int by, int btx, int bty);
-/*struct xy_co *bond_cut(int x, int y, int tx, int ty, int r);*/
+extern struct xy_co *bond_cut(int x, int y, int tx, int ty, int r);
 extern void cut_end (int *x, int *y, int tx, int ty, int r);
 extern void get_center_marked (int*, int*);
 extern void add_box1(void);
@@ -151,6 +151,7 @@ extern void add_box3(void);
 extern void add_box4(void);
 extern void add_bracket(void);
 extern void add_r_bracket(void);
+extern void add_r2_bracket(void);
 extern void add_brace(void);
 
  /*	graph.c	*/
@@ -226,6 +227,12 @@ extern int export_bitmap(char *filename);
 extern int export_xfig(char *filename);
 extern int export_svg(char *filename);
 extern int export_mdl_mol(FILE *fp, int topipe);
+extern int load_preview(char *filename);
+extern void pdbstore(void);
+extern int preview_mdl_mol(char *filename, int skip);
+extern int import_babel(char *filename);
+extern int export_emf(char *filename);
+extern int export_png_pic(char *filename, float scalefactor);
 extern int import_mdl_mol(char *filename,int skip);
 extern int import_pdb(char *filename);
 extern int export_latex_pic(char *filename,float scalefactor);
@@ -243,6 +250,8 @@ extern int export_sxd(char*);
 extern int export_babel(char*);
 extern int readrc(void);
 extern int writerc(void);
+extern void check_babel(void);
+extern int export_asy(char *filename);
 extern void check_fig2dev(void);
 extern void check_fig2sxd(void);
 
@@ -273,12 +282,12 @@ extern int nbonds;
 extern float importfactor;
 extern int importoffset;
 
-char **intype;
-char **inmode;
-int babelin;
-char **outtype;
-char **outmode;
-int babelout;
+extern char **intype;
+extern char **inmode;
+extern int babelin;
+extern char **outtype;
+extern char **outmode;
+extern int babelout;
 extern char *babel;
 extern GdkGC *mygc[8],*background_gc,*hlgc;
 extern int curpen;

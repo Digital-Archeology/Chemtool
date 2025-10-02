@@ -1,0 +1,21 @@
+Chemtool 1.6.15
+
+This release updates Chemtool for modern hardware and toolchains, ensuring compatibility with current Linux distributions. Version 1.6.15 now compiles successfully and runs on Fedora 42 with the following development packages installed:
+
+gtk2-devel glib2-devel pango-devel cairo-devel gdk-pixbuf2-devel atk-devel \
+libX11-devel libXext-devel libICE-devel libSM-devel libXi-devel \
+libXrandr-devel libXrender-devel
+
+Improvements
+Added stricter compiler flags (-Wall -Wextra -Werror -pedantic -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wold-style-definition -Wshadow) to surface hidden bugs and enforce code quality.
+Resolved multiple errors that were previously suppressed by looser compilation.
+Fixed issues preventing successful builds with make.
+Refactored inout.c into smaller, modular files within a dedicated inout directory for improved maintainability and readability.
+Adjusted linking to accommodate the new file structure.
+Applied patches to cht, though functionality remains partially broken when called from the Chemtool interface.
+
+Current Status
+The Chemtool interface launches successfully, with most buttons operational.
+The drawing window is functional and supports basic interaction.
+Some UI components are impaired due to GTK-related issues; several buttons remain non-functional.
+Overall, core functionality has been restored, enabling molecule drawing and basic tool usage.

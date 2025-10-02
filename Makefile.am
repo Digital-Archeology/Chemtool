@@ -15,7 +15,9 @@ SUBDIRS = m4 po src-cht
 bin_PROGRAMS = chemtool src-cht/cht
 
 # The source files of the 'chemtool' program.
-chemtool_SOURCES = main.c draw.c graph.c chemproc.c undo.c inout.c templates.h gettext.h
+chemtool_SOURCES = main.c draw.c graph.c chemproc.c undo.c inout.c \
+	inout/native_io.c inout/pdb_io.c inout/mdl_io.c \
+	templates.h gettext.h inout/inout_common.h
 
 # Define a C macro LOCALEDIR indicating where catalogs will be installed.
 localedir = $(datadir)/locale
@@ -23,6 +25,7 @@ DEFS = -DLOCALEDIR=\"$(localedir)\" @DEFS@
 
 # Make sure the gettext.h include file is found.
 AM_CPPFLAGS = -I. -I$(srcdir) @GTK_CFLAGS@
+AM_CFLAGS = -Wall -Wextra -Werror -pedantic -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wold-style-definition -Wshadow
 
 # Link time dependencies.
 LDADD = @LIBINTL@ @GTK_LIBS@ @EMFLIBS@ 

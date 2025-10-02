@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2008-03-17 22:56+0200\n"
 "Last-Translator: lfu project <lfu.prohect@gmail.com>\n"
 "Language-Team: Svetoslav Stefanov <lfu.project@gmail.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,13 +25,11 @@ msgstr ""
 "Текущият чертеж не е запазен!\n"
 "Продължаване?"
 
-#: main.c:225
-#: main.c:293
+#: main.c:225 main.c:293
 msgid "Yes"
 msgstr "Да"
 
-#: main.c:240
-#: main.c:308
+#: main.c:240 main.c:308
 msgid "No"
 msgstr "Не"
 
@@ -65,9 +64,7 @@ msgstr ""
 "\n"
 "Внесени %d връзки и %d етикети"
 
-#: main.c:1359
-#: main.c:2667
-#: main.c:5829
+#: main.c:1359 main.c:2667 main.c:5829
 msgid "unnamed"
 msgstr "без име"
 
@@ -181,8 +178,7 @@ msgstr ""
 "\n"
 "Чертежът е запазен в %s (връзки: %d, етикети: %d)"
 
-#: main.c:2821
-#: main.c:3176
+#: main.c:2821 main.c:3176
 #, c-format
 msgid ""
 "Writing to\n"
@@ -207,10 +203,7 @@ msgstr ""
 msgid "SDF entry: %d"
 msgstr ""
 
-#: main.c:2979
-#: main.c:3060
-#: main.c:3101
-#: main.c:3138
+#: main.c:2979 main.c:3060 main.c:3101 main.c:3138
 #, c-format
 msgid "Unable to open %s\n"
 msgstr "Не може да се отвори %s\n"
@@ -238,9 +231,7 @@ msgstr ""
 msgid "Error loading %s \n"
 msgstr "Грешка при зареждането на %s \n"
 
-#: main.c:3048
-#: main.c:3089
-#: main.c:3126
+#: main.c:3048 main.c:3089 main.c:3126
 #, c-format
 msgid ""
 "\n"
@@ -249,8 +240,7 @@ msgstr ""
 "\n"
 "Изберете ориентация (Ctrl-Mouse1 за оста z) и натиснете Enter"
 
-#: main.c:3067
-#: main.c:3145
+#: main.c:3067 main.c:3145
 #, c-format
 msgid "Problems converting %s\n"
 msgstr "Проблем с конвертирането на %s\n"
@@ -284,7 +274,8 @@ msgid ""
 "number key corresponding to the number of sides for the polygon, and\n"
 "then draw one side while pressing the Ctrl button.\n"
 "\n"
-"For drawing labels, write them into the text box in the top right of the window\n"
+"For drawing labels, write them into the text box in the top right of the "
+"window\n"
 "and place them on the canvas with the mouse. You can also use a number of\n"
 "keyboard shortcuts for common labels while in bond drawing mode:\n"
 "Simply press the 'c' key, or n,o,p,s,f to add the element symbol at\n"
@@ -442,9 +433,7 @@ msgstr "без номера"
 msgid "non H,no numbers"
 msgstr "не-H, без номера"
 
-#: main.c:3489
-#: main.c:3833
-#: main.c:4139
+#: main.c:3489 main.c:3833 main.c:4139
 msgid "None"
 msgstr "Не"
 
@@ -472,8 +461,7 @@ msgstr "Мащаб LaTeX/EPS:"
 msgid "Unknown error"
 msgstr "Неизвестна грешка"
 
-#: main.c:3732
-#: main.c:4010
+#: main.c:3732 main.c:4010
 msgid "Configurable options"
 msgstr "Параметри за настройка"
 
@@ -501,18 +489,15 @@ msgstr "Фонов цвят"
 msgid "Add filled _white rectangle under labels"
 msgstr "Добавяне на бял фон около етикетите"
 
-#: main.c:3834
-#: main.c:4148
+#: main.c:3834 main.c:4148
 msgid "EPSI"
 msgstr ""
 
-#: main.c:3835
-#: main.c:4157
+#: main.c:3835 main.c:4157
 msgid "TIFF mono"
 msgstr "TIFF (моно)"
 
-#: main.c:3836
-#: main.c:4165
+#: main.c:3836 main.c:4165
 msgid "TIFF color"
 msgstr "TIFF (цветно)"
 
@@ -528,8 +513,7 @@ msgstr "Разширение:"
 msgid "Preview image to add to _EPS files:"
 msgstr "Предварително преглеждане на чертежите за добавяне в eps-файлове:"
 
-#: main.c:3863
-#: main.c:4184
+#: main.c:3863 main.c:4184
 msgid "Support national character sets in labels"
 msgstr "Поддръжка на национални символи в етикетите"
 
@@ -545,13 +529,11 @@ msgstr ""
 msgid "_Printing"
 msgstr "Печат"
 
-#: main.c:3934
-#: main.c:4049
+#: main.c:3934 main.c:4049
 msgid "Portrait"
 msgstr "Портрет"
 
-#: main.c:3935
-#: main.c:4054
+#: main.c:3935 main.c:4054
 msgid "Landscape"
 msgstr "Ландшафт"
 
@@ -631,46 +613,36 @@ msgstr ""
 msgid "Ok"
 msgstr "ОК"
 
-#: main.c:4308
-#: gtkfilesel.c:880
-#: gtkfilesel.c:1306
-#: gtkfilesel.c:1407
+#: main.c:4308 gtkfilesel.c:880 gtkfilesel.c:1306 gtkfilesel.c:1407
 #: gtkfilesel.c:1522
 msgid "Cancel"
 msgstr "Отказ"
 
-#: main.c:4327
-#: main.c:4912
+#: main.c:4327 main.c:4912
 msgid "Templates"
 msgstr "Шаблони"
 
-#: main.c:4338
-#: main.c:4340
+#: main.c:4338 main.c:4340
 msgid "Carbocycles"
 msgstr "Карбоцикли"
 
-#: main.c:4378
-#: main.c:4380
+#: main.c:4378 main.c:4380
 msgid "Sugars"
 msgstr "Захари"
 
-#: main.c:4422
-#: main.c:4424
+#: main.c:4422 main.c:4424
 msgid "Heterocycles"
 msgstr "Хетероцикли"
 
-#: main.c:4466
-#: main.c:4468
+#: main.c:4466 main.c:4468
 msgid "Amino Acids"
 msgstr "Аминокиселини"
 
-#: main.c:4511
-#: main.c:4513
+#: main.c:4511 main.c:4513
 msgid "Symbols"
 msgstr "Символи"
 
-#: main.c:4559
-#: gtkfilesel.c:1196
+#: main.c:4559 gtkfilesel.c:1196
 msgid "Close"
 msgstr "Затваряне"
 
@@ -682,8 +654,7 @@ msgstr "Нов"
 msgid "Open"
 msgstr "Отваряне"
 
-#: main.c:4621
-#: main.c:4904
+#: main.c:4621 main.c:4904
 msgid "Add"
 msgstr "Добавяне"
 
@@ -707,8 +678,7 @@ msgstr "Изнасяне..."
 msgid "Export (Babel)"
 msgstr "Изнасяне (Babel)"
 
-#: main.c:4670
-#: main.c:4941
+#: main.c:4670 main.c:4941
 msgid "Print"
 msgstr "Печат"
 
@@ -716,13 +686,11 @@ msgstr "Печат"
 msgid "Setup Defaults"
 msgstr "Начални настройки"
 
-#: main.c:4693
-#: main.c:4960
+#: main.c:4693 main.c:4960
 msgid "Save Config"
 msgstr "Запазване на настройките"
 
-#: main.c:4702
-#: main.c:4921
+#: main.c:4702 main.c:4921
 msgid "Save"
 msgstr "Запазване"
 
@@ -730,8 +698,7 @@ msgstr "Запазване"
 msgid "Save As..."
 msgstr "Запазване като..."
 
-#: main.c:4719
-#: main.c:5031
+#: main.c:4719 main.c:5031
 msgid "Quit"
 msgstr "Изход"
 
@@ -771,8 +738,7 @@ msgstr "Приближаване [+]"
 msgid "Zoom out"
 msgstr "Отдалечаване [-]"
 
-#: main.c:4801
-#: main.c:4996
+#: main.c:4801 main.c:4996
 msgid "Center"
 msgstr "Център"
 
@@ -800,13 +766,11 @@ msgstr "Изчистване на чертежа"
 msgid "Tools"
 msgstr "Инструменти"
 
-#: main.c:4854
-#: main.c:5039
+#: main.c:4854 main.c:5039
 msgid "About"
 msgstr "Относно"
 
-#: main.c:4863
-#: main.c:4872
+#: main.c:4863 main.c:4872
 msgid "Help"
 msgstr "Помощ"
 
@@ -1040,8 +1004,12 @@ msgid "Text :"
 msgstr "Текст:"
 
 #: main.c:5619
-msgid "Prefix a character with _ for subscript, ^ for superscript, @ for symbols, | for italic, # for bold text; e.g. H_2O, @a_D^2^0"
-msgstr "Представка: _ за долен индекс, ^ - за горен индекс, @ - за символи, | - курсив, # - получер. Например, H_2O, @a_D^2^0"
+msgid ""
+"Prefix a character with _ for subscript, ^ for superscript, @ for symbols, | "
+"for italic, # for bold text; e.g. H_2O, @a_D^2^0"
+msgstr ""
+"Представка: _ за долен индекс, ^ - за горен индекс, @ - за символи, | - "
+"курсив, # - получер. Например, H_2O, @a_D^2^0"
 
 #: main.c:5624
 msgid "Select current text size"
@@ -1102,8 +1070,7 @@ msgstr "Файлове"
 msgid "OK"
 msgstr "ОК"
 
-#: gtkfilesel.c:916
-#: gtkfilesel.c:2174
+#: gtkfilesel.c:916 gtkfilesel.c:2174
 #, c-format
 msgid "Directory unreadable: %s"
 msgstr "Съдържанието на папката не може да бъде показано: %s"
@@ -1112,13 +1079,11 @@ msgstr "Съдържанието на папката не може да бъде
 msgid "Create Dir"
 msgstr "Създаване на папка"
 
-#: gtkfilesel.c:960
-#: gtkfilesel.c:1375
+#: gtkfilesel.c:960 gtkfilesel.c:1375
 msgid "Delete File"
 msgstr "Изтриване на файл"
 
-#: gtkfilesel.c:971
-#: gtkfilesel.c:1480
+#: gtkfilesel.c:971 gtkfilesel.c:1480
 msgid "Rename File"
 msgstr "Преименуване на файл"
 
@@ -1153,7 +1118,9 @@ msgstr "Избор:"
 #: inout.c:5767
 #, c-format
 msgid "Consider installing Babel/OpenBabel for file format conversions...\n"
-msgstr "Опитайте да инсталирате Babel/OpenBabel за конвертиране на файловите формати...\n"
+msgstr ""
+"Опитайте да инсталирате Babel/OpenBabel за конвертиране на файловите "
+"формати...\n"
 
 #: templates.hx:2
 msgid "Cyclopentadienyl"
@@ -1175,8 +1142,7 @@ msgstr "Азулен"
 msgid "Adamantane"
 msgstr "Адамантан"
 
-#: templates.hx:3
-#: templates.hx:5
+#: templates.hx:3 templates.hx:5
 msgid "Cyclohexane"
 msgstr "Циклохексан"
 
@@ -1366,68 +1332,99 @@ msgstr "преподреждане"
 
 #~ msgid "Help - somebody ate my atoms (hp->n=%d, da_root.next NULL)!!!\n"
 #~ msgstr "Ай! Кто-то съел мои атомы (hp->n=%d, da_root.next NULL)!!!\n"
+
 #~ msgid "Help - somebody ate my atoms (d=%d,hp->n=%d)!!!\n"
 #~ msgstr "Ай! Кто-то съел мои атомы (d=%d,hp->n=%d)!!!\n"
+
 #~ msgid "failed to load font %s !!!\n"
 #~ msgstr "не могу загрузить шрифт %s !!!\n"
+
 #~ msgid "Failed to load symbol font, using standard font\n"
 #~ msgstr "Не могу загрузить шрифт Symbol, использую обычный\n"
+
 #~ msgid "Error creating directory \""
 #~ msgstr "Ошибка создания каталога \""
+
 #~ msgid "Error deleting file \""
 #~ msgstr "Ошибка при удалении файла \""
+
 #~ msgid "Really delete file \""
 #~ msgstr "Действительно удалить файл \""
+
 #~ msgid "Error renaming file \""
 #~ msgstr "Ошибка переименования файла \""
+
 #~ msgid "Rename file \""
 #~ msgstr "Переименовать файл \""
+
 #~ msgid "\" to:"
 #~ msgstr "\" в: "
+
 #~ msgid "Name too long"
 #~ msgstr "Слишком длинное имя"
+
 #~ msgid "Chemtool Version "
 #~ msgstr "Версия Chemtool "
+
 #~ msgid "endless molfile???\n"
 #~ msgstr "бесконечный .MOL???\n"
+
 #~ msgid "expecting na %d nb %d\n"
 #~ msgstr "ожидаю na %d nb %d\n"
+
 #~ msgid "Molecule exported from chemtool\n"
 #~ msgstr "Молекула экспортирована из Chemtool\n"
+
 #~ msgid "undefined text direction in svg output\n"
 #~ msgstr "неопределенное направление текста в выводе svg\n"
+
 #~ msgid "no emf font parameters for zoom factor %d\n"
 #~ msgstr "отсутствуют параметры шрифта emf для масштаба %d\n"
+
 #~ msgid "undefined text direction in emf output\n"
 #~ msgstr "неопределенное направление текста в выводе emf\n"
+
 #~ msgid "no figfont parameters for zoom factor %d\n"
 #~ msgstr "отсутствуют параметры шрифта фигур для масштаба %d\n"
+
 #~ msgid "no figfont parameters for fontsize %d\n"
 #~ msgstr "отсутствуют параметры шрифта фигур для размера шрифта %d\n"
+
 #~ msgid "undefined text direction in xfig output\n"
 #~ msgstr "неопределенное направление текста в выводе xfig\n"
+
 #~ msgid "no translation for %d\n"
 #~ msgstr "не переведено: %d\n"
+
 #~ msgid "could not close fig file"
 #~ msgstr "не могу закрыть файл fig"
+
 #~ msgid "program cht not available or unable to write to"
 #~ msgstr "программа cht недоступна (возможно, по записи)"
+
 #~ msgid "File selection"
 #~ msgstr "Выбор файла"
+
 #~ msgid "_Configurable options"
 #~ msgstr "Изменяемые параметры"
+
 #~ msgid "Print _scale factor :"
 #~ msgstr "Масштаб при печати:"
+
 #~ msgid "No error"
 #~ msgstr "Нет ошибок"
+
 #~ msgid "Bad parameter passed to undo function"
 #~ msgstr "Функции отмены передан неверный параметр"
+
 #~ msgid "Out of memory"
 #~ msgstr "Не хватает памяти"
+
 #~ msgid "No active undo session"
 #~ msgstr "Нечего отменять"
+
 #~ msgid "Nothing to undo/redo"
 #~ msgstr "Нечего отменять/повторять"
+
 #~ msgid "No undoable memory limit set"
 #~ msgstr "Не установлен предел памяти на отмену"
-
