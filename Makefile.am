@@ -15,7 +15,9 @@ SUBDIRS = m4 po src-cht
 bin_PROGRAMS = chemtool src-cht/cht
 
 # The source files of the 'chemtool' program.
-chemtool_SOURCES = main.c draw.c graph.c chemproc.c undo.c inout.c templates.h gettext.h
+chemtool_SOURCES = main.c draw.c graph.c chemproc.c undo.c inout.c \
+	inout/native_io.c inout/pdb_io.c inout/mdl_io.c \
+	templates.h gettext.h inout/inout_common.h
 
 # Define a C macro LOCALEDIR indicating where catalogs will be installed.
 localedir = $(datadir)/locale

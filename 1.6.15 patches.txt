@@ -1,0 +1,9 @@
+1.6.15
+2025 update to get Chemtool compiling with modern hardware and c
+Its technically functional, but gtk and gtk2 is completely broken, and the UI is effectively fossilized.
+
+Details: 
+Added "AM_CFLAGS = -Wall -Wextra -Werror -pedantic -Wformat=2 -Wstrict-prototypes -Wmissing-prototypes -Wold-style-definition -Wshadow" to flush out bugs and other issues
+Fixed multiple errors that were supressed
+Fixed issues preventing compiling using GCC
+Refactored inout.c into multiple, smaller files for sanity, located in folder inout, modified how everything links together to make that work.
