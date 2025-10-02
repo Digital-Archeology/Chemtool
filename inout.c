@@ -10,6 +10,13 @@ struct xfig_text figtext;
 struct xfig_ellipse figellipse;
 double pdbxcent, pdbycent, pdbzcent;
 
+char **intype = NULL;
+char **inmode = NULL;
+int babelin = -1;
+char **outtype = NULL;
+char **outmode = NULL;
+int babelout = -1;
+
 static char babeloutp[4];
 
 int
@@ -3962,6 +3969,69 @@ check_fig2sxd ()
   fscanf (xfile, "%s", myname);
   pclose (xfile);
   if (!strncmp(myname,"fig2sxd",7)) have_fig2sxd = 1;    
+}
+
+int
+import_babel (char *filename)
+/* import a foreign file via Babel by converting to an MDL molfile */
+{
+	const char *format;
+	char tmp_template[] = "/tmp/chemtool-babelXXXXXX";
+	int fd;
+	gchar *argv[6];
+	GError *spawn_error = NULL;
+	int exit_status = 0;
+	gboolean spawned;
+	int import_status;
+
+	if (filename == NULL || filename[0] == '\0')
+		return 1;
+
+	format = babel;
+	if ((!format || format[0] == '\0') && babelin >= 0 && inmode != NULL && inmode[0] != NULL)
+		format = inmode[0];
+
+	if (format == NULL || format[0] == '\0')
+		return 1;
+
+	fd = mkstemp (tmp_template);
+	if (fd < 0)
+		return 1;
+	(void) close (fd);
+
+	argv[0] = (gchar *) "babel";
+	argv[1] = g_strdup_printf ("-i%s", format);
+	argv[2] = filename;
+	argv[3] = (gchar *) "-omdl";
+	argv[4] = tmp_template;
+	argv[5] = NULL;
+
+	spawned = g_spawn_sync (NULL, argv, NULL, G_SPAWN_SEARCH_PATH,
+													NULL, NULL, NULL, NULL, &exit_status, &spawn_error);
+	g_free (argv[1]);
+
+	if (!spawned)
+		{
+			if (spawn_error)
+				g_error_free (spawn_error);
+			unlink (tmp_template);
+			return 2;
+		}
+
+		if (!g_spawn_check_wait_status (exit_status, &spawn_error))
+		{
+			if (spawn_error)
+				g_error_free (spawn_error);
+			unlink (tmp_template);
+			return 2;
+		}
+
+	import_status = import_mdl_mol (tmp_template, 0);
+	unlink (tmp_template);
+	if (import_status != 0)
+		return 2;
+
+	return 0;
 }
 
 int

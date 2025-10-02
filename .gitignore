@@ -48,3 +48,5 @@ out/
 *~
 *.swp
 .DS_Store
+cht
+.dirstamp
